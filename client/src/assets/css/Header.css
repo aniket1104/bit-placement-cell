@@ -1,5 +1,10 @@
+a {
+  text-decoration: none;
+}
+
 .header {
   padding: 5px 30px;
+  background-color: white !important;
 }
 
 .clgName {
@@ -16,6 +21,7 @@
 
 .link {
   font-size: 16px;
+  text-decoration: none;
 }
 
 .link:hover {

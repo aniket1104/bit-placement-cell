@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/img/bitlogo.png";
 import "../assets/css/Header.css";
+import { Link } from "react-router-dom";
 
 const header = () => {
   return (
@@ -15,38 +16,57 @@ const header = () => {
           </div>
         </div>
         <div className="items">
-          <ul class="navbar-nav">
-            <li class="nav-item px-3">
-              <a class="nav-link link" aria-current="page" href="#">
-                Mission
-              </a>
-            </li>
-            <li class="nav-item px-3">
-              <a class="nav-link link" href="#">
-                Placement
-              </a>
-            </li>
-            <li class="nav-item px-3">
-              <a class="nav-link link" href="#">
-                Companies
-              </a>
-            </li>
-            <li class="nav-item px-3">
-              <a class="nav-link link" href="#">
-                Alumini
-              </a>
-            </li>
-            <li class="nav-item px-3">
-              <a class="nav-link link" href="#">
-                About
-              </a>
-            </li>
+          <ul className="navbar-nav">
+            <Link to="/">
+              <li className="nav-item px-3">
+                <a className="nav-link link" aria-current="page" href="#">
+                  Home
+                </a>
+              </li>
+            </Link>
+            <Link to="#">
+              <li className="nav-item px-3">
+                <a className="nav-link link" aria-current="page" href="#">
+                  Mission
+                </a>
+              </li>
+            </Link>
+            <Link to="#">
+              <li className="nav-item px-3">
+                <a className="nav-link link" href="#">
+                  Placement
+                </a>
+              </li>
+            </Link>
+            <Link to="#">
+              <li className="nav-item px-3">
+                <a className="nav-link link" href="#">
+                  Companies
+                </a>
+              </li>
+            </Link>
+            <Link to="/alumni">
+              <li className="nav-item px-3">
+                <a className="nav-link link" href="#">
+                  Alumini
+                </a>
+              </li>
+            </Link>
+            <Link to="#">
+              <li className="nav-item px-3">
+                <a className="nav-link link" href="#">
+                  About
+                </a>
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="login">
-          <button type="button" class="btn btn-dark login-btn">
-            Login
-          </button>
+          <Link to="/login">
+            <button type="button" class="btn btn-dark login-btn">
+              Login
+            </button>
+          </Link>
         </div>
       </nav>
     </div>
