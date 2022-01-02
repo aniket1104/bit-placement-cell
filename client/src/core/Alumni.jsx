@@ -3,7 +3,7 @@ import Header from "../components/Header";
 // import Footer from "../components/Footer";
 import "../assets/css/Alumni.css";
 import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
+// import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const Alumni = () => {
   // const AlumniFeedback = () => {
@@ -57,7 +57,7 @@ const Alumni = () => {
         </div>
         <div className="feedback">
           <h3>Alumni Feedback</h3>
-          <AlumniFeedback />
+          {/* <AlumniFeedback /> */}
         </div>
       </div>
     );
