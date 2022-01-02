@@ -6,39 +6,44 @@ import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const Alumni = () => {
-  // const AlumniFeedback = () => {
-  //   const Review = {
-  //     id: 1,
-  //     name: "susan smith",
-  //     job: "web developer",
-  //     image:
-  //       "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
-  //     text: "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
-  //   };
+  const AlumniFeedback = () => {
+    const Review = {
+      id: 1,
+      name: "Susan Smith",
+      branch: "Computer Science and Engineering - 2020",
+      job: "One Direct - Full Stack Developer",
+      image:
+        "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
+      text: "When you are passionate about what you do, you would have reached halfway towards the goal. I always tried to enhance my skills by participating in technical events conducted in and out of the college. I concentrated on academics and also practiced coding on competitive coding platforms. Placement Center gave me the opportunity to enhance my skills and I was placed in OneDirect as Full Stack Developer with a package of Rs: 20.LPA. I express my profound gratitude for my teachers of BIT for helping me in achieving my goals.",
+    };
 
-  //   return (
-  //     <article className="review">
-  //       <div className="img-container">
-  //         <img src={Review.image} alt={Review.name} className="person-img" />
-  //         <span className="quote-icon">
-  //           <FaQuoteRight />
-  //         </span>
-  //       </div>
-  //       <h4 className="author">{Review.name}</h4>
-  //       <p className="job">{Review.job}</p>
-  //       <p className="info">{Review.text}</p>
-  //       <div className="button-container">
-  //         <button className="prev-btn">
-  //           <FaChevronLeft />
-  //         </button>
-  //         <button className="next-btn">
-  //           <FaChevronRight />
-  //         </button>
-  //       </div>
-  //       <button className="random-btn">Surprise Me</button>
-  //     </article>
-  //   );
-  // };
+    return (
+      <div className="wrap-feedback">
+        <article className="review">
+          <div className="desc-container">
+            <h3 className="author">{Review.name}</h3>
+            <h3 className="branch">{Review.branch}</h3>
+            <h3 className="job">{Review.job}</h3>
+            <p className="info">{Review.text}</p>
+          </div>
+          <div className="img-container">
+            <img src={Review.image} alt={Review.name} className="person-img" />
+          </div>
+        </article>
+        <article className="review">
+          <div className="desc-container">
+            <h3 className="author">{Review.name}</h3>
+            <h3 className="branch">{Review.branch}</h3>
+            <h3 className="job">{Review.job}</h3>
+            <p className="info">{Review.text}</p>
+          </div>
+          <div className="img-container">
+            <img src={Review.image} alt={Review.name} className="person-img" />
+          </div>
+        </article>
+      </div>
+    );
+  };
 
   const AlumniInfo = () => {
     return (
