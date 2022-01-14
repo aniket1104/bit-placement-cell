@@ -77,7 +77,7 @@ const Login = () => {
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-10 col-xl-7 mx-auto">
-                                    <h1 style={{fontFamily: "Georgia, serif", fontSize:"50px"}} >Student Login</h1>
+                                    <h1  style={{fontFamily: "Georgia, serif", fontSize:"50px"}} >Student Login</h1>
                                     <br/>
                                     <form>
                                         <div class="mb-3">
