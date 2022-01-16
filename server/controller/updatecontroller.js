@@ -11,3 +11,12 @@ export const Updatepost  = async(req,res)=>{
     }
     
 }
+export const Viewstudent = async(req,res)=>{
+    // console.log(req.params.id);
+    try{
+       let data = await Post.findById(req.params.id);
+       res.status(200).json(data);
+    }catch(error){
+        res.status(500).json(error);
+    }
+}

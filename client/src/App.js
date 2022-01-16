@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
-        <Route path="/Student" element={<Student />} />
+        <Route path="/student/:id" element={<Student />} />
         <Route path="/update" element={<Update_profile />} />
       </Routes>
     </Router>

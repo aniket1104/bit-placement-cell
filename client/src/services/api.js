@@ -10,3 +10,12 @@ export const updateprofile = async(update)=>{
         console.log("error while updating",error);
     }
 }
+
+export const Viewstudent = async (id)=>{
+     try{
+        let res  = await axios.get(`${url}/student/${id}`)
+        return res.data;
+     }catch(error){
+         console.log("error while getting data",error);
+     }
+}
