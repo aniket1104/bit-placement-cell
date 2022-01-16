@@ -1,11 +1,12 @@
 import React from 'react'
 import "../assets/css/student.css";
+import { Link } from 'react-router-dom';
 import Header from '../components/Header'
 const Student = () => {
     return (
         <>
 
-    {/* <Header/> */}
+    <Header/>
 
 
 <div class="container-fluid" id='student-body'>
@@ -20,7 +21,10 @@ const Student = () => {
       <div class="card p-4 blackpro" id="profilecrd">
         <div class=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button class="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span class="name mt-3">Eleanor Pena</span> <span class="idd">@eleanorpena</span>
               {/* <div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">Oxc4c16a645_b21a</span> <span><i class="fa fa-copy"></i></span> </div> */}
+              
+              <Link to='/update'>
               <div class=" d-flex mt-2"> <button class="btn1 btn-light grow">Edit Profile</button> </div>
+              </Link>              
               <div class="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
               <div class="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 
                 <span class="lightic grow"><a href="https://twitter.com"><i class="fa fa-twitter fa-5x lightic"></i></a></span>

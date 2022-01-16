@@ -3,6 +3,7 @@ import Login from "./core/Login";
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
 import Student from "./core/student";
+import Update_profile from "./core/Update_profile";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/Student" element={<Student />} />
+        <Route path="/update" element={<Update_profile />} />
       </Routes>
     </Router>
   );
