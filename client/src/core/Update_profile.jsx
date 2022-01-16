@@ -10,8 +10,8 @@ const Update_profile = () => {
         surname:'',
         mobileno:'',
         email:'',
-        className12marks:'',
-        className10marks:'',
+        class12marks:'',
+        class10marks:'',
         averagecgpa:'',
         linkresume:'',
         linklinkedin:'',
@@ -57,8 +57,8 @@ const Update_profile = () => {
                     <div className="col-md-12"><label className="labels UP_labels">USN</label><input onChange ={(e)=>handlechange(e)} type="text" name='USN' className="form-control" placeholder="enter USN" /></div>
                     <div className="col-md-12"><label className="labels UP_labels">Mobile Number</label><input onChange ={(e)=>handlechange(e)} type="text" name='mobileno' className="form-control" placeholder="enter phone number" /></div>
                     <div className="col-md-12"><label className="labels UP_labels"> Email</label><input onChange ={(e)=>handlechange(e)} type="text" name='email' className="form-control" placeholder="Enter email" /></div>
-                    <div className="col-md-12"><label className="labels UP_labels">className 12 percentage</label><input onChange ={(e)=>handlechange(e)} type="text" name='className12marks' className="form-control" placeholder="enter className 12 percentage" /></div>
-                    <div className="col-md-12"><label className="labels UP_labels">className 10 CGPA/Percentage  </label><input onChange ={(e)=>handlechange(e)} type="text" name='className10marks' className="form-control" placeholder="enter lass 10 CGPA/Percentage" /></div>
+                    <div className="col-md-12"><label className="labels UP_labels">class 12 percentage</label><input onChange ={(e)=>handlechange(e)} type="text" name='class12marks' className="form-control" placeholder="enter className 12 percentage" /></div>
+                    <div className="col-md-12"><label className="labels UP_labels">class 10 CGPA/Percentage  </label><input onChange ={(e)=>handlechange(e)} type="text" name='class10marks' className="form-control" placeholder="enter lass 10 CGPA/Percentage" /></div>
                     <div className="col-md-12"><label className="labels UP_labels">Average cgpa</label><input onChange ={(e)=>handlechange(e)} type="text" name='averagecgpa' className="form-control" placeholder="enter Average cgpa" /></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your resume</label><input onChange ={(e)=>handlechange(e)} type="text" name='linkresume' className="form-control" placeholder="enter Link to your resume" /></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your linkedin</label><input onChange ={(e)=>handlechange(e)} type="text" name='linklinkedin' className="form-control" placeholder="enter Link to your linkedin" /></div>

@@ -40,7 +40,7 @@ useEffect(()=>{
   
       <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
       <div className="card p-4 blackpro" id="profilecrd">
-        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button className="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span className="name mt-3">Eleanor Pena</span> <span className="idd">@eleanorpena</span>
+        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button className="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span className="name mt-3"><span>{post.firstname} </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
               {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
               
               <Link to='/update'>
@@ -51,7 +51,7 @@ useEffect(()=>{
                   <span className="lightic grow"><a href={post.github}><i className="fa fa-github fa-3x lightic"></i></a></span> 
                   <span className="lightic grow"><a href={post.linklinkedin}><i className="fa fa-linkedin fa-3x lightic"></i></a></span> 
                 {/* <span className="lightic grow"><a href="https://twitter.com"><i className="fa fa-twitter fa-5x lightic"></i></a></span> */}
-                  <span className="lightic grow"><a href={post.linklinkedin}><i className="fa fa-instagram fa-3x lightic"></i></a></span> 
+                  <span className="lightic grow"><a href={post.instagram}><i className="fa fa-instagram fa-3x lightic"></i></a></span> 
                  <span className="lightic grow"><a href={post.linkresume}><i className="fa fa-file fa-3x lightic"></i></a></span>
                 </div>
             
@@ -81,11 +81,13 @@ useEffect(()=>{
         <div className="card ml-4" id="card2">
         <div className="card-body greypro">
             <div className="row greypro">
-                  <div className="col-6" id="prodetails"><span>NAME</span> kumar hasrh</div>
-                  <div className="col-6" id="prodetails">name  shddjkksd</div>
-                  <div className="col-6" id="prodetails">name Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat itaque dolorum consequuntur, ut, tempore esse eaque, obcaecati eligendi est quae laboriosam! Quaerat earum iusto, ea nostrum itaque corporis voluptates possimus autem impedit dicta a!</div>
-                  <div className="col-6" id="prodetails">name Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui numquam dolore, quae repudiandae, temporibus recusandae quod fuga aut laboriosam voluptatem consequatur quo necessitatibus soluta!</div>
-                  <div className="col-6" id="prodetails">name Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, dolorem.</div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>NAME -</span> <span className='fw-bold text-capitalize'>{post.firstname}</span> <span className='fw-bold text-capitalize'>{post.surname}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>USN -</span>  <span className='fw-bold text-capitalize'>{post.USN}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>PHONE NO. -</span> <span className='fw-bold text-capitalize'>{post.mobileno}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
             </div>
           </div>
           
@@ -103,90 +105,46 @@ useEffect(()=>{
      
 
      <div className="col-md-4 mt-3">
-         <div className="card p-3 mb-2 greypro">
-             <div className="d-flex justify-content-between">
-                 <div className="d-flex flex-row align-items-center">
-                     <div className="icon"> <i className="bx bxl-reddit"></i> </div>
-                     <div className="ms-2 c-details">
-                         {/* <h6 className="mb-0">Reddit</h6> <span>2 days ago</span> */}
-                     </div>
-                 </div>
-                 <div className="badge"> <span>Design</span> </div>
-             </div>
-             <div className="mt-5">
-                 <h3 className="heading">Software Architect <br/>Java - USA</h3>
-                 <div className="mt-5">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">CLUBS INVOLVED  <br/></h3>
+                 <div className="mt-1">
                      
-                     <div className="mt-3"> <span className="text1">52 Applied <span className="text2">of 100 capacity</span></span> </div>
-                 </div>
+                 <div className="mt-3"> <span className="text1">{post.clubsinvolved} </span> </div>
              </div>
+         </div>
          </div>
      </div>
 
 
-     <div className="col-md-4 mt-3 ">
-         <div className="card p-3 mb-2 greypro">
-             <div className="d-flex justify-content-between">
-                 <div className="d-flex flex-row align-items-center">
-                     <div className="icon"> <i className="bx bxl-reddit"></i> </div>
-                     <div className="ms-2 c-details">
-                         {/* <h6 className="mb-0">Reddit</h6> <span>2 days ago</span> */}
-                     </div>
-                 </div>
-                 <div className="badge"> <span>Design</span> </div>
-             </div>
-             <div className="mt-5">
-                 <h3 className="heading">Software Architect <br/>Java - USA</h3>
-                 <div className="mt-5">
-                     
-                     <div className="mt-3"> <span className="text1">52 Applied <span className="text2">of 100 capacity</span></span> </div>
-                 </div>
-             </div>
-         </div>
-     </div>
 
 
+     
      <div className="col-md-4 mt-3">
-         <div className="card p-3 mb-2 greypro">
-             <div className="d-flex justify-content-between">
-                 <div className="d-flex flex-row align-items-center">
-                     <div className="icon"> <i className="bx bxl-reddit"></i> </div>
-                     <div className="ms-2 c-details">
-                         {/* <h6 className="mb-0">Reddit</h6> <span>2 days ago</span> */}
-                     </div>
-                 </div>
-                 <div className="badge"> <span>Design</span> </div>
-             </div>
-             <div className="mt-5">
-                 <h3 className="heading">Software Architect <br/>Java - USA</h3>
-                 <div className="mt-5">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">CERTIFICATIONS<br/></h3>
+                 <div className="mt-1">
                      
-                     <div className="mt-3"> <span className="text1">52 Applied <span className="text2">of 100 capacity</span></span> </div>
-                 </div>
+                 <div className="mt-3"> <span className="text1">{post.certifications} </span> </div>
+             </div>
              </div>
          </div>
      </div>
-
 
 
 
 
      <div className="col-md-4 mt-3">
-         <div className="card p-3 mb-2 greypro">
-             <div className="d-flex justify-content-between">
-                 <div className="d-flex flex-row align-items-center">
-                     <div className="icon"> <i className="bx bxl-reddit"></i> </div>
-                     <div className="ms-2 c-details">
-                         {/* <h6 className="mb-0">Reddit</h6> <span>2 days ago</span> */}
-                     </div>
-                 </div>
-                 <div className="badge"> <span>Design</span> </div>
-             </div>
-             <div className="mt-5">
-                 <h3 className="heading">Software Architect <br/>Java - USA</h3>
-                 <div className="mt-5">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">PROJECTS <br/></h3>
+                 <div className="mt-1">
                      
-                     <div className="mt-3"> <span className="text1">52 Applied <span className="text2">of 100 capacity</span></span> </div>
+                 <div className="mt-3"> <span className="text1">{post.projects} </span> </div>
                  </div>
              </div>
          </div>
@@ -195,52 +153,21 @@ useEffect(()=>{
 
 
 
-
-     <div className="col-md-4 mt-3">
-         <div className="card p-3 mb-2 greypro">
-             <div className="d-flex justify-content-between">
-                 <div className="d-flex flex-row align-items-center">
-                     <div className="icon"> <i className="bx bxl-reddit"></i> </div>
-                     <div className="ms-2 c-details">
-                         {/* <h6 className="mb-0">Reddit</h6> <span>2 days ago</span> */}
-                     </div>
-                 </div>
-                 <div className="badge"> <span>Design</span> </div>
-             </div>
-             <div className="mt-5">
-                 <h3 className="heading">Software Architect <br/>Java - USA</h3>
-                 <div className="mt-5">
+     <div className="col-12 mt-3 mb-3">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">certifications <br/></h3>
+                 <div className="mt-1 ">
                      
-                     <div className="mt-3"> <span className="text1">52 Applied <span className="text2">of 100 capacity</span></span> </div>
+                     <div className="mt-3"> <span className="text1">{post.others} </span> </div>
                  </div>
              </div>
          </div>
      </div>
 
 
-
-
-
-     <div className="col-md-4 mt-3 ">
-         <div className="card p-3 mb-2 greypro">
-             <div className="d-flex justify-content-between">
-                 <div className="d-flex flex-row align-items-center">
-                     <div className="icon"> <i className="bx bxl-reddit"></i> </div>
-                     <div className="ms-2 c-details">
-                         {/* <h6 className="mb-0">Reddit</h6> <span>2 days ago</span> */}
-                     </div>
-                 </div>
-                 <div className="badge"> <span>Design</span> </div>
-             </div>
-             <div className="mt-5">
-                 <h3 className="heading">Software Architect <br/>Java - USA</h3>
-                 <div className="mt-5">
-                     
-                     <div className="mt-3"> <span className="text1">52 Applied <span className="text2">of 100 capacity</span></span> </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+     
 
 
 
