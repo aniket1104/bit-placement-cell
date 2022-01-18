@@ -11,9 +11,11 @@ export const updateprofile = async(update)=>{
     }
 }
 
-export const Viewstudent = async (id)=>{
+
+
+export const Viewstudent = async (USN)=>{
      try{
-        let res  = await axios.get(`${url}/student/${id}`)
+        let res  = await axios.get(`${url}/student/${USN}`)
         return res.data;
      }catch(error){
          console.log("error while getting data",error);
