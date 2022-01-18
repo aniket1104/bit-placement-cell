@@ -48,10 +48,10 @@ useEffect(()=>{
               </Link>              
               <div className="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
               <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 
-                  <span className="lightic grow"><a href={post.github}><i className="fa fa-github fa-3x lightic"></i></a></span> 
+                  <span className="lightic grow"><a href={post.linkgithub}><i className="fa fa-github fa-3x lightic"></i></a></span> 
                   <span className="lightic grow"><a href={post.linklinkedin}><i className="fa fa-linkedin fa-3x lightic"></i></a></span> 
                 {/* <span className="lightic grow"><a href="https://twitter.com"><i className="fa fa-twitter fa-5x lightic"></i></a></span> */}
-                  <span className="lightic grow"><a href={post.instagram}><i className="fa fa-instagram fa-3x lightic"></i></a></span> 
+                  <span className="lightic grow"><a href={post.linkinstagram}><i className="fa fa-instagram fa-3x lightic"></i></a></span> 
                  <span className="lightic grow"><a href={post.linkresume}><i className="fa fa-file fa-3x lightic"></i></a></span>
                 </div>
             
