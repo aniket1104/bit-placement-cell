@@ -3,9 +3,7 @@ import Login from "./core/Login";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
 import Student from "./core/student";
-import React,{useContext,createContext} from 'react';
-
-export const userContext=createContext();
+import Update_profile from "./core/Update_profile";
 
 function App() {
  // const history=useNavigate();
@@ -17,7 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
-        <Route path="/Student" element={<Student />} />
+        <Route path="/student/:id" element={<Student />} />
+        <Route path="/update" element={<Update_profile />} />
       </Routes>
     </Router>
   );
