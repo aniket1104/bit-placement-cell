@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 // import Footer from "../components/Footer";
+import VerticalHeader from "../components/VerticalHeader";
+import NavigationLink from "../components/NavigationLink";
 import "../assets/css/Alumni.css";
 import { Link } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 
 const Alumni = () => {
   const AlumniFeedback = () => {
@@ -60,7 +61,7 @@ const Alumni = () => {
             </p>
           </div>
         </div>
-        <div className="feedback">
+        <div className="body-title">
           <h3>Alumni Feedback</h3>
           <AlumniFeedback />
         </div>
@@ -70,22 +71,13 @@ const Alumni = () => {
 
   const AlumniDsc = () => {
     return (
-      <div className="alumni">
-        <div className="alumni-header">
-          <div className="alumni-header-wrapper position-absolute top-50 start-0 translate-middle">
-            <h3>Alumni</h3>
+      <div className="d-flex">
+        <VerticalHeader />
+        <div className="page-wrapper">
+          <div className="description">
+            <NavigationLink />
+            <AlumniInfo />
           </div>
-        </div>
-        <div className="description">
-          <div className="navigation-link d-flex">
-            <Link to="/">
-              <a className="nav-link home" aria-current="page" href="#">
-                Home
-              </a>
-            </Link>
-            <div className="current-link">/ Alumni</div>
-          </div>
-          <AlumniInfo />
         </div>
       </div>
     );

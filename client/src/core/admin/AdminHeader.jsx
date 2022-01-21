@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../assets/img/bitlogo.png";
-import "../assets/css/Header.css";
+import logo from "../../assets/img/bitlogo.png";
+import "../../assets/css/Header.css";
 import { Link } from "react-router-dom";
 
 const header = () => {
@@ -17,45 +17,24 @@ const header = () => {
         </div>
         <div className="items">
           <ul className="navbar-nav">
-            <Link to="/">
+            <Link to="/admin/searchstudent">
               <li className="nav-item px-3">
                 <a className="nav-link link" aria-current="page" href="#">
-                  Home
+                  Search Student
                 </a>
               </li>
             </Link>
-            <Link to="/mission">
+            <Link to="/admin/studentdata">
               <li className="nav-item px-3">
                 <a className="nav-link link" aria-current="page" href="#">
-                  Mission
+                  Student Data
                 </a>
               </li>
             </Link>
-            <Link to="/placement">
+            <Link to="/admin/eligiblecandidates">
               <li className="nav-item px-3">
                 <a className="nav-link link" href="#">
-                  Placement
-                </a>
-              </li>
-            </Link>
-            <Link to="/companies">
-              <li className="nav-item px-3">
-                <a className="nav-link link" href="#">
-                  Companies
-                </a>
-              </li>
-            </Link>
-            <Link to="/alumni">
-              <li className="nav-item px-3">
-                <a className="nav-link link" href="#">
-                  Alumini
-                </a>
-              </li>
-            </Link>
-            <Link to="/about">
-              <li className="nav-item px-3">
-                <a className="nav-link link" href="#">
-                  About
+                  Eligible Candidates
                 </a>
               </li>
             </Link>
@@ -64,7 +43,7 @@ const header = () => {
         <div className="login">
           <Link to="/login">
             <button type="button" class="btn btn-dark login-btn">
-              Login
+              Logout
             </button>
           </Link>
         </div>

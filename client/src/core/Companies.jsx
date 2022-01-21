@@ -2,16 +2,14 @@ import React from "react";
 import Header from "../components/Header";
 import VerticalHEader from "../components/VerticalHeader";
 // import Footer from "../components/Footer";
-import "../assets/css/Home.css";
 
-const Home = () => {
+const Companies = () => {
   return (
     <div>
       <Header />
       <VerticalHEader />
-      {/* <Footer /> */}
     </div>
   );
 };
 
-export default Home;
+export default Companies;
