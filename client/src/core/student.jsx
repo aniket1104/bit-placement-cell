@@ -1,28 +1,50 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import "../assets/css/student.css";
-import { Link,useParams } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import Header from '../components/Header'
 import { Viewstudent } from "../services/api.js";
-import { useEffect,useState } from 'react';
-
+import { useEffect,useState,useReducer } from 'react';
+import { userContext } from '../App';
+import {reducer,initialState} from '../Reducers/useReducers';
 
 
 const Student = () => {
+  
+const {state,dispatch}=useContext(userContext);
 
 const [post,setpost]  = useState({});
-let { id } = useParams();
+const navigate=useNavigate();
+
+const getCookie=(cname)=> {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 
 useEffect(()=>{
-    const Fetchdata  = async()=>{
+    
+     const Fetchdata  = async()=>{
 
-        console.log(id);
-        console.log(post.linkgithub);
-       let posts = await Viewstudent(id);
-       console.log(posts);
-       setpost(posts);
-    }
-    Fetchdata();
+    
+        
+       let posts =await Viewstudent(getCookie("jwt"));
+       console.log(posts[0]);
+       setpost(posts[0]);
+       
+     }
+     Fetchdata();
 },[])
+
 
     return (
         <>
@@ -43,9 +65,9 @@ useEffect(()=>{
         <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button className="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span className="name mt-3"><span>{post.firstname} </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
               {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
               
-              <Link to='/update'>
-              <div className=" d-flex mt-2"> <button className="btn1 btn-light grow">Edit Profile</button> </div>
-              </Link>              
+              
+              <div className=" d-flex mt-2"> <button className="btn1 btn-light grow" onClick={()=>{navigate(`/update`)}}>Edit Profile</button> </div>
+                          
               <div className="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
               <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 
                   <span className="lightic grow"><a href={post.linkgithub}><i className="fa fa-github fa-3x lightic"></i></a></span> 
@@ -85,7 +107,7 @@ useEffect(()=>{
                   <div className="col-6" id="prodetails"><span className='fw-bold'>USN -</span>  <span className='fw-bold text-capitalize'>{post.USN}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold'>PHONE NO. -</span> <span className='fw-bold text-capitalize'>{post.mobileno}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
-                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
             </div>

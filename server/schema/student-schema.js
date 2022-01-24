@@ -1,4 +1,5 @@
 import Mongoose  from "mongoose";
+const {ObjectId}=Mongoose.Schema.Types;
 
 const studentschema = Mongoose.Schema({
       USN:{
@@ -21,7 +22,6 @@ const studentschema = Mongoose.Schema({
       email:{
           type:String,
           required:true,
-          unique:true
       },
       class12marks:{
           type:String,
@@ -74,6 +74,10 @@ const studentschema = Mongoose.Schema({
       others:{
           type:String
           
+      },
+      detailsof:{
+          type:ObjectId,//used to maintain the relationship
+          ref:'User'
       }
 
 })

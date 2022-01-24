@@ -1,25 +1,76 @@
 import Home from "./core/Home";
 import Login from "./core/Login";
+import Reset from "./core/Reset";
+import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
 import Student from "./core/student";
 import Update_profile from "./core/Update_profile";
+import Create_Users from "./core/Create_User";
+import {reducer,initialState} from './Reducers/useReducers';
 
-function App() {
- // const history=useNavigate();
-//const {state,dispatch}=useContext(userContext)
+
+export const userContext=createContext();
+function Routing() {
+  const navigate=useNavigate();
+const {state,dispatch}=useContext(userContext);
+//console.log(userContext);
+
+ const getCookie=(cname)=> {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+useEffect(()=>{
   
+   const user=getCookie("user")
+   console.log(user)
+   if(user){
+    dispatch({type:"USER",payload:user})
+   }
+   else{
+     if(!window.location.pathname.startsWith('/reset')){
+      navigate('/login')
+     }
+     
+   }
+  },[])
+
   return (
-    <Router>
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
-        <Route path="/student/:id" element={<Student />} />
+        <Route path="/student" element={<Student />} />
         <Route path="/update" element={<Update_profile />} />
+        <Route path="/createuser" element={<Create_Users/>}/>
+        <Route path="/reset" element={<Reset/>}/>
       </Routes>
-    </Router>
+    
   );
+}
+
+
+function App() {
+  const [state,dispatch]=useReducer(reducer,initialState)
+  return (
+    <userContext.Provider value={{state:state,dispatch:dispatch}}>
+    <Router>
+    <Routing/>
+    </Router>
+    </userContext.Provider>
+    );
 }
 
 export default App;
