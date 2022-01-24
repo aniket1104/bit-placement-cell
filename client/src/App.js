@@ -8,6 +8,14 @@ import Student from "./core/student";
 import Update_profile from "./core/Update_profile";
 import Create_Users from "./core/Create_User";
 import {reducer,initialState} from './Reducers/useReducers';
+import Mission from "./core/Mission";
+import Companies from "./core/Companies";
+import Placement from "./core/Placement";
+import About from "./core/About";
+import Admin from "./core/admin/Admin";
+import SearchStudent from "./core/admin/SearchStudent";
+import StudentData from "./core/admin/StudentData";
+import EligibleCandidates from "./core/admin/EligibleCandidates";
 
 
 export const userContext=createContext();
@@ -46,6 +54,7 @@ useEffect(()=>{
    }
   },[])
 
+
   return (
     
       <Routes>
@@ -56,6 +65,14 @@ useEffect(()=>{
         <Route path="/update" element={<Update_profile />} />
         <Route path="/createuser" element={<Create_Users/>}/>
         <Route path="/reset" element={<Reset/>}/>
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/companies" element={<Companies />} />
+        <Route path="/placement" element={<Placement />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/searchstudent" element={<SearchStudent />} />
+        <Route path="/admin/studentdata" element={<StudentData />} />
+        <Route path="/admin/eligiblecandidates" element={<EligibleCandidates />} />
       </Routes>
     
   );
