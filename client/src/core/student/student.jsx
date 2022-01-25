@@ -1,11 +1,11 @@
 import React,{useContext} from 'react'
-import "../assets/css/student.css";
+import "../../assets/css/student.css";
 import { useNavigate} from 'react-router-dom';
-import Header from '../components/Header'
-import { Viewstudent } from "../services/api.js";
+import Header from '../../components/Header'
+import { Viewstudent } from "../../services/api";
 import { useEffect,useState,useReducer } from 'react';
-import { userContext } from '../App';
-import {reducer,initialState} from '../Reducers/useReducers';
+import { userContext } from '../../App';
+import Cookies from 'universal-cookie';
 
 
 const Student = () => {
@@ -15,21 +15,7 @@ const {state,dispatch}=useContext(userContext);
 const [post,setpost]  = useState({});
 const navigate=useNavigate();
 
-const getCookie=(cname)=> {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
+const cookies=new Cookies();
 
 useEffect(()=>{
     
@@ -37,7 +23,7 @@ useEffect(()=>{
 
     
         
-       let posts =await Viewstudent(getCookie("jwt"));
+       let posts =await Viewstudent(cookies.get("jwt"));
        console.log(posts[0]);
        setpost(posts[0]);
        
@@ -106,6 +92,7 @@ useEffect(()=>{
                   <div className="col-6" id="prodetails"><span className='fw-bold'>NAME -</span> <span className='fw-bold text-capitalize'>{post.firstname}</span> <span className='fw-bold text-capitalize'>{post.surname}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold'>USN -</span>  <span className='fw-bold text-capitalize'>{post.USN}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold'>PHONE NO. -</span> <span className='fw-bold text-capitalize'>{post.mobileno}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>BRANCH -</span> <span className='fw-bold text-capitalize'>{post.branch}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>

@@ -6,17 +6,18 @@ import cors from 'cors';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(cors())
+app.use(cors());
+
 
 let MONGOURI="mongodb+srv://harsh:harsh@cluster0.d7au8.mongodb.net/COLLEGEWEBSITE?retryWrites=true&w=majority";
   let  JWT_SECRET="gydgyugdauihiwjoi";
-   let API_KEY="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";
+   //let API_KEY="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";
     let EMAIL="http://localhost:8000"
 
 if(process.env.NODE_ENV==="production"){
     MONGOURI=process.env.MOGOURI,
     JWT_SECRET=process.env.JWT_SEC,
-    API_KEY=process.env.API_KEY,
+   // API_KEY=process.env.API_KEY,
     EMAIL=process.env.EMAIL
 
 
@@ -24,8 +25,7 @@ if(process.env.NODE_ENV==="production"){
 export default JWT_SECRET;
 import'./schema/loginstudent-schema.js';// way of registering Schema Modles
 import'./schema/student-schema.js';
-import './schema/Fac-schema.js';
-import './schema/loginfac-schema.js';
+import './schema/fac-schema.js';
 import ro from './routes/route.js';
 app.use(ro);
 

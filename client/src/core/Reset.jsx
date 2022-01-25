@@ -3,25 +3,28 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 //import '../App.css';
 
+const url = 'http://localhost:8000';
 const Reset =()=>{
     
-     const [email,setEmail]=useState("");
+     const [USN,setUSN]=useState("");
     const navigate=useNavigate();
       
       const PostData=async()=>{
-         await axios({
-             method:"post",
-             url:'/reset',
-             headers:{
-                 "Content-Type":"application/json"
-             },
-             data:email
-             
-         }).then(res=>res.json()) //this form helps to parse into the data's json part
-         .then(shre=>{
-              //M.toast({html:shre.message,classes:"#4caf50 green"}))
-               navigate("/login")
-     }).catch(err=>{console.log(err)})
+          console.log(USN);
+         try{
+        let res  = await axios({
+            method:"post",
+        url:`${url}/resets`,
+        headers:{
+          "Content-type":"application/json"
+        },
+        data:{"USN":USN}
+      })
+        console.log(res);
+        navigate('/login')
+     }catch(error){
+         console.log("error while getting data",error);
+     }
     }
 
 
@@ -29,8 +32,8 @@ const Reset =()=>{
     
         <div className="mycard">
             <div className="card card-sign">
-                <h2 className="brand-logo color">Enter Your Email Id</h2>
-                <input  type="email" placeholder="Email Id" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                <h2 className="brand-logo color">Enter Your USN</h2>
+                <input  placeholder="USN"  onInput={(e)=>setUSN(e.target.value)}/>
                 <button className="btn waves-effect waves-light" onClick={()=>PostData()}>Enter
                 </button>
         

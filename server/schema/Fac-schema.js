@@ -1,7 +1,10 @@
 import Mongoose  from "mongoose";
-const {ObjectId}=Mongoose.Schema.Types;
 
 const facschema = Mongoose.Schema({
+    password:{
+        type:String,
+        required:true
+    },
       firstname:{
           type:String,
           required:true
@@ -12,7 +15,7 @@ const facschema = Mongoose.Schema({
       },
       mobileno:{
           type:String,
-          required:true
+           required:true
       },
       email:{
           type:String,
@@ -26,13 +29,9 @@ const facschema = Mongoose.Schema({
       others:{
           type:String
           
-      },
-      detailsof:{
-          type:ObjectId,//used to maintain the relationship
-          ref:'Fac'
       }
 
 })
-const PostFac =Mongoose.model('postFac',facschema);
+const Fac =Mongoose.model('Fac',facschema);
 
-export default PostFac;
+export default Fac;

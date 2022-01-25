@@ -1,40 +1,26 @@
 import React from 'react'
 import { useState ,useContext,useEffect} from 'react';
-import "../assets/css/Update_profile.css";
+import "../../assets/css/Update_profile.css";
 import {useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
-import Header from '../components/Header';
-import {userContext} from '../App';
-import { Viewstudent } from "../services/api.js";
+import Header from '../../components/Header';
+import {userContext} from '../../App';
+import { Viewstudent } from "../../services/api";
+import Cookies from 'universal-cookie';
 
 const url = 'http://localhost:8000';
-const Update_profile = () => {
+const UpdateProfile = () => {
 
     const [post,setpost]  = useState({});
     const{state,dispatch}=useContext(userContext);
     const navigate=useNavigate();
-
+     const cookies=new Cookies();
     //console.log(id);
 
-    const getCookie=(cname)=> {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
     useEffect(()=>{
     const Fetchdata  = async()=>{
 
-       let posts = await Viewstudent(getCookie("jwt"));
+       let posts = await Viewstudent(cookies.get("jwt"));
        setpost(posts[0]);
     }
     Fetchdata();
@@ -44,6 +30,7 @@ const Update_profile = () => {
         firstname:post.firstname,
         surname:post.surname,
         mobileno:post.mobileno,
+        branch:post.branch,
         email:post.email,
         class12marks:post.class12marks,
         class10marks:post.class10marks,
@@ -66,11 +53,13 @@ const Update_profile = () => {
     }
 
     const saveupdate  = async()=>{
+        
        await axios({
            method:'post',
         url:`${url}/update`,
         headers:{
-          "Authorization":"Bearer "+getCookie("jwt")
+          "Authorization":"Bearer "+cookies.get("jwt"),
+          "header1": cookies.get("user")
         },
         data: update
       })
@@ -102,7 +91,17 @@ const Update_profile = () => {
                     <div className="col-md-6"><label className="labels UP_labels">Surname</label><input onChange ={(e)=>handlechange(e)} type="text" name='surname' className="form-control" defaultValue={post.surname} placeholder="surname" ></input></div>
                 </div>
                 <div className="row mt-3">
+                   
                     <div className="col-md-12"><label className="labels UP_labels">Mobile Number</label><input onChange ={(e)=>handlechange(e)} type="text" name='mobileno' className="form-control"defaultValue={post.mobileno} placeholder="enter phone number" ></input></div>
+                     <div className="col-md-12"><label className="labels UP_labels">Branch</label><select onChange ={(e)=>handlechange(e)} type="text" name='branch' className="form-control" placeholder="select branch" >
+                       <option value="CSE" >CSE</option>
+                        <option value="ISE">ISE</option>
+                         <option value="AI">AI</option>
+                         <option value="ECE">ECE</option>
+                         <option value="CIV">CIV</option>
+                         <option value="EEE">EEE</option>
+                         <option value="TLE">TLE</option>
+                        </select></div>
                     <div className="col-md-12"><label className="labels UP_labels"> Email</label><input onChange ={(e)=>handlechange(e)} type="text" name='email' className="form-control"defaultValue={post.email} placeholder="Enter email" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">class 12 percentage</label><input onChange ={(e)=>handlechange(e)} type="text" name='class12marks' className="form-control"defaultValue={post.class12marks} placeholder="enter className 12 percentage" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">class 10 CGPA/Percentage  </label><input onChange ={(e)=>handlechange(e)} type="text" name='class10marks' className="form-control"defaultValue={post.class10marks} placeholder="enter lass 10 CGPA/Percentage" ></input></div>
@@ -136,5 +135,5 @@ const Update_profile = () => {
     )
 }
 
-export default Update_profile;
+export default UpdateProfile;
 

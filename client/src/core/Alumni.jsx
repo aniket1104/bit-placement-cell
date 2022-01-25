@@ -5,10 +5,6 @@ import VerticalHeader from "../components/VerticalHeader";
 import NavigationLink from "../components/NavigationLink";
 import "../assets/css/Alumni.css";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-// import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
-=======
->>>>>>> 3f0f77e394d6ffa1c61ebc54e2b5dd0c6d5aeab6
 
 const Alumni = () => {
   const AlumniFeedback = () => {

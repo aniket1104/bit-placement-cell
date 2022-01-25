@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import { CreateUser } from '../services/api';
+import Header from "../../components/Header";
+import { CreateUser } from '../../services/api';
 import React,{useState,useContext} from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";

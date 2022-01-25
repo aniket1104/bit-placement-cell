@@ -1,5 +1,7 @@
+import React from "react";
 import Header from "../components/Header";
-import React,{useState,useContext} from 'react';
+import "../assets/css/Login.css";
+import {useState,useContext} from 'react';
 import {Link,useNavigate} from 'react-router-dom';
 import {userContext} from '../App';
 import Cookies from 'universal-cookie';
@@ -7,8 +9,10 @@ import axios from "axios";
 
 const url = 'http://localhost:8000';
 const Login = () => {
+ 
 
-  const {state,dispatch}=useContext(userContext);
+
+    const {state,dispatch}=useContext(userContext);
     const initialvalue2  ={
        USN:'',
        password:''
@@ -48,12 +52,12 @@ const Login = () => {
                  }
              else{
                  cookies.set("jwt",shre.data.token)
-                 cookies.set("user",shre.data.user._id)//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
+                 cookies.set("admin",shre.data.user._id)//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
                  
-                 dispatch({type:"USER",payload:shre.data.user}) 
+                 dispatch({type:"ADMIN",payload:shre.data.user._id}) 
                  
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
-                 navigate(`/student`)
+                 navigate(`/admin`)
                  return window.alert(shre.data.message);
              }
         }
@@ -61,6 +65,7 @@ const Login = () => {
               
     }
     const saveupdate2  = async()=>{
+      console.log(update2)
       await axios({
         method:'post',
         url:`${url}/loginstudent`,
@@ -88,87 +93,74 @@ const Login = () => {
       )
               
     }
-  
 
-  return (
-    
-    <div><Header/>
-    <br/>
-    <div className="maincontainer">
-        <div className="container-fluid">
-            <div className="col-md-6 bg-light">
-                    <div className="login d-flex align-items-center py-5">
-                     
-                       
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-10 col-xl-7 mx-auto">
-                                    <h1  style={{fontFamily: "Georgia, serif", fontSize:"50px"}} >Faculty Login</h1>
-                                    <br/>
-                                    <form>
-                                        <div className="mb-3">
-                                            <input  placeholder="registered email" required="" type='email' autofocus="" name="email" onInput={(e)=>handlechange1(e)}className="form-control rounded-pill border-0 shadow-sm px-4" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <input id="inputPassword" type="password" placeholder="Password" required="" name="password" onInput={(e)=>handlechange1(e)} className="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
-                                        </div>
-                                        <div className="form-check">
-                                            <input id="customCheck1" type="checkbox" checked className="form-check-input" />
-                                            <label for="customCheck1" className="form-check-label">Remember password</label>
-                                        </div>
-                                        <br/>
-                                        <div className="d-grid gap-2 mt-2">
-                                        <button type="button" className="btn btn-primary btn-block text-uppercase mb-2 border-0 rounded-pill shadow-sm" style={{background:"black"}}  onClick={()=>saveupdate1()}>Login</button>
-                                        </div>
-                                        {/* <Link to="/reset" className="p"><h6>Forgot your password?</h6></Link> */}
-                                        
-                                    </form>
-                                </div>
+
+
+
+    return (
+   
+
+<div id="login-body">
+        
+        
+        {/* <a href="https://front.codes/" class="logo" target="_blank">
+          <img src="https://assets.codepen.io/1462889/fcy.png" alt=""/>
+        </a> */}
+        <div id="loginbg"></div>
+      <Header/>
+        <div id="login_section" class="section">
+          <div class="container">
+            <div class="row  justify-content-center">
+              <div class="col-12 text-center align-self-center pt-5">
+                <div id="login_section" class="section pb-5 pt-5 pt-sm-2 text-center">
+                  <h6 id="login_h6" class="mb-0 pb-3"><span id="login_span">Student </span><span id="login_span">Admin</span></h6>
+                        <input class="checkbox" type="checkbox" id="reg-log" name="reg-log"/>
+                        <label for="reg-log"></label>
+                  <div class="card-3d-wrap mx-auto">
+                    <div class="card-3d-wrapper">
+                      <div class="card-front">
+                        <div class="center-wrap">
+                          <div id="login_section" class="section text-center">
+                            <h4 id="login_h4" class="mb-4 pb-3">STUDENT</h4>
+                            <div id="login_form-group" class="form-group">
+                              <input type="email" name="USN" onInput={(e)=>handlechange2(e)}  class="login_form-style form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+                              <i class="i login_input-icon nput-icon uil uil-at"></i>
+                            </div>	
+                            <div id="login_form-group" class="form-group mt-2">
+                              <input type="password" name="password" onInput={(e)=>handlechange2(e)} class="login_form-style form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+                              <i class="input-icon login_input-icon  uil uil-lock-alt"></i>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-              
-                
-                <div className="col-md-6 bg-light">
-                    <div className="login d-flex align-items-center py-5">
-                     
-                       
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-10 col-xl-7 mx-auto">
-                                    <h1  style={{fontFamily: "Georgia, serif", fontSize:"50px"}} >Student Login</h1>
-                                    <br/>
-                                    <form>
-                                        <div className="mb-3">
-                                            <input  placeholder="USN" required="" autofocus="" name="USN" onInput={(e)=>handlechange2(e)}className="form-control rounded-pill border-0 shadow-sm px-4" />
-                                        </div>
-                                        <div className="mb-3">
-                                            <input id="inputPassword" type="password" placeholder="Password" required="" name="password" onInput={(e)=>handlechange2(e)} className="form-control rounded-pill border-0 shadow-sm px-4 text-primary" />
-                                        </div>
-                                        <div className="form-check">
-                                            <input id="customCheck1" type="checkbox" checked className="form-check-input" />
-                                            <label for="customCheck1" className="form-check-label">Remember password</label>
-                                        </div>
-                                        <br/>
-                                        <div className="d-grid gap-2 mt-2">
-                                        <button type="button" className="btn btn-primary btn-block text-uppercase mb-2 border-0 rounded-pill shadow-sm" style={{background:"black"}}  onClick={()=>saveupdate2()}>Login</button>
-                                        </div>
-                                        {/* <Link to="/reset" className="p"><h6>Forgot your password?</h6></Link> */}
-                                        
-                                    </form>
-                                </div>
+                            <button onClick={()=>saveupdate2()} class="bt login_btn  mt-4">LOGIN</button>
+                                          <p class="mb-0 mt-4 text-center" id="login_para"><a href="#0" class="link_login" >Forgot your password?</a></p>
+                              </div>
                             </div>
+                          </div>
+                      <div class="card-back">
+                        <div class="center-wrap">
+                          <div id="login_section" class="section text-center">
+                            <h4 id="login_h4" class="mb-4 pb-3">ADMIN</h4>
+                       
+                            <div id="login_form-group" class="form-group mt-2">
+                              <input type="email"  name="email" onInput={(e)=>handlechange1(e)}  class="login_form-style form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+                              <i class="input-icon login_input-icon  uil uil-at"></i>
+                            </div>	
+                            <div id="login_form-group" class="form-group mt-2">
+                              <input type="password" name="password" onInput={(e)=>handlechange1(e)}  class="login_form-style form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+                              <i class="input-icon login_input-icon  uil uil-lock-alt"></i>
+                            </div>
+                            <button  onClick={()=>saveupdate1()} class="btn login_btn mt-4">LOGIN</button>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-
+                      </div>
                     </div>
+                  </div>
                 </div>
-
             </div>
         </div>
-      </div>
-    
+          </div>
+
     
   );
 };

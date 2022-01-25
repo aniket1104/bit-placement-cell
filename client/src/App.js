@@ -1,12 +1,13 @@
 import Home from "./core/Home";
 import Login from "./core/Login";
 import Reset from "./core/Reset";
+import ResetPass from "./core/ResetPassword";
 import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
-import Student from "./core/student";
-import Update_profile from "./core/Update_profile";
-import Create_Users from "./core/Create_User";
+import Student from "./core/student/student";
+import UpdateProfile from "./core/student/UpdateProfile";
+import CreateUser from "./core/admin/CreateUser";
 import {reducer,initialState} from './Reducers/useReducers';
 import Mission from "./core/Mission";
 import Companies from "./core/Companies";
@@ -16,36 +17,28 @@ import Admin from "./core/admin/Admin";
 import SearchStudent from "./core/admin/SearchStudent";
 import StudentData from "./core/admin/StudentData";
 import EligibleCandidates from "./core/admin/EligibleCandidates";
+import Cookies from "universal-cookie";
+//import cors from 'cors';
 
 
 export const userContext=createContext();
 function Routing() {
   const navigate=useNavigate();
 const {state,dispatch}=useContext(userContext);
+const cookies=new Cookies();
 //console.log(userContext);
 
- const getCookie=(cname)=> {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
 useEffect(()=>{
-  
-   const user=getCookie("user")
-   console.log(user)
+  //console.log(state)
+   const user=cookies.get("user")
+   const admin=cookies.get("admin")
    if(user){
     dispatch({type:"USER",payload:user})
+    }
+   else if(admin){
+     dispatch({type:"ADMIN",payload:admin})
    }
+   
    else{
      if(!window.location.pathname.startsWith('/reset')){
       navigate('/login')
@@ -58,13 +51,14 @@ useEffect(()=>{
   return (
     
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/student" element={<Student />} />
-        <Route path="/update" element={<Update_profile />} />
-        <Route path="/createuser" element={<Create_Users/>}/>
+        <Route path="/update" element={<UpdateProfile />} />
+        <Route path="/admin/createuser" element={<CreateUser/>}/>
         <Route path="/reset" element={<Reset/>}/>
+        <Route path="/reset-password/:token" element={<ResetPass/>}/>
         <Route path="/mission" element={<Mission />} />
         <Route path="/companies" element={<Companies />} />
         <Route path="/placement" element={<Placement />} />

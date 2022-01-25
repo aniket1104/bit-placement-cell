@@ -1,9 +1,16 @@
-import React from "react";
+import React,{useContext} from "react";
 import logo from "../../assets/img/bitlogo.png";
 import "../../assets/css/Header.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import {userContext} from '../../App';
+import Cookies from "universal-cookie";
 
 const header = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const{state,dispatch}= useContext(userContext);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const navigate= useNavigate();
+const cookies=new Cookies();
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between header">
@@ -42,7 +49,13 @@ const header = () => {
         </div>
         <div className="login">
           <Link to="/login">
-            <button type="button" class="btn btn-dark login-btn">
+            <button type="button" class="btn btn-dark login-btn" onClick={()=>{
+                            cookies.remove('jwt',{secure:true});
+                            cookies.remove('admin',{secure:true});
+                            
+                             dispatch({type:"CLEAR"});
+                            navigate('/')
+            }} >
               Logout
             </button>
           </Link>
