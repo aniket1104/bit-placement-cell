@@ -96,7 +96,9 @@ useEffect(()=>{
                   <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
-                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>Averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>No. of backs -</span> <span className='fw-bold text-capitalize'>{post.noofbacks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>Year gap -</span> <span className='fw-bold text-capitalize'>{post.educationalgap}</span></div>
             </div>
           </div>
           

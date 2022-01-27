@@ -28,21 +28,24 @@ const studentschema = Mongoose.Schema({
           required:true,
       },
       class12marks:{
-          type:String,
+          type:Number,
           required:true
-      },
-      class10marks:{
-          type:String,
+        },
+        class10marks:{
+          type:Number,
+          //   type:String,
           required:true
-      },
-      averagecgpa:{
-          type:String,
-          required:true
-      },
-      firstname:{
-          type:String,
-          required:true
-      },
+        },
+        averagecgpa:{
+            type:Number,
+            // type:String,
+            required:true
+        },
+    //     firstname:{
+    //         // type:String,
+    //         type:Number,
+    //       required:true
+    //   },
       linkresume:{
           type:String,
           required:true,
@@ -79,9 +82,29 @@ const studentschema = Mongoose.Schema({
           type:String
           
       },
-      detailsof:{
-          type:ObjectId,//used to maintain the relationship
-          ref:'User'
+      totaloffers:{
+          type:Number
+          
+        },
+        noofbacks:{
+          type:Number
+          //   type:String
+          
+        },
+        currentctc:{
+          type:Number
+        //   type:String
+          
+        },
+        educationalgap:{
+          type:Number
+        //   type:String
+          
+          
+        },
+        detailsof:{
+            type:ObjectId,//used to maintain the relationship
+            ref:'User'
       }
 
 })
