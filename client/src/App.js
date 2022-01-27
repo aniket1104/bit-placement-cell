@@ -6,6 +6,7 @@ import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
 import Student from "./core/student/student";
+import StudentPlacement from "./core/student/StudentPlacement";
 import UpdateProfile from "./core/student/UpdateProfile";
 import CreateUser from "./core/admin/CreateUser";
 import {reducer,initialState} from './Reducers/useReducers';
@@ -55,6 +56,7 @@ useEffect(()=>{
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/student" element={<Student />} />
+        <Route path="/student/placement" element={<StudentPlacement />} />
         <Route path="/update" element={<UpdateProfile />} />
         <Route path="/admin/createuser" element={<CreateUser/>}/>
         <Route path="/reset" element={<Reset/>}/>

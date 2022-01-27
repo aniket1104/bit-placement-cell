@@ -7,6 +7,8 @@ import ImgPrincipal from "../assets/img/principal.jpg";
 // import Footer from "../components/Footer";
 
 const About = () => {
+  document.title = "About";
+
   const AboutDesc = () => {
     return (
       <div>

@@ -6,6 +6,8 @@ import NavigationLink from "../components/NavigationLink";
 import "../assets/css/Dump.css";
 
 const Mission = () => {
+  document.title = "Mission";
+
   const VisionMission = () => {
     return (
       <div>

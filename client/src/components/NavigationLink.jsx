@@ -14,7 +14,7 @@ const NavigationLink = () => {
           Home
         </a>
       </Link>
-      <div style={{ padding: "8px 16px 8px 0" }}>/ Random</div>
+      <div style={{ padding: "8px 16px 8px 0" }}>/ {document.title}</div>
     </div>
   );
 };

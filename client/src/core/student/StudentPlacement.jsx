@@ -1,29 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../../assets/css/student.css";
-import { useNavigate } from "react-router-dom";
 import StudentHeader from "./StudentHeader";
-import { Viewstudent } from "../../services/api";
-import { useEffect, useState, useReducer } from "react";
-import { userContext } from "../../App";
-import Cookies from "universal-cookie";
 
-const Student = () => {
-  const { state, dispatch } = useContext(userContext);
-
-  const [post, setpost] = useState({});
-  const navigate = useNavigate();
-
-  const cookies = new Cookies();
-
-  useEffect(() => {
-    const Fetchdata = async () => {
-      let posts = await Viewstudent(cookies.get("jwt"));
-      console.log(posts[0]);
-      setpost(posts[0]);
-    };
-    Fetchdata();
-  }, []);
-
+const StudentPlacement = () => {
   return (
     <>
       <StudentHeader />
@@ -47,20 +26,20 @@ const Student = () => {
                     />
                   </button>{" "}
                   <span className="name mt-3">
-                    <span>{post.firstname} </span> <span>{post.surname}</span>
+                    <span></span> <span></span>
                   </span>{" "}
-                  <span className="idd">{post.email}</span>
+                  <span className="idd"></span>
                   {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
                   <div className=" d-flex mt-2">
                     {" "}
-                    <button
+                    {/* <button
                       className="btn1 btn-light grow"
-                      onClick={() => {
-                        navigate(`/update`);
-                      }}
+                      // onClick={() => {
+                      //   navigate(`/update`);
+                      // }}
                     >
                       Edit Profile
-                    </button>{" "}
+                    </button>{" "} */}
                   </div>
                   <div className="text mt-3">
                     {" "}
@@ -74,23 +53,23 @@ const Student = () => {
                   </div>
                   <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
                     <span className="lightic grow">
-                      <a href={post.linkgithub}>
+                      <a href="#">
                         <i className="fa fa-github fa-3x lightic"></i>
                       </a>
                     </span>
                     <span className="lightic grow">
-                      <a href={post.linklinkedin}>
+                      <a href="#">
                         <i className="fa fa-linkedin fa-3x lightic"></i>
                       </a>
                     </span>
                     {/* <span className="lightic grow"><a href="https://twitter.com"><i className="fa fa-twitter fa-5x lightic"></i></a></span> */}
                     <span className="lightic grow">
-                      <a href={post.linkinstagram}>
+                      <a href="#">
                         <i className="fa fa-instagram fa-3x lightic"></i>
                       </a>
                     </span>
                     <span className="lightic grow">
-                      <a href={post.linkresume}>
+                      <a href="#">
                         <i className="fa fa-file fa-3x lightic"></i>
                       </a>
                     </span>
@@ -104,76 +83,58 @@ const Student = () => {
             <div className="col-12" id="det">
               <div className="card ml-4" id="card1">
                 <div className="card-header blackpro">
-                  <h1 className="fw-normal">My Profile</h1>
+                  <h1 className="fw-normal">My Placement</h1>
                 </div>
               </div>
             </div>
 
-            <div className="col-12 mt-0" id="det1">
+            {/* <div className="col-12 mt-0" id="det1">
               <div className="card ml-4" id="card2">
                 <div className="card-body greypro">
                   <div className="row greypro">
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold">NAME -</span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.firstname}
-                      </span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.surname}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>{" "}
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold">USN -</span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.USN}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">PHONE -</span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.mobileno}
-                      </span>
+                      <span className="fw-bold">PHONE NO. -</span>{" "}
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold">BRANCH -</span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.branch}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold">EMAIL -</span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.email}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold text-uppercase">
                         CLASS 12 MARKS -
                       </span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.class12marks}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold text-uppercase">
                         CLASS 10 MARKS -
                       </span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.class10marks}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold text-uppercase">
-                        Average CGPA -
+                        averagecgpa -
                       </span>{" "}
-                      <span className="fw-normal text-capitalize">
-                        {post.averagecgpa}
-                      </span>
+                      <span className="fw-normal text-capitalize"></span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="col-12 mt-3">
               <div className="container  mt-1 mb-1">
@@ -182,14 +143,12 @@ const Student = () => {
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
-                          CLUBS INVOLVED <br />
+                          Company Name <br />
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">
-                              {post.clubsinvolved}{" "}
-                            </span>{" "}
+                            <span className="text1"> </span>{" "}
                           </div>
                         </div>
                       </div>
@@ -200,15 +159,13 @@ const Student = () => {
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
-                          CERTIFICATIONS
+                          Profile
                           <br />
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">
-                              {post.certifications}{" "}
-                            </span>{" "}
+                            <span className="text1"> </span>{" "}
                           </div>
                         </div>
                       </div>
@@ -219,12 +176,12 @@ const Student = () => {
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
-                          PROJECTS <br />
+                          CTC / Stipend <br />
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">{post.projects} </span>{" "}
+                            <span className="text1"> </span>{" "}
                           </div>
                         </div>
                       </div>
@@ -235,12 +192,12 @@ const Student = () => {
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
-                          certifications <br />
+                          Message from Placement Team <br />
                         </h3>
                         <div className="mt-1 ">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">{post.others} </span>{" "}
+                            <span className="text1"> </span>{" "}
                           </div>
                         </div>
                       </div>
@@ -256,4 +213,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default StudentPlacement;

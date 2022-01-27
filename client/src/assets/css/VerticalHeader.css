@@ -11,7 +11,7 @@
 .vertical-header-wrapper > h3 {
   font-size: 32px;
   margin: 0;
-  padding-top: 15px;
+  /* padding-top: 15px; */
   font-weight: 400;
   /* height: 80vh; */
 }

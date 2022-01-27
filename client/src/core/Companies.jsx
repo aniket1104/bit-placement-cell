@@ -4,6 +4,8 @@ import VerticalHEader from "../components/VerticalHeader";
 // import Footer from "../components/Footer";
 
 const Companies = () => {
+  document.title = "Companies";
+
   return (
     <div>
       <Header />

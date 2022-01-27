@@ -7,6 +7,8 @@ import "../assets/css/Alumni.css";
 import { Link } from "react-router-dom";
 
 const Alumni = () => {
+  document.title = "Alumni";
+
   const AlumniFeedback = () => {
     const Review = {
       id: 1,
@@ -63,7 +65,7 @@ const Alumni = () => {
         </div>
         <div className="body-title">
           <h3>Alumni Feedback</h3>
-          {/* <AlumniFeedback /> */}
+          <AlumniFeedback />
         </div>
       </div>
     );

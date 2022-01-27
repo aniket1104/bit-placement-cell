@@ -5,7 +5,8 @@ const studentschema = Mongoose.Schema({
       USN:{
           type:String,
           required:true,
-          unique:true
+          unique:true,
+          min:3
       },
       firstname:{
           type:String,

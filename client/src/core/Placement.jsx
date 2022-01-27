@@ -4,6 +4,8 @@ import VerticalHEader from "../components/VerticalHeader";
 // import Footer from "../components/Footer";
 
 const Placement = () => {
+  document.title = "Placement";
+
   return (
     <div>
       <Header />

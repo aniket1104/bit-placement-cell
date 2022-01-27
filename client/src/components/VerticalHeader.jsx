@@ -5,10 +5,10 @@ const VerticalHeader = () => {
   return (
     <div className="vertical-header position-fixed">
       <div
-        className="vertical-header-wrapper position-absolute start-0 translate-middle"
+        className="vertical-header-wrapper position-relative start-0 translate-middle"
         style={{ top: "250px" }}
       >
-        <h3>Random</h3>
+        <h3>{document.title}</h3>
       </div>
     </div>
   );

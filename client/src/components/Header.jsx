@@ -48,7 +48,7 @@ const header = () => {
             <Link to="/alumni">
               <li className="nav-item px-3">
                 <a className="nav-link link" href="#">
-                  Alumini
+                  Alumni
                 </a>
               </li>
             </Link>
