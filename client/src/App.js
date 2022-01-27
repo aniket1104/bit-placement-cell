@@ -17,8 +17,9 @@ import About from "./core/About";
 import Admin from "./core/admin/Admin";
 import SearchStudent from "./core/admin/SearchStudent";
 import StudentData from "./core/admin/StudentData";
-import EligibleCandidates from "./core/admin/EligibleCandidates";
+import EligibleCandidates1 from "./core/admin/EligibleCandidates1";
 import Cookies from "universal-cookie";
+import EligibleCandidates from "./core/admin/EligibleCandidates";
 //import cors from 'cors';
 
 

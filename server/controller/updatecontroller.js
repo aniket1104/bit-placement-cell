@@ -39,6 +39,31 @@ export const studentquery  = async(req,res)=>{
 
 
 
+export const branchquery  = async(req,res)=>{
+   
+    console.log(req.query.branch);
+    try{
+        //let data=await User.find({_id:req.user._id})
+        let data = await Post.find( { branch:req.query.branch });
+        // let data = await Post.find({{"$toInt" : class12marks}:{$gt:{"$toInt" : req.query.marks12th}}});
+        //console.log(data)
+        console.log(data);
+       res.status(200).json(data);
+    }catch(error){
+        res.status(500).json(error);
+    }
+    
+     
+    
+    }
+
+
+
+
+
+
+
+
 export const Updatepost  = async(req,res)=>{
    
    try{
