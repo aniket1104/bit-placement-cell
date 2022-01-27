@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import "../../assets/css/Update_profile.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import StudentHeader from "./StudentHeader";
+import Header from "../../components/Header";
 import { userContext } from "../../App";
 import { Viewstudent } from "../../services/api";
 import Cookies from "universal-cookie";
@@ -16,7 +16,6 @@ const UpdateProfile = () => {
   const cookies = new Cookies();
   //console.log(id);
 
-<<<<<<< HEAD
   useEffect(() => {
     const Fetchdata = async () => {
       let posts = await Viewstudent(cookies.get("jwt"));
@@ -24,6 +23,7 @@ const UpdateProfile = () => {
     };
     Fetchdata();
   }, []);
+
   const initialvalue = {
     USN: post.USN,
     firstname: post.firstname,
@@ -44,85 +44,24 @@ const UpdateProfile = () => {
     others: post.others,
     detailsof: post.detailsof,
   };
+  useEffect(() => {
+    const s = typeof update.email;
+    if (s === "undefined") {
+      console.log(initialvalue);
+      setupdate(initialvalue);
+    }
+  });
+
   const [update, setupdate] = useState(initialvalue);
 
   const handlechange = (e) => {
     setupdate({ ...update, [e.target.name]: e.target.value });
     // console.log(update);
   };
-=======
-    const [post,setpost]  = useState({});
-    const{state,dispatch}=useContext(userContext);
-    const navigate=useNavigate();
-     const cookies=new Cookies();
-    //console.log(id);
-
-    useEffect(()=>{
-      
-    const Fetchdata  = async()=>{
-
-       let posts = await Viewstudent(cookies.get("jwt"));
-       setpost(posts[0]);
-    }
-    Fetchdata();
-},[])
-   
-const initialvalue  ={
-        USN:post.USN,
-        firstname:post.firstname,
-        surname:post.surname,
-        mobileno:post.mobileno,
-        branch:post.branch,
-        email:post.email,
-        class12marks:post.class12marks,
-        class10marks:post.class10marks,
-        averagecgpa:post.averagecgpa,
-        linkresume:post.linkresume,
-        linklinkedin:post.linklinkedin,
-        linkgithub:post.linkgithub,
-        linkglassdoor:post.linkglassdoor,
-        clubsinvolved:post.clubsinvolved,
-        certifications:post.certifications,
-        projects:post.projects,
-        others:post.others,
-        detailsof:post.detailsof
-    }
-useEffect(()=>{
-     const s= typeof update.email;
-         if(s === "undefined"){
-           console.log(initialvalue)
-           setupdate(initialvalue)
-       }
-})
-  
-    const[update,setupdate]  = useState(initialvalue);
-    
-    const handlechange  = (e)=>{
-        setupdate({...update,[e.target.name]:e.target.value});
-        // console.log(update);
-    }
-
-    const saveupdate  = async()=>{
-        console.log(update.email)
-        console.log(update);
-       await axios({
-           method:'post',
-        url:`${url}/update`,
-        headers:{
-          "Authorization":"Bearer "+cookies.get("jwt"),
-          "header1": cookies.get("user")
-        },
-        data: update
-      })
-        .then(res=>{
-            console.log(res);
-            navigate(`/student`)
-        }
-        )
-    }
->>>>>>> 85f44c0ea20a968710c968a345380545d7e71e32
 
   const saveupdate = async () => {
+    console.log(update.email);
+    console.log(update);
     await axios({
       method: "post",
       url: `${url}/update`,
@@ -140,7 +79,7 @@ useEffect(()=>{
   return (
     <>
       <div id="update">
-        <StudentHeader />
+        <Header />
         <div className="container rounded bg-white mt-5 mb-5">
           <div className="row">
             <div className="col-lg-3 border-right update_body">
@@ -396,8 +335,4 @@ useEffect(()=>{
   );
 };
 
-<<<<<<< HEAD
 export default UpdateProfile;
-=======
-export default UpdateProfile;
->>>>>>> 85f44c0ea20a968710c968a345380545d7e71e32
