@@ -175,6 +175,7 @@ const Student = () => {
               </div>
             </div>
 
+<<<<<<< HEAD
             <div className="col-12 mt-3">
               <div className="container  mt-1 mb-1">
                 <div className="row">
@@ -248,6 +249,21 @@ const Student = () => {
                   </div>
                 </div>
               </div>
+=======
+        <div className="card ml-4" id="card2">
+        <div className="card-body greypro">
+            <div className="row greypro">
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>NAME -</span> <span className='fw-bold text-capitalize'>{post.firstname}</span> <span className='fw-bold text-capitalize'>{post.surname}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>USN -</span>  <span className='fw-bold text-capitalize'>{post.USN}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>PHONE NO. -</span> <span className='fw-bold text-capitalize'>{post.mobileno}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>BRANCH -</span> <span className='fw-bold text-capitalize'>{post.branch}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>Averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>No. of backs -</span> <span className='fw-bold text-capitalize'>{post.noofbacks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>Year gap -</span> <span className='fw-bold text-capitalize'>{post.educationalgap}</span></div>
+>>>>>>> 85f44c0ea20a968710c968a345380545d7e71e32
             </div>
           </div>
         </div>

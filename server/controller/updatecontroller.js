@@ -12,6 +12,33 @@ const SENDGRID_API_KEY='SG.ZI7Fn53XT9CVRkGJeCr9UQ.Z9ApuU_pp6gYjQsBQjQlHUuTW4BXF3
 
 sgMail.setApiKey(SENDGRID_API_KEY);
 
+export const studentquery  = async(req,res)=>{
+   
+    console.log(req.query.educationalgap);
+    try{
+        //let data=await User.find({_id:req.user._id})
+        let data = await Post.find( { class12marks: { $gte:req.query.marks12th },
+        class10marks: { $gte:req.query.marks10th },
+        averagecgpa: { $gte:req.query.averagecgpa },
+        totaloffers: { $lte:req.query.totaloffers },
+        noofbacks: { $lte:req.query.nofbacks },
+        currentctc: { $lte:req.query.ctcoffered-300000 },
+        educationalgap: { $lte:req.query.educationalgap }
+    });
+        // let data = await Post.find({{"$toInt" : class12marks}:{$gt:{"$toInt" : req.query.marks12th}}});
+        //console.log(data)
+        console.log(data);
+       res.status(200).json(data);
+    }catch(error){
+        res.status(500).json(error);
+    }
+    
+     
+    
+    }
+
+
+
 export const Updatepost  = async(req,res)=>{
    
    try{
@@ -29,6 +56,8 @@ export const Updatepost  = async(req,res)=>{
      
     
     }
+
+
 
 export const LoginStudent  = async(req,res)=>{
 
@@ -151,9 +180,9 @@ export const CreateUser=async(req,res)=>{
                           surname:'-',
                           mobileno:'-',
                           email:'-',
-                          class12marks:'-',
-                          class10marks:'-',
-                          averagecgpa:'-',
+                          class12marks:0,
+                          class10marks:0,
+                          averagecgpa:0,
                           linkresume:'-',
                           linklinkedin:'-',
                           linkgithub:'-',
@@ -163,7 +192,12 @@ export const CreateUser=async(req,res)=>{
                           projects:'-',
                           others:'-',
                           detailsof:user._id,
-                          branch:'-'
+                          branch:'-',
+                          totaloffers:0,
+                          noofbacks:0,
+                          currentctc:0,
+                          educationalgap:0,
+
                       })
                       post.save()
                       res.json({message:"Successfully Signed Up!"})

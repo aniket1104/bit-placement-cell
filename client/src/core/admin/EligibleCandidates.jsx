@@ -1,7 +1,87 @@
 import React from "react";
 import AdminHeader from "./AdminHeader";
+import { useState,useEffect } from "react";
+import { studentquery } from "../../services/api";
+import axios from "axios";
+
 
 const EligibleCandidates = () => {
+
+  const initialvalue  ={
+    marks10th:0,
+    marks12th:0,
+    averagecgpa:0,
+    totaloffers:0,
+    nofbacks:0,
+    ctcoffered:0,
+    educationalgap:0
+    
+
+  }
+
+  const[info,setinfo]  = useState(initialvalue);
+  const handlechange  = (e)=>{
+
+    const { name, value } = e.target;
+    // setinfo({...info,[e.target.name]:e.target.value});
+    setinfo({ ...info, [name]: parseInt(value, 10) });
+    // console.log(info);
+    // console.log(update);
+}
+
+const[post,setpost]  = useState([]);
+
+let data;
+// const savedata  = ()=>{
+//   setpost(data);
+// //   setpost(post=>[...post,data]);
+//  console.log(post);
+// }
+const saveinfo  = async()=>{
+  // setpost([...post, await studentquery(info)]);
+  // console.log(post);
+ 
+
+  
+      
+         await axios.get(`http://localhost:8000/admin/eligiblecandidate`, {
+          params: {
+            marks10th:info.marks10th,
+            marks12th:info.marks12th,
+            averagecgpa:info.averagecgpa,
+            // totaloffers:info.totaloffers,
+            nofbacks:info.nofbacks,
+            ctcoffered:info.ctcoffered,
+            educationalgap:info.educationalgap,
+            totaloffers:1,
+          },
+        })
+        .then(res=>{
+          if(res.error){
+            console.log(res.data.error);
+          }
+          else{
+            console.log(res.data);
+            setpost(res.data);
+          }
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+        
+      
+ 
+
+
+
+
+
+}
+
+
+
+
+
   const Table = () => {
     return (
       <div className="container-fluid d-flex justify-content-center py-5">
@@ -23,38 +103,23 @@ const EligibleCandidates = () => {
               <td>Aniket</td>
               <td>ISE</td>
             </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>
-                <a href="#">1BI20IS013</a>
-              </td>
-              <td>Arpita</td>
-              <td>ECE</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>
-                <a href="#">1BI20IS017</a>
-              </td>
-              <td>Jhanvi</td>
-              <td>ISE</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>
-                <a href="#">1BI20IS015</a>
-              </td>
-              <td>3rd Year wali Senior</td>
-              <td>ISE</td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
     );
   };
 
-  const EligibleCandidates = () => {
-    return (
+  
+
+  return (
+    
+    <>
+    
+      <AdminHeader />
+      {/* <EligibleCandidates /> */}
+      
+
       <div className="container">
         <div className="container-fluid">
           <div className="container-fluid py-3">
@@ -62,15 +127,15 @@ const EligibleCandidates = () => {
             <div className="criteria d-flex">
               <div className="input-group mb-3">
                 <span class="input-group-text">10th Percentage or Marks</span>
-                <input type="text" />
+                <input type="number" name="marks10th"   onChange ={(e)=>handlechange(e)} ></input>
               </div>
               <div className="input-group mb-3">
                 <span class="input-group-text">12th Percentage or Marks</span>
-                <input type="text" />
+                <input name="marks12th" onChange ={(e)=>handlechange(e)} type="number" />
               </div>
               <div className="input-group mb-3">
                 <span class="input-group-text">UG/PG Percentage or Marks</span>
-                <input type="text" />
+                <input name="averagecgpa" onChange ={(e)=>handlechange(e)} type="number" />
               </div>
             </div>
           </div>
@@ -78,11 +143,11 @@ const EligibleCandidates = () => {
             <div className="criteria d-flex">
               <div className="input-group mb-3">
                 <span class="input-group-text">Number of Backs</span>
-                <input type="text" />
+                <input name="nofbacks" onChange ={(e)=>handlechange(e)} type="number" />
               </div>
               <div className="input-group mb-3">
                 <span class="input-group-text">Education Gap</span>
-                <input type="text" />
+                <input name="educationalgap" onChange ={(e)=>handlechange(e)} type="number" />
               </div>
             </div>
           </div>
@@ -95,27 +160,47 @@ const EligibleCandidates = () => {
               </div>
               <div className="input-group mb-3">
                 <span class="input-group-text">CTC Offered</span>
-                <input type="text" />
+                <input name="ctcoffered" onChange ={(e)=>handlechange(e)} type="number" />
               </div>
             </div>
           </div>
           <div className="d-flex justify-content-center">
-            <button type="button" className="btn btn-outline-dark rounded-0">
+            <button onClick={()=>{saveinfo()}} type="button" className="btn btn-outline-dark rounded-0">
               Submit
             </button>
           </div>
         </div>
       </div>
-    );
-  };
 
-  return (
-    <div>
-      <AdminHeader />
-      <EligibleCandidates />
+
+
+{/* 
+      { post.map((d)=>{
+        console.log(d);
       <Table />
-    </div>
-  );
+      })} */}
+
+        {post.map((item,index)=>{
+         return (
+           <tr>
+         <th scope="row">{++index}</th>
+            <td>
+              <a href="#">{item.USN}</a>
+            </td>
+            <td>{item.firstname} {item.surname}</td>
+            <td>{item.branch}</td>
+            </tr>)
+          })}
+
+
+
+
+
+
+
+    </>
+     
+     );
 };
 
 export default EligibleCandidates;
