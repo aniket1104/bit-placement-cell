@@ -12,6 +12,7 @@ const Student = () => {
   
 const {state,dispatch}=useContext(userContext);
 
+console.log(state)
 const [post,setpost]  = useState({});
 const navigate=useNavigate();
 
@@ -22,8 +23,7 @@ useEffect(()=>{
      const Fetchdata  = async()=>{
 
     
-        
-       let posts =await Viewstudent(cookies.get("jwt"));
+       let posts =await Viewstudent(cookies.get("jwt"),state,cookies.get("usn"));
        console.log(posts[0]);
        setpost(posts[0]);
        
@@ -31,6 +31,13 @@ useEffect(()=>{
      Fetchdata();
 },[])
 
+const Render=()=>{
+    if(state==="user"){
+        return(
+            <div className=" d-flex mt-2"> <button className="btn1 btn-light grow" onClick={()=>{navigate(`/update`)}}>Edit Profile</button> </div>
+        )
+    }
+}
 
     return (
         <>
@@ -52,7 +59,7 @@ useEffect(()=>{
               {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
               
               
-              <div className=" d-flex mt-2"> <button className="btn1 btn-light grow" onClick={()=>{navigate(`/update`)}}>Edit Profile</button> </div>
+              {Render()}
                           
               <div className="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
               <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 

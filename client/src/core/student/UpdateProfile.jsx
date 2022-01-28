@@ -18,6 +18,7 @@ const UpdateProfile = () => {
     //console.log(id);
 
     useEffect(()=>{
+      
     const Fetchdata  = async()=>{
 
        let posts = await Viewstudent(cookies.get("jwt"));
@@ -25,7 +26,8 @@ const UpdateProfile = () => {
     }
     Fetchdata();
 },[])
-    const initialvalue  ={
+   
+const initialvalue  ={
         USN:post.USN,
         firstname:post.firstname,
         surname:post.surname,
@@ -45,6 +47,14 @@ const UpdateProfile = () => {
         others:post.others,
         detailsof:post.detailsof
     }
+useEffect(()=>{
+     const s= typeof update.email;
+         if(s === "undefined"){
+           console.log(initialvalue)
+           setupdate(initialvalue)
+       }
+},[])
+  
     const[update,setupdate]  = useState(initialvalue);
     
     const handlechange  = (e)=>{
@@ -53,7 +63,8 @@ const UpdateProfile = () => {
     }
 
     const saveupdate  = async()=>{
-        
+        console.log(update.email)
+        console.log(update);
        await axios({
            method:'post',
         url:`${url}/update`,

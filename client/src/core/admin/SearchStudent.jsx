@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import AdminHeader from "./AdminHeader";
 import axios from 'axios';
+import {Link} from 'react-router-dom';
+import Cookies from "universal-cookie";
 
 const url = 'http://localhost:8000';
 const Search = () => {
@@ -8,6 +10,7 @@ const Search = () => {
  const[search,setSearch]=useState("")
  const [list,setList]=useState([])
 
+ const cookies=new Cookies();
 
      const Searches=async(srch)=>{
          setSearch(srch)
@@ -20,7 +23,7 @@ const Search = () => {
              },
          }) //this form helps to parse into the data's json part
          .then(shre=>{
-            if(shre.error){
+            if(shre.data.error){
                 return window.alert(shre.data.error);
                  
              }
@@ -76,7 +79,7 @@ const Search = () => {
            <tr>
          <th scope="row">{++index}</th>
             <td>
-              <a href="#">{item.USN}</a>
+              <Link to="/student" onClick={()=>{cookies.set("usn",item.USN,{secure:true})}}>{item.USN}</Link>
             </td>
             <td>{item.firstname} {item.surname}</td>
             <td>{item.branch}</td>

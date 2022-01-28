@@ -3,10 +3,7 @@ const app=express();
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(cors());
+import cookieParser from 'cookie-parser';
 
 
 let MONGOURI="mongodb+srv://harsh:harsh@cluster0.d7au8.mongodb.net/COLLEGEWEBSITE?retryWrites=true&w=majority";
@@ -22,6 +19,14 @@ if(process.env.NODE_ENV==="production"){
 
 
 }
+
+const origin="http://localhost:3000";
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(cors({credentials:true,origin}));
+app.use(cookieParser());
+
+
 export default JWT_SECRET;
 import'./schema/loginstudent-schema.js';// way of registering Schema Modles
 import'./schema/student-schema.js';
@@ -36,6 +41,7 @@ if(process.env.NODE_ENV=="production"){
         res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
 }
+
 mongoose.connect(MONGOURI,{useNewUrlParser:true, useUnifiedTopology:true})
 {
     mongoose.connection.on('connected',()=>{
@@ -48,3 +54,7 @@ mongoose.connect(MONGOURI,{useNewUrlParser:true, useUnifiedTopology:true})
 app.listen(process.env.PORT||8000,function(){
     console.log("Server connected to port 8000");
 })
+
+// app.get('/getcookie', function (req, res) {
+//     res.send(req.cookies);
+// })

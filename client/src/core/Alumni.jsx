@@ -63,7 +63,7 @@ const Alumni = () => {
         </div>
         <div className="body-title">
           <h3>Alumni Feedback</h3>
-          {/* <AlumniFeedback /> */}
+          <AlumniFeedback /> 
         </div>
       </div>
     );

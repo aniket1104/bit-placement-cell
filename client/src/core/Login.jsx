@@ -6,6 +6,7 @@ import {Link,useNavigate} from 'react-router-dom';
 import {userContext} from '../App';
 import Cookies from 'universal-cookie';
 import axios from "axios";
+axios.defaults.withCredentials=true;
 
 const url = 'http://localhost:8000';
 const Login = () => {
@@ -13,6 +14,8 @@ const Login = () => {
 
 
     const {state,dispatch}=useContext(userContext);
+        
+    console.log(state)
     const initialvalue2  ={
        USN:'',
        password:''
@@ -35,13 +38,16 @@ const Login = () => {
     }
 
     const saveupdate1  = async()=>{
+      
       await axios({
         method:'post',
         url:`${url}/loginfaculty`,
+       withCredentials:true,
         headers:{
           "Content-Type":"application/json"
         },
-        data: update1
+        data: update1,
+        
         
       }).then(
         shre=>{
@@ -51,11 +57,7 @@ const Login = () => {
                 return window.alert(shre.data.error);
                  }
              else{
-                 cookies.set("jwt",shre.data.token)
-                 cookies.set("admin",shre.data.user._id)//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
-                 
-                 dispatch({type:"ADMIN",payload:shre.data.user._id}) 
-                 
+                 dispatch({type:"ADMIN",payload:"admin"}) 
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
                  navigate(`/admin`)
                  return window.alert(shre.data.message);
@@ -69,6 +71,7 @@ const Login = () => {
       await axios({
         method:'post',
         url:`${url}/loginstudent`,
+         withCredentials:true,
         headers:{
           "Content-Type":"application/json"
         },
@@ -82,15 +85,17 @@ const Login = () => {
                 return window.alert(shre.data.error);
                  }
              else{
-                 cookies.set("jwt",shre.data.token)
-                 cookies.set("user",shre.data.user.USN)//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
-                 dispatch({type:"USER",payload:shre.data.user.USN})
+                //  cookies.set("jwt",shre.data.token,{httpOnly:true})
+                //  cookies.set("user",shre.data.user.USN,{secure:true})//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
+                 dispatch({type:"USER",payload:"user"})
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
                  navigate(`/student`)
                  return window.alert(shre.data.message);
              }
         }
-      )
+      ).catch(err=>{
+        console.log(err)
+      })
               
     }
 

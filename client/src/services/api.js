@@ -4,19 +4,27 @@ import axios from 'axios';
 
 const url = 'http://localhost:8000';
 
+axios.defaults.withCredentials=true;
 
 
 
 
 
+export const Viewstudent = async (jwt,state,usn)=>{
 
-export const Viewstudent = async (jwt)=>{
      try{
         let res  = await axios({
+          method:"get",
         url:`${url}/student`,
         headers:{
           "Authorization":"Bearer "+jwt
-        }
+        },
+        params:{
+        type:state,
+        usn:usn
+        },
+          withCredentials:true
+        
       })
         return res.data;
      }catch(error){
