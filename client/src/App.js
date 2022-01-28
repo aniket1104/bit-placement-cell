@@ -17,7 +17,7 @@ import About from "./core/About";
 import Admin from "./core/admin/Admin";
 import SearchStudent from "./core/admin/SearchStudent";
 import StudentData from "./core/admin/StudentData";
-import EligibleCandidates1 from "./core/admin/EligibleCandidates1";
+//import EligibleCandidates1 from "./core/admin/EligibleCandidates1";
 import Cookies from "universal-cookie";
 import EligibleCandidates from "./core/admin/EligibleCandidates";
 //import cors from 'cors';
@@ -32,13 +32,12 @@ const cookies=new Cookies();
 
 useEffect(()=>{
   //console.log(state)
-   const user=cookies.get("user")
-   const admin=cookies.get("admin")
-   if(user){
-    dispatch({type:"USER",payload:user})
+    
+   if(state=="user"){
+    dispatch({type:"USER",payload:"user"})
     }
-   else if(admin){
-     dispatch({type:"ADMIN",payload:admin})
+   else if(state=="admin"){
+     dispatch({type:"ADMIN",payload:"admin"})
    }
    
    else{
