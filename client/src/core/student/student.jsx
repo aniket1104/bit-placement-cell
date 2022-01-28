@@ -1,274 +1,219 @@
-import React, { useContext } from "react";
+import React,{useContext} from 'react'
 import "../../assets/css/student.css";
-import { useNavigate } from "react-router-dom";
-import StudentHeader from "./StudentHeader";
+import { useNavigate} from 'react-router-dom';
+import Header from '../../components/Header'
 import { Viewstudent } from "../../services/api";
-import { useEffect, useState, useReducer } from "react";
-import { userContext } from "../../App";
-import Cookies from "universal-cookie";
+import { useEffect,useState,useReducer } from 'react';
+import { userContext } from '../../App';
+import Cookies from 'universal-cookie';
+
 
 const Student = () => {
-  const { state, dispatch } = useContext(userContext);
+  
+const {state,dispatch}=useContext(userContext);
 
-  const [post, setpost] = useState({});
-  const navigate = useNavigate();
+console.log(state)
+const [post,setpost]  = useState({});
+const navigate=useNavigate();
 
-  const cookies = new Cookies();
+const cookies=new Cookies();
 
-  useEffect(() => {
-    const Fetchdata = async () => {
-      let posts = await Viewstudent(cookies.get("jwt"));
-      console.log(posts[0]);
-      setpost(posts[0]);
-    };
-    Fetchdata();
-  }, []);
+useEffect(()=>{
+    
+     const Fetchdata  = async()=>{
 
-  return (
-    <>
-      <StudentHeader />
+    
+       let posts =await Viewstudent(cookies.get("jwt"),state,cookies.get("usn"));
+       console.log(posts[0]);
+       setpost(posts[0]);
+       
+     }
+     Fetchdata();
+},[])
 
-      <div className="container-fluid" id="student-body">
-        <div className="row">
-          <div className="col-xl-3">
-            <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
-              <div className="card p-4 blackpro" id="profilecrd">
-                <div
-                  className=" image d-flex flex-column justify-content-center align-items-center"
-                  id="imgprof"
-                >
-                  {" "}
-                  <button className="btn btn-secondary" id="btnprofile">
-                    {" "}
-                    <img
-                      id="profimage"
-                      src="https://i.imgur.com/wvxPV9S.png"
-                      height="100"
-                      width="100"
-                    />
-                  </button>{" "}
-                  <span className="name mt-3">
-                    <span>{post.firstname} </span> <span>{post.surname}</span>
-                  </span>{" "}
-                  <span className="idd">{post.email}</span>
-                  {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
-                  <div className=" d-flex mt-2">
-                    {" "}
-                    <button
-                      className="btn1 btn-light grow"
-                      onClick={() => {
-                        navigate(`/update`);
-                      }}
-                    >
-                      Edit Profile
-                    </button>{" "}
-                  </div>
-                  <div className="text mt-3">
-                    {" "}
-                    <span id="spanpro">
-                      Eleanor Pena is a creator of minimalistic x bold graphics
-                      and digital artwork.
-                      <br />
-                      <br /> Artist/ Creative Director by Day #NFT minting@ with
-                      FND night.{" "}
-                    </span>{" "}
-                  </div>
-                  <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
-                    <span className="lightic grow">
-                      <a href={post.linkgithub}>
-                        <i className="fa fa-github fa-3x lightic"></i>
-                      </a>
-                    </span>
-                    <span className="lightic grow">
-                      <a href={post.linklinkedin}>
-                        <i className="fa fa-linkedin fa-3x lightic"></i>
-                      </a>
-                    </span>
-                    {/* <span className="lightic grow"><a href="https://twitter.com"><i className="fa fa-twitter fa-5x lightic"></i></a></span> */}
-                    <span className="lightic grow">
-                      <a href={post.linkinstagram}>
-                        <i className="fa fa-instagram fa-3x lightic"></i>
-                      </a>
-                    </span>
-                    <span className="lightic grow">
-                      <a href={post.linkresume}>
-                        <i className="fa fa-file fa-3x lightic"></i>
-                      </a>
-                    </span>
-                  </div>
+const Render=()=>{
+    if(state==="user"){
+        return(
+            <div className=" d-flex mt-2"> <button className="btn1 btn-light grow" onClick={()=>{navigate(`/update`)}}>Edit Profile</button> </div>
+        )
+    }
+}
+
+    return (
+        <>
+
+    <Header/>
+
+
+<div className="container-fluid" id='student-body'>
+
+<div className ="row">
+
+    <div className ="col-xl-3">
+      
+      
+  
+      <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
+      <div className="card p-4 blackpro" id="profilecrd">
+        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button className="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span className="name mt-3"><span>{post.firstname} </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
+              {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
+              
+              
+              {Render()}
+                          
+              <div className="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+              <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 
+                  <span className="lightic grow"><a href={post.linkgithub}><i className="fa fa-github fa-3x lightic"></i></a></span> 
+                  <span className="lightic grow"><a href={post.linklinkedin}><i className="fa fa-linkedin fa-3x lightic"></i></a></span> 
+                {/* <span className="lightic grow"><a href="https://twitter.com"><i className="fa fa-twitter fa-5x lightic"></i></a></span> */}
+                  <span className="lightic grow"><a href={post.linkinstagram}><i className="fa fa-instagram fa-3x lightic"></i></a></span> 
+                 <span className="lightic grow"><a href={post.linkresume}><i className="fa fa-file fa-3x lightic"></i></a></span>
                 </div>
-              </div>
-            </div>
-          </div>
+            
 
-          <div className="col-xl-9">
-            <div className="col-12" id="det">
-              <div className="card ml-4" id="card1">
-                <div className="card-header blackpro">
-                  <h1>My Profile</h1>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 mt-0" id="det1">
-              <div className="card ml-4" id="card2">
-                <div className="card-body greypro">
-                  <div className="row greypro">
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">NAME -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.firstname}
-                      </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.surname}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">USN -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.USN}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">PHONE NO. -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.mobileno}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">BRANCH -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.branch}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">EMAIL -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.email}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 12 MARKS -
-                      </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.class12marks}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 10 MARKS -
-                      </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.class10marks}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        Averagecgpa -
-                      </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.averagecgpa}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        No. of backs -
-                      </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.noofbacks}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">Year gap -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.educationalgap}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-12 mt-3">
-              <div className="container  mt-1 mb-1">
-                <div className="row">
-                  <div className="col-md-4 mt-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          CLUBS INVOLVED <br />
-                        </h3>
-                        <div className="mt-1">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">
-                              {post.clubsinvolved}{" "}
-                            </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-4 mt-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          CERTIFICATIONS
-                          <br />
-                        </h3>
-                        <div className="mt-1">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">
-                              {post.certifications}{" "}
-                            </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-md-4 mt-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          PROJECTS <br />
-                        </h3>
-                        <div className="mt-1">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">{post.projects} </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-12 mt-3 mb-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          certifications <br />
-                        </h3>
-                        <div className="mt-1 ">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">{post.others} </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
+        
       </div>
-    </>
-  );
-};
+
+
+      <div className="col-xl-9">
+        
+        <div className="col-12" id="det">
+
+        <div className="card ml-4" id="card1">
+          <div className="card-header blackpro">
+           <h1 >header</h1> 
+          </div>
+          
+        </div>
+        </div>
+
+        <div className="col-12 mt-0" id="det1">
+
+        <div className="card ml-4" id="card2">
+        <div className="card-body greypro">
+            <div className="row greypro">
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>NAME -</span> <span className='fw-bold text-capitalize'>{post.firstname}</span> <span className='fw-bold text-capitalize'>{post.surname}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>USN -</span>  <span className='fw-bold text-capitalize'>{post.USN}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>PHONE NO. -</span> <span className='fw-bold text-capitalize'>{post.mobileno}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>BRANCH -</span> <span className='fw-bold text-capitalize'>{post.branch}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+
+
+
+<div className="col-12 mt-3">
+     
+<div className="container  mt-1 mb-1">
+ <div className="row">
+
+
+     
+
+     <div className="col-md-4 mt-3">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">CLUBS INVOLVED  <br/></h3>
+                 <div className="mt-1">
+                     
+                 <div className="mt-3"> <span className="text1">{post.clubsinvolved} </span> </div>
+             </div>
+         </div>
+         </div>
+     </div>
+
+
+
+
+     
+     <div className="col-md-4 mt-3">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">CERTIFICATIONS<br/></h3>
+                 <div className="mt-1">
+                     
+                 <div className="mt-3"> <span className="text1">{post.certifications} </span> </div>
+             </div>
+             </div>
+         </div>
+     </div>
+
+
+
+
+     <div className="col-md-4 mt-3">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">PROJECTS <br/></h3>
+                 <div className="mt-1">
+                     
+                 <div className="mt-3"> <span className="text1">{post.projects} </span> </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+
+
+     <div className="col-12 mt-3 mb-3">
+         <div className="card p-3 mb-2 h-100 greypro">
+            
+             <div className="mt-1">
+                 <h3 className="heading">certifications <br/></h3>
+                 <div className="mt-1 ">
+                     
+                     <div className="mt-3"> <span className="text1">{post.others} </span> </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+
+     
+
+
+
+
+
+
+
+
+ </div>
+</div>
+
+
+</div>
+
+
+
+      </div>
+      
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+        </>
+    )
+}
 
 export default Student;

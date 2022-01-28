@@ -69,6 +69,7 @@ export const Updatepost  = async(req,res)=>{
    try{
         //let data=await User.find({_id:req.user._id})
          let user=await User.findById(req.user._id);
+         console.log(user)
          user.email=req.body.email;
          user.save()
        let data = await Post.findOneAndUpdate({detailsof:req.user._id},req.body);
@@ -111,7 +112,7 @@ export const LoginStudent  = async(req,res)=>{
                 Post.findOne({USN:USN})
                 .then(po=>{
                     
-               return res.json({token,user:{name,email,USN},po,message:'Successfully Logged In!'})})
+                 res.cookie("token",token,{httpOnly:true}).cookie("admin",false,{httpOnly:true}).json({user:{name,email,USN},po,message:'Successfully Logged In!'})})
             }
             else{
                  return res.json({error:'Invalid email or password'});
@@ -145,7 +146,7 @@ export const LoginFac  = async(req,res)=>{
                 const token=jwt.sign({_id:savedUser._id},JWT_SECRET);
                 const{_id,email}=savedUser;
                     
-               return res.json({token,user:{email,_id},message:'Successfully Logged In!'})
+               return res.cookie("token",token,{httpOnly:true}).cookie("admin",true,{httpOnly:true}).json({user:{email,_id},message:'Successfully Logged In!'})
             }
             else{
                  return res.json({error:'Invalid email or password'});
@@ -153,14 +154,26 @@ export const LoginFac  = async(req,res)=>{
         })
     })
 }
+
+export const Logout =async(req,res)=>{
+    res.clearCookie("token").clearCookie("admin").json({message:"Successfully Logged Out"});
+}
 export const Viewstudent = async(req,res)=>{
     try{
-        //let data=await User.find({_id:req.user._id})
-        if(req.user.isFac){
-            res.status(404).json({error:"Page Not Found"})
+        let id="";
+        if(req.query.type==="user"){
+            id=req.user._id;
         }
-       let data = await Post.find({detailsof:req.user._id}).populate("detailsof","_id USN firstname surname monileno email branch class12marks class10marks averagecgpa linkresume linklinkedin linkgithublinkglassdoor clubsinvolved certifications projects others detailsof");
-       console.log(data)
+        else{
+            //console.log(req.query.usn)
+            let data1=await User.findOne({USN:req.query.usn});
+            //console.log(data1)
+            id=data1.id;
+            //console.log(id)
+        }
+        //let data=await User.find({_id:req.user._id})
+       let data = await Post.find({detailsof:id}).populate("detailsof","_id USN firstname surname monileno email branch class12marks class10marks averagecgpa linkresume linklinkedin linkgithublinkglassdoor clubsinvolved certifications projects others detailsof");
+       //console.log(data)
        res.status(200).json(data);
     }catch(error){
         res.status(500).json(error);
