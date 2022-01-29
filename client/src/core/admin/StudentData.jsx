@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import AdminHeader from "./AdminHeader";
 import axios from "axios";
+import {Link} from "react-router-dom";
+import Cookies from "universal-cookie";
 
 const StudentData = () => {
  
 
-
+const cookies=new Cookies();
   
 
   const intitialvalue  ={
@@ -196,7 +198,7 @@ const StudentData = () => {
                   <tr>
                   <th scope="row">{++index}</th>
                 <td>
-                  <a href="#">{info.USN}</a>
+                    <Link to="/students" onClick={()=>{cookies.set("usn",info.USN,{secure:true})}}>{info.USN}</Link>
                 </td>
                 <td><div> <p class="type  text-uppercase">{info.firstname} {info.surname}</p> </div></td>
                 <td>{info.branch}</td>

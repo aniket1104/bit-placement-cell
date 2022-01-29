@@ -79,7 +79,7 @@ const Search = () => {
            <tr>
          <th scope="row">{++index}</th>
             <td>
-              <Link to="/student" onClick={()=>{cookies.set("usn",item.USN,{secure:true})}}>{item.USN}</Link>
+              <Link to="/students" onClick={()=>{cookies.set("usn",item.USN,{secure:true})}}>{item.USN}</Link>
             </td>
             <td>{item.firstname} {item.surname}</td>
             <td>{item.branch}</td>

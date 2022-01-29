@@ -6,6 +6,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 
+
 let MONGOURI="mongodb+srv://harsh:harsh@cluster0.d7au8.mongodb.net/COLLEGEWEBSITE?retryWrites=true&w=majority";
   let  JWT_SECRET="gydgyugdauihiwjoi";
    //let API_KEY="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";
@@ -15,10 +16,10 @@ if(process.env.NODE_ENV==="production"){
     MONGOURI=process.env.MOGOURI,
     JWT_SECRET=process.env.JWT_SEC,
    // API_KEY=process.env.API_KEY,
-    EMAIL=process.env.EMAIL
+    EMAIL=process.env.EMAIL}
 
+    
 
-}
 
 const origin="http://localhost:3000";
 app.use(bodyParser.json());
@@ -54,6 +55,8 @@ mongoose.connect(MONGOURI,{useNewUrlParser:true, useUnifiedTopology:true})
 app.listen(process.env.PORT||8000,function(){
     console.log("Server connected to port 8000");
 })
+
+
 
 // app.get('/getcookie', function (req, res) {
 //     res.send(req.cookies);

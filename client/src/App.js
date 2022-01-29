@@ -6,6 +6,7 @@ import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
 import Student from "./core/student/student";
+import Students from "./core/admin/viewStudent";
 import StudentPlacement from "./core/student/StudentPlacement";
 import UpdateProfile from "./core/student/UpdateProfile";
 import CreateUser from "./core/admin/CreateUser";
@@ -32,12 +33,13 @@ const cookies=new Cookies();
 
 useEffect(()=>{
   //console.log(state)
-    
-   if(state=="user"){
-    dispatch({type:"USER",payload:"user"})
+   const user=cookies.get("user")
+   const admin=cookies.get("admin")
+   if(user){
+    dispatch({type:"USER",payload:user})
     }
-   else if(state=="admin"){
-     dispatch({type:"ADMIN",payload:"admin"})
+   else if(admin){
+     dispatch({type:"ADMIN",payload:admin})
    }
    
    else{
@@ -49,6 +51,7 @@ useEffect(()=>{
   },[])
 
 
+
   return (
     
       <Routes>
@@ -56,6 +59,7 @@ useEffect(()=>{
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/student" element={<Student />} />
+        <Route path="/students" element={<Students/>}/>
         <Route path="/student/placement" element={<StudentPlacement />} />
         <Route path="/update" element={<UpdateProfile />} />
         <Route path="/admin/createuser" element={<CreateUser/>}/>

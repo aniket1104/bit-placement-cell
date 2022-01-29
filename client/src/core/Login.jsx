@@ -57,7 +57,8 @@ const Login = () => {
                 return window.alert(shre.data.error);
                  }
              else{
-                 dispatch({type:"ADMIN",payload:"admin"}) 
+               cookies.set("admin",shre.data.user._id,{secure:true})
+                 dispatch({type:"ADMIN",payload:shre.data.user._id}) 
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
                  navigate(`/admin`)
                  return window.alert(shre.data.message);
@@ -86,8 +87,8 @@ const Login = () => {
                  }
              else{
                 //  cookies.set("jwt",shre.data.token,{httpOnly:true})
-                //  cookies.set("user",shre.data.user.USN,{secure:true})//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
-                 dispatch({type:"USER",payload:"user"})
+                 cookies.set("user",shre.data.user.USN,{secure:true})//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
+                 dispatch({type:"USER",payload:shre.data.user.USN})
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
                  navigate(`/student`)
                  return window.alert(shre.data.message);
@@ -136,7 +137,7 @@ const Login = () => {
                               <i class="input-icon login_input-icon  uil uil-lock-alt"></i>
                             </div>
                             <button onClick={()=>saveupdate2()} class="bt login_btn  mt-4">LOGIN</button>
-                                          <p class="mb-0 mt-4 text-center" id="login_para"><a href="#0" class="link_login" >Forgot your password?</a></p>
+                                          <p class="mb-0 mt-4 text-center" id="login_para"><a href="/reset" class="link_login" >Forgot your password?</a></p>
                               </div>
                             </div>
                           </div>

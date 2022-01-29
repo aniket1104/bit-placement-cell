@@ -88,54 +88,6 @@ const StudentPlacement = () => {
               </div>
             </div>
 
-            {/* <div className="col-12 mt-0" id="det1">
-              <div className="card ml-4" id="card2">
-                <div className="card-body greypro">
-                  <div className="row greypro">
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">NAME -</span>{" "}
-                      <span className="fw-normal text-capitalize"></span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">USN -</span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">PHONE NO. -</span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">BRANCH -</span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold">EMAIL -</span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 12 MARKS -
-                      </span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 10 MARKS -
-                      </span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        averagecgpa -
-                      </span>{" "}
-                      <span className="fw-normal text-capitalize"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
             <div className="col-12 mt-3">
               <div className="container  mt-1 mb-1">
                 <div className="row">

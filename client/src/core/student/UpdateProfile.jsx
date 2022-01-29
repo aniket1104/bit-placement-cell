@@ -21,7 +21,7 @@ const UpdateProfile = () => {
       
     const Fetchdata  = async()=>{
 
-       let posts = await Viewstudent(cookies.get("jwt"));
+       let posts = await Viewstudent();
        setpost(posts[0]);
     }
     Fetchdata();

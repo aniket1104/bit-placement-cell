@@ -7,6 +7,9 @@ import JWT_SECRET from '../app.js';
 import crypto from 'crypto';
 import sgMail from '@sendgrid/mail';
 import EMAIL from '../app.js';
+import xlsx from 'xlsx';
+import path from 'path';
+
 
 const SENDGRID_API_KEY='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'
 
@@ -27,7 +30,7 @@ export const studentquery  = async(req,res)=>{
     });
         // let data = await Post.find({{"$toInt" : class12marks}:{$gt:{"$toInt" : req.query.marks12th}}});
         //console.log(data)
-        console.log(data);
+        //console.log(data);
        res.status(200).json(data);
     }catch(error){
         res.status(500).json(error);
@@ -58,7 +61,43 @@ export const branchquery  = async(req,res)=>{
     }
 
 
+export const ExcelDownload=async(req,res)=>{
+    const users=req.body;
 
+    console.log(users)
+    const workSheetColumnNames = [
+    "Sr No.",
+    "USN",
+    "First Name",
+    "Last Name",
+    "Branch",
+    "Email Id",
+    "Mobile No."
+]
+
+const workSheetName = 'Eligible Students';
+const filePath = '../server/output/excel-from-js.xlsx';
+
+const exportExcel = (data, workSheetColumnNames, workSheetName, filePath) => {
+    const workBook = xlsx.utils.book_new();
+    const workSheetData = [
+        workSheetColumnNames,
+        ... data
+    ];
+    const workSheet = xlsx.utils.aoa_to_sheet(workSheetData);
+    xlsx.utils.book_append_sheet(workBook, workSheet, workSheetName);
+    xlsx.writeFile(workBook, path.resolve(filePath));
+}
+
+const exportUsersToExcel = (users, workSheetColumnNames, workSheetName, filePath) => {
+    const data = users.map((user,index) => {
+        return [++index,user.USN,user.firstname,user.surname,user.branch,user.email,user.mobileno];
+    });
+    exportExcel(data, workSheetColumnNames, workSheetName, filePath);
+}
+ exportUsersToExcel(users, workSheetColumnNames, workSheetName, filePath)
+ 
+}
 
 
 
@@ -161,11 +200,11 @@ export const Logout =async(req,res)=>{
 export const Viewstudent = async(req,res)=>{
     try{
         let id="";
-        if(req.query.type==="user"){
+        if(req.cookies.admin==="false"){
             id=req.user._id;
         }
         else{
-            //console.log(req.query.usn)
+            console.log(req.query.usn)
             let data1=await User.findOne({USN:req.query.usn});
             //console.log(data1)
             id=data1.id;
@@ -173,7 +212,7 @@ export const Viewstudent = async(req,res)=>{
         }
         //let data=await User.find({_id:req.user._id})
        let data = await Post.find({detailsof:id}).populate("detailsof","_id USN firstname surname monileno email branch class12marks class10marks averagecgpa linkresume linklinkedin linkgithublinkglassdoor clubsinvolved certifications projects others detailsof");
-       //console.log(data)
+       console.log(data)
        res.status(200).json(data);
     }catch(error){
         res.status(500).json(error);
@@ -341,6 +380,30 @@ export const Reset  =async(req,res)=>{
          })
      })
 
+}
+
+export const sendMail=async(req,res)=>{
+    const {post,company,job}=req.body;
+    //console.log(post);
+    if(post.length==0){
+        return res.json({error:"No one is Eligible"})
+    }
+    const email_list=[];
+    post.map((val,index)=>{
+        email_list[index]=val.email;
+    })
+    
+         sgMail.sendMultiple({
+                            to: email_list, // Change to your recipient
+                            from: 'shreyanushka02@gmail.com', // Change to your verified sender
+                            subject: 'Placement Offer',
+                            html:`<h1>${company}</h1>`
+                                  `<p>This is to inform you that you are eligible to apply for ${job} role</p>`
+                                
+                              }).then(()=>{
+                                  res.json({message:"Email Sent!"})
+                              }).catch(err=>{
+                                  console.log(err)})
 }
 export const ResetPass=async(req,res)=>{
     const {token,password}=req.body;

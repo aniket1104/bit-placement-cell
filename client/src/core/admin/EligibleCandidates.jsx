@@ -1,13 +1,20 @@
 import React from "react";
 import AdminHeader from "./AdminHeader";
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import { studentquery } from "../../services/api";
 import axios from "axios";
 import "../../assets/css/EligibleCandidates.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {Link,useNavigate} from "react-router-dom";
+import Cookies from "universal-cookie";
 toast.configure()
+
+
+const url = "http://localhost:8000";
 const EligibleCandidates = () => {
+  const navigate=useNavigate();
+  const cookies=new Cookies();
   const[click,setclick] = useState(1);
         const notify = () => 
           toast.error('Sorry, no results found!', {
@@ -33,12 +40,58 @@ const EligibleCandidates = () => {
         totaloffers:0,
         nofbacks:0,
         ctcoffered:0,
-        educationalgap:0
-        
+        educationalgap:0,
+        company:"",
+        job:""
     
       }
     
       const[info,setinfo]  = useState(initialvalue);
+
+      const sendMail=async()=>{
+             try {
+      let res = await axios({
+        method: "post",
+        url: `${url}/sendMail`,
+        headers: {
+          "Content-type": "application/json",
+        },
+        data:{post,
+          company:info.company,
+          job:info.job
+        }
+      });
+      if(res.data.error){
+        window.alert(res.data.error)
+      }
+      else{
+        window.alert(res.data.message)
+      }
+    } catch (error) {
+      console.log("error while getting data", error);
+    }
+      }
+
+       const Excel=async()=>{
+        try {
+      let res = await axios({
+        method: "post",
+        url: `${url}/excel`,
+        headers: {
+          "Content-type": "application/json",
+        },
+       data:post
+      });
+      if(res.data.error){
+        window.alert(res.data.error)
+      }
+      else{
+        window.alert(res.data.message)
+      }
+    } catch (error) {
+      console.log("error while getting data", error);
+    }
+      }
       const handlechange  = (e)=>{
     
         const { name, value } = e.target;
@@ -67,6 +120,7 @@ const EligibleCandidates = () => {
                 ctcoffered:info.ctcoffered,
                 educationalgap:info.educationalgap,
                 totaloffers:1,
+          
               },
             })
             .then(res=>{
@@ -117,8 +171,8 @@ const EligibleCandidates = () => {
 
   <AdminHeader/>
   <div class="px-5" >
- 
-
+ <button onClick={()=>sendMail()}>send mail</button>
+ <button onClick={()=>Excel()}>Download</button>
 
 
 
@@ -144,7 +198,7 @@ const EligibleCandidates = () => {
                  <div class="card-body" style={{background:"black",color:"white"}} >
                      <div class="row search-body">
                          
-                             hello
+                             <h1>Eligible Student Filter</h1>
                          
                      </div>
                      
@@ -198,6 +252,16 @@ const EligibleCandidates = () => {
                                <div class="fw-bold px-1">CTC Offered</div>
                                <input class="form-control" name="ctcoffered" onChange ={(e)=>handlechange(e)} type="number" />
                              </div>
+                             <div class="col-lg-6 col-md-6 col-sm-12 py-2" style={{background:"white"}}>
+                               <div class="fw-bold px-1">Company Name</div>
+                               <input class="form-control" name="company" onChange ={(e)=>handlechange(e)} type="text" />
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-12 py-2" style={{background:"white",margin:"0% auto"}}>
+                               <div class="fw-bold px-1">Job Role</div>
+                               <input class="form-control" name="job" onChange ={(e)=>handlechange(e)} type="text" />
+                             </div>
+                           </div>
+                           <div class="row">
                            </div>
 
 
@@ -316,7 +380,7 @@ const EligibleCandidates = () => {
                                                      </td>
                                                      <td>
                                                          <div class="widget-26-job-title">
-                                                             <a class="font-weight-bold fs-5 text-uppercase " href="#">{item.USN}</a>
+                                                               <Link to="/students" onClick={()=>{cookies.set("usn",item.USN,{secure:true})}}>{item.USN}</Link>
                                                              
                                                          </div>
                                                      </td>
@@ -365,9 +429,9 @@ const EligibleCandidates = () => {
 
 
 
- </div>
+ </div> 
   
- </div>
+  </div>
   
   
   

@@ -29,22 +29,41 @@ const Reset = () => {
 
   return (
     <div>
-      <div>
-        <Header />
-        <div className="mycard">
-          <div className="card card-sign">
-            <h2 className="brand-logo color">Enter Your USN</h2>
-            <input placeholder="USN" onInput={(e) => setUSN(e.target.value)} />
-            <button
-              className="btn waves-effect waves-light"
-              onClick={() => PostData()}
+      <Header />
+       <div className="container">
+        <div className="container-fluid">
+          <div className="position-absolute top-50 start-50 translate-middle">
+            <h3
+              className="d-flex justify-content-center fw-normal"
+              style={{ fontSize: "3rem" }}
             >
-              Enter
-            </button>
+              Reset the Password
+            </h3>
+            <div>
+              <input
+                placeholder="USN"
+                name="USN"
+                value={USN}
+                className="form-control rounded-0 my-3"
+                style={{ width: "450px" }}
+                onInput={(e)=>{setUSN(e.target.value)}}
+              ></input>
+              </div>
+            <div className="d-flex justify-content-center">
+              <button
+                type="button"
+                className="btn btn-outline-dark rounded-0"
+                onClick={() => PostData()}
+              >
+                Send
+              </button>
+            </div>
+           
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    
   );
 };
 

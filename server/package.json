@@ -21,6 +21,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.4",
     "nodemon": "^2.0.15",
-    "parser": "^0.1.4"
+    "parser": "^0.1.4",
+    "xlsx": "^0.17.5"
+  },
+  "devDependencies": {
+    "eslint-plugin-office-addins": "^2.0.0",
+    "office-addin-lint": "^2.0.0"
   }
 }

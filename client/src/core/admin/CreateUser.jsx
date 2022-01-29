@@ -71,9 +71,7 @@ const Create_Users = () => {
                 Create
               </button>
             </div>
-            <h6 className="fw-light fs-6 text-center my-3">
-              User created successfully.
-            </h6>
+           
           </div>
         </div>
       </div>

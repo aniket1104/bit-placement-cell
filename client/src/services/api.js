@@ -31,17 +31,16 @@ export const studentquery = async (info)=>{
          console.log("error while getting data",error);
      }
 }
-export const Viewstudent = async (jwt,state,usn)=>{
+export const Viewstudent = async (usn)=>{
 
      try{
         let res  = await axios({
           method:"get",
         url:`${url}/student`,
         headers:{
-          "Authorization":"Bearer "+jwt
+          "Content-Type":"application/json"
         },
         params:{
-        type:state,
         usn:usn
         },
           withCredentials:true
