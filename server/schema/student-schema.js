@@ -1,3 +1,4 @@
+
 import Mongoose  from "mongoose";
 const {ObjectId}=Mongoose.Schema.Types;
 
@@ -100,6 +101,12 @@ const studentschema = Mongoose.Schema({
         educationalgap:{
           type:Number
         //   type:String
+          
+          
+        },
+        photo:{
+        //   type:Number
+          type:String
           
           
         },

@@ -34,7 +34,7 @@ const cookies=new Cookies();
 useEffect(()=>{
   //console.log(state)
    const user=cookies.get("user")
-   const admin=cookies.get("admin")
+   const admin=cookies.get("admins")
    if(user){
     dispatch({type:"USER",payload:user})
     }

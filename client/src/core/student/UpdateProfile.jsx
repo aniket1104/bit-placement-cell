@@ -7,14 +7,20 @@ import Header from '../../components/Header';
 import {userContext} from '../../App';
 import { Viewstudent } from "../../services/api";
 import Cookies from 'universal-cookie';
+import StudentHeader from './StudentHeader';
 
 const url = 'http://localhost:8000';
-const UpdateProfile = () => {
 
+
+const UpdateProfile = () => {
+    
     const [post,setpost]  = useState({});
     const{state,dispatch}=useContext(userContext);
     const navigate=useNavigate();
-     const cookies=new Cookies();
+    const cookies=new Cookies();
+    const PF = "http://localhost:8000/images/";
+    // const [post, setpost] = useState({});
+    const [file, setFile] = useState(null);
     //console.log(id);
 
     useEffect(()=>{
@@ -44,6 +50,7 @@ const initialvalue  ={
         clubsinvolved:post.clubsinvolved,
         certifications:post.certifications,
         projects:post.projects,
+        photo: post.photo,
         others:post.others,
         detailsof:post.detailsof
     }
@@ -63,6 +70,35 @@ useEffect(()=>{
     }
 
     const saveupdate  = async()=>{
+
+
+
+
+        if (file) {
+            // console.log(file);
+            const data =new FormData();
+            const filename =new Date().getTime()  + file.name;
+            data.append("name", filename);
+            data.append("file", file);
+            // newPost.photo = filename;
+            update.photo = filename;
+            // console.log(filename);
+            console.log(data);
+            console.log(Array.from(data.entries()))
+            try {
+              await axios.post(`${url}/update/upload`, data);
+            } catch (err) {}
+          }
+      
+
+          if(Object.values(update).every(el=>typeof el ==="undefined")){
+            window.alert("No Change was made")
+            return navigate('/student')
+        }
+
+        
+
+
         console.log(update.email)
         console.log(update);
        await axios({
@@ -84,11 +120,43 @@ useEffect(()=>{
     return (
         <>
             <div id="update">
-                <Header/>
+                <StudentHeader/>
             <div className="container rounded bg-white mt-5 mb-5">
     <div className="row">
         <div className="col-lg-3 border-right update_body">
-            <div className="d-flex flex-column align-items-center text-center p-3 py-5 " id='up_profile'><img className="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"></img><span className="font-weight-bold">Edogaru</span><span className="text-white-50">edogaru@mail.com.my</span><span> </span></div>
+            <div className="d-flex flex-column align-items-center text-center p-3 py-5 " id='up_profile'>
+                
+            <label htmlFor="fileInput">
+                {file && (
+                  <img  className="rounded-circle mt-5"
+                  width="150px"src={URL.createObjectURL(file)} alt="" />
+                )}
+                {!file &&(
+
+                  <img
+                  className="img-fluid rounded-circle mt-3 mb-2"
+                  width="150px"
+                  src={(PF + post.photo) || ("https://i.imgur.com/wvxPV9S.png")}
+                  alt="upload image"
+                  // src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                  ></img>
+                  )}
+           
+                  <div style={{display:"flex",justifyContent:"strech"}}>
+                  <i className="writeIcon fas fa-plus-circle" style={{paddingTop: "6px",
+                    paddingRight: "16px"}}></i>
+                  <p>click to add picture</p>
+                </div>
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    style={{ display: "none" }}
+                    onChange={(e) => setFile(e.target.files[0])}
+                  /> 
+                
+            
+            <span className="font-weight-bold">{post.firstname} {post.surname}</span><span className="text-white-50">{post.email}</span><span> </span></div>
 
             <div className="mt-2 mb-2 text-center"><button  onClick={()=>{saveupdate()}} className="btn btn-primary profile-button" type="button">Save Profile</button></div>
         </div>
