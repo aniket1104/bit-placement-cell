@@ -35,6 +35,7 @@ const Logout=async()=>{
              else{
                  dispatch({type:"CLEAR"}) ;
                  cookies.remove("admins",{secure:true})
+                 cookies.remove("usn",{secure:true})
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
                   window.alert(shre.data.message);
                   navigate('/login')

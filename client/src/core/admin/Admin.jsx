@@ -178,6 +178,16 @@ const Admin = () => {
     ctc:0,
     date:Date.now()
   }
+
+  const initialplac={
+    USN:"",
+    companyname:"",
+    job:"",
+    currentctc:0,
+    message:""
+  }
+
+  const [placed,setplaced]=useState(initialplac);
   const [update, setupdate] = useState(initialvalue);
   const [comp,setcomp]=useState(initialcomp);
 
@@ -187,6 +197,10 @@ const Admin = () => {
   };
   const handle=(e)=>{
     setcomp({...comp,[e.target.name]:e.target.value});
+  }
+
+  const handler=(e)=>{
+    setplaced({...placed,[e.target.name]:e.target.value});
   }
   const saveupdate = async () => {
     await axios
@@ -205,6 +219,7 @@ const Admin = () => {
   };
 
     const add=async()=>{
+      //console.log(comp)
       await axios.post(`${url}/createcompany`,comp)
       .then((shre)=>{
         if(shre.data.message){
@@ -218,6 +233,22 @@ const Admin = () => {
         console.log(err)
       })
     } 
+
+    const plac=async()=>{
+      //console.log(placed)
+     await axios.post(`${url}/plac`,placed)
+     .then((shre)=>{
+       if(shre.data.message){
+         window.alert(shre.data.message);
+       }
+       else{
+         window.alert(shre.data.eror);
+         console.log(shre.err)
+       }
+     }).catch(err=>{
+       console.log(err)
+     })
+    }
 
      const remove=async()=>{
       await axios.post(`${url}/removecompany`,comp)
@@ -491,6 +522,87 @@ const Admin = () => {
        </div>
 
      
+     <div class="row align-items-md-stretch mb-4">
+       <div class="col-xl-12">
+         <div class="h-100 p-5 text-white bg-dark rounded-3">
+         <div class="row bg-dark">
+         <h3
+              className="d-flex justify-content-center fw-normal"
+              style={{ fontSize: "3rem", color:"white" }}
+            >
+              Update Placement
+            </h3>
+         <div class="col-12 bg-dark">
+             <div id="ec_card" class="card  bg-dark">
+                 <div class="card-body bg-dark">
+                     <div class="row search-body bg-dark">
+                         <div class="col-lg-12 bg-dark">
+                           <div class="row">
+                             
+                             <div class="col-lg-6 col-md-6 col-sm-12 py-2" 
+                             
+                             >
+                               <div class="fw-bold px-1">USN</div>
+                               <input class="form-control" type="string" name="USN"  onInput={(e)=>handler(e)}  ></input>
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-12 py-2" 
+                             style={{margin:"0% auto"}}
+                             >
+                               <div class="fw-bold px-1">Company Name</div>
+                               <input class="form-control" name="companyname"  type="string" onInput={(e)=>handler(e)}  />
+                             </div>
+                           </div>
+                           <div class="row">
+
+                             <div class="col-lg-6 col-md-6 col-sm-12 py-2" >
+                               <div class="fw-bold px-1">Role Job</div>
+                               <input class="form-control" name="job"  type="string" onInput={(e)=>handler(e)}  />
+                             </div>
+                             <div class="col-lg-6 col-md-6 col-sm-12 py-2" style={{margin:"0% auto"}}>
+                               <div class="fw-bold px-1">CTC</div>
+                               <input class="form-control" name="currentctc"  type="number" onInput={(e)=>handler(e)}  />
+                             </div>
+                           </div>
+                           
+                            <div className="col-lg-4">
+            <div className="p-3 py-5" style={{    backgroundColor: "rgb(243, 241, 241)"}}>
+               
+                <div className="col-md-12"><label className="labels UP_labels">Message</label><textarea onInput ={(e)=>handler(e)} className="form-control up_textarea" name='message' placeholder=" details" ></textarea></div>
+            </div>
+        </div>
+
+                           {/* <div class="text-center py-2"> */}
+
+                           
+                               {/* <button onClick={()=>{saveinfo()}} type="button" class="btn btn-outline-dark rounded-0 text-center "
+                               style={{margin:'auto'}}
+                               > Submit
+                               </button> */}
+                             
+                             
+                           {/* </div> */}
+                           
+                         </div>
+                         
+                     </div>
+                     
+                 </div>
+             </div>
+         </div>
+     </div>
+
+                           <div class="text-center py-2">
+
+           {/* <button class="btn btn-outline-light" type="button" onClick={()=>add()} >ADD COMPANY</button> */}
+           
+           <button class="btn btn-outline-light" type="button" onClick={()=>plac()}>UPDATE</button>
+                           </div>
+          
+                        
+         </div>
+       </div>
+       </div>
+
 
 
  

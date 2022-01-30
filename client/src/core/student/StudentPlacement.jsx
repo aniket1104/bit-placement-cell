@@ -1,45 +1,66 @@
 import React from "react";
 import "../../assets/css/student.css";
 import StudentHeader from "./StudentHeader";
+import { useEffect,useState,useReducer } from 'react';
+import { Viewstudent } from "../../services/api";
+import { useNavigate} from 'react-router-dom';
 
 const StudentPlacement = () => {
+  const PF = "http://localhost:8000/images/";
+  const navigate=useNavigate();
+  const [post,setpost]  = useState({});
+  useEffect(()=>{
+    
+     const Fetchdata  = async()=>{
+
+    
+       let posts =await Viewstudent();
+       console.log(posts[0]);
+       setpost(posts[0]);
+       
+     }
+     Fetchdata();
+},[])
   return (
     <>
       <StudentHeader />
       <div className="container-fluid" id="student-body">
         <div className="row">
-          <div className="col-xl-3">
-            <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
+
+
+
+        <div className="col-xl-3">
+            <div className="container  mt-4 mb-4 p-2 d-flex justify-content-center">
               <div className="card p-4 blackpro" id="profilecrd">
                 <div
-                  className=" image d-flex flex-column justify-content-center align-items-center"
+                  className="  d-flex flex-column justify-content-center align-items-center"
                   id="imgprof"
                 >
                   {" "}
-                  <button className="btn btn-secondary" id="btnprofile">
-                    {" "}
+                  {/* <button className="btn btn-secondary" id="btnprofile">
+                    {" "} */}
                     <img
+                   className=" rounded-circle " 
                       id="profimage"
-                      src="https://i.imgur.com/wvxPV9S.png"
-                      height="100"
-                      width="100"
+                      src={(PF + post.photo) || "https://i.imgur.com/wvxPV9S.png"}
+                      
                     />
-                  </button>{" "}
+                  {/* </button>{" "} */}
                   <span className="name mt-3">
-                    <span></span> <span></span>
+                    <span>{post.firstname} </span> <span>{post.surname}</span>
                   </span>{" "}
-                  <span className="idd"></span>
+                  <span className="idd">{post.email}</span>
                   {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
                   <div className=" d-flex mt-2">
                     {" "}
-                    {/* <button
+                    <button
                       className="btn1 btn-light grow"
-                      // onClick={() => {
-                      //   navigate(`/update`);
-                      // }}
+                      onClick={() => {
+                        navigate(`/update`);
+                      }}
                     >
                       Edit Profile
-                    </button>{" "} */}
+                    </button>{" "}
                   </div>
                   <div className="text mt-3">
                     {" "}
@@ -53,23 +74,23 @@ const StudentPlacement = () => {
                   </div>
                   <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
                     <span className="lightic grow">
-                      <a href="#">
+                      <a href={post.linkgithub}>
                         <i className="fa fa-github fa-3x lightic"></i>
                       </a>
                     </span>
                     <span className="lightic grow">
-                      <a href="#">
+                      <a href={post.linklinkedin}>
                         <i className="fa fa-linkedin fa-3x lightic"></i>
                       </a>
                     </span>
                     {/* <span className="lightic grow"><a href="https://twitter.com"><i className="fa fa-twitter fa-5x lightic"></i></a></span> */}
                     <span className="lightic grow">
-                      <a href="#">
+                      <a href={post.linkinstagram}>
                         <i className="fa fa-instagram fa-3x lightic"></i>
                       </a>
                     </span>
                     <span className="lightic grow">
-                      <a href="#">
+                      <a href={post.linkresume}>
                         <i className="fa fa-file fa-3x lightic"></i>
                       </a>
                     </span>
@@ -78,6 +99,8 @@ const StudentPlacement = () => {
               </div>
             </div>
           </div>
+
+          
 
           <div className="col-xl-9">
             <div className="col-12" id="det">
@@ -99,7 +122,7 @@ const StudentPlacement = () => {
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
-                            {" "}
+                            {post.companyname}
                             <span className="text1"> </span>{" "}
                           </div>
                         </div>
@@ -116,7 +139,7 @@ const StudentPlacement = () => {
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
-                            {" "}
+                            {post.job}
                             <span className="text1"> </span>{" "}
                           </div>
                         </div>
@@ -132,7 +155,7 @@ const StudentPlacement = () => {
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
-                            {" "}
+                            {post.currentctc}
                             <span className="text1"> </span>{" "}
                           </div>
                         </div>
@@ -148,7 +171,7 @@ const StudentPlacement = () => {
                         </h3>
                         <div className="mt-1 ">
                           <div className="mt-3">
-                            {" "}
+                            {post.message}
                             <span className="text1"> </span>{" "}
                           </div>
                         </div>

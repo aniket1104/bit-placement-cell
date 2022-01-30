@@ -31,15 +31,15 @@ const Student = () => {
     Fetchdata();
   }, []);
 
-  return (
-    <>
+    
 
 
 
 
 
 
-     
+     return(
+         <>
 
 
       <StudentHeader />
