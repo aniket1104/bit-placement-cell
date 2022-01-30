@@ -563,13 +563,17 @@ const Admin = () => {
                                <input class="form-control" name="currentctc"  type="number" onInput={(e)=>handler(e)}  />
                              </div>
                            </div>
+                           <div class="row">
+
+                             <div class="col-lg-12 col-md-12 col-sm-12 py-2" >
+                               <div class="fw-bold px-1">Message</div>
+                               {/* <input class="form-control" name="job"  type="string" onInput={(e)=>handler(e)}  /> */}
+                               <textarea onInput ={(e)=>handler(e)} className="form-control up_textarea" name='message' placeholder=" details" ></textarea>
+                             </div>
+                             
+                           </div>
                            
-                            <div className="col-lg-4">
-            <div className="p-3 py-5" style={{    backgroundColor: "rgb(243, 241, 241)"}}>
-               
-                <div className="col-md-12"><label className="labels UP_labels">Message</label><textarea onInput ={(e)=>handler(e)} className="form-control up_textarea" name='message' placeholder=" details" ></textarea></div>
-            </div>
-        </div>
+                
 
                            {/* <div class="text-center py-2"> */}
 

@@ -72,9 +72,9 @@ useEffect(()=>{
 
       <div className="col-xl-9">
         
-        <div className="col-12" id="det">
+        <div className="col-12 p-0" id="det">
 
-        <div className="card ml-4" id="card1">
+        <div className="card ml-4" id="card5">
           <div className="card-header blackpro">
            <h1 >Student Profile</h1> 
           </div>
@@ -84,7 +84,7 @@ useEffect(()=>{
 
         <div className="col-12 mt-0" id="det1">
 
-        <div className="card ml-4" id="card2">
+        <div className="card mx-4" id="card4">
         <div className="card-body greypro">
             <div className="row greypro">
                   <div className="col-6" id="prodetails"><span className='fw-bold'>NAME -</span> <span className='fw-bold text-capitalize'>{post.firstname}</span> <span className='fw-bold text-capitalize'>{post.surname}</span></div>
@@ -107,13 +107,13 @@ useEffect(()=>{
 
 <div className="col-12 mt-3">
      
-<div className="container  mt-1 mb-1">
- <div className="row">
+<div className="container-fluid px-4  mt-1 mb-1" id="details_st">
+ <div className="row p-1">
 
 
      
 
-     <div className="col-md-4 mt-3">
+     <div className="col-xl-4 mt-3 px-1">
          <div className="card p-3 mb-2 h-100 greypro">
             
              <div className="mt-1">
@@ -130,7 +130,7 @@ useEffect(()=>{
 
 
      
-     <div className="col-md-4 mt-3">
+     <div className="col-xl-4 mt-3 px-1">
          <div className="card p-3 mb-2 h-100 greypro">
             
              <div className="mt-1">
@@ -146,7 +146,7 @@ useEffect(()=>{
 
 
 
-     <div className="col-md-4 mt-3">
+     <div className="col-xl-4 mt-3 px-1">
          <div className="card p-3 mb-2 h-100 greypro">
             
              <div className="mt-1">
@@ -162,7 +162,7 @@ useEffect(()=>{
 
 
 
-     <div className="col-12 mt-3 mb-3">
+     <div className="col-12 mt-3 mb-3 px-1">
          <div className="card p-3 mb-2 h-100 greypro">
             
              <div className="mt-1">
@@ -178,19 +178,19 @@ useEffect(()=>{
 
      
 
-          <div className="col-xl-9">
-            <div className="col-12" id="det">
-              <div className="card ml-4" id="card1">
+          {/* <div className="col-xl-12"> */}
+            <div className="col-12 p-1" id="det">
+              <div className="card m-0 " >
                 <div className="card-header blackpro">
                   <h1 className="fw-normal">Placement</h1>
                 </div>
               </div>
             </div>
 
-            <div className="col-12 mt-3">
+            {/* <div className="col-12 mt-3">
               <div className="container  mt-1 mb-1">
-                <div className="row">
-                  <div className="col-md-4 mt-3">
+                <div className="row"> */}
+                  <div className="col-xl-4 mt-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -206,7 +206,7 @@ useEffect(()=>{
                     </div>
                   </div>
 
-                  <div className="col-md-4 mt-3">
+                  <div className="col-xl-4 mt-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -223,7 +223,7 @@ useEffect(()=>{
                     </div>
                   </div>
 
-                  <div className="col-md-4 mt-3">
+                  <div className="col-xl-4 mt-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -239,7 +239,7 @@ useEffect(()=>{
                     </div>
                   </div>
 
-                  <div className="col-12 mt-3 mb-3">
+                  <div className="col-12 mt-3 mb-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -253,11 +253,11 @@ useEffect(()=>{
                       </div>
                     </div>
                   </div>
-                </div>
+                {/* </div>
 
               </div>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
 
 
 
