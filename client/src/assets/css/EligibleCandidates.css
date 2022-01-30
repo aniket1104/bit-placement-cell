@@ -1,3 +1,16 @@
+@media only screen and (max-width: 600px) {
+  #down_ec{
+    padding-top: 1rem;
+    justify-content:center !important;
+  }
+  #down_ec1{
+   
+    justify-content:center !important;
+  }
+
+}
+
+
 .eligible_body{
     position: absolute; /*position: fixed;*/
    top: 0;

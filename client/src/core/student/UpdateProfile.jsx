@@ -8,6 +8,8 @@ import {userContext} from '../../App';
 import { Viewstudent } from "../../services/api";
 import Cookies from 'universal-cookie';
 import StudentHeader from './StudentHeader';
+import "../../assets/css/updateProfile.css";
+
 
 const url = 'http://localhost:8000';
 
@@ -52,6 +54,8 @@ const initialvalue  ={
         projects:post.projects,
         photo: post.photo,
         others:post.others,
+        noofbacks:post.noofbacks,
+        educationalgap:post.educationalgap,
         detailsof:post.detailsof
     }
 useEffect(()=>{
@@ -60,7 +64,7 @@ useEffect(()=>{
            console.log(initialvalue)
            setupdate(initialvalue)
        }
-},[])
+})
   
     const[update,setupdate]  = useState(initialvalue);
     
@@ -132,20 +136,25 @@ useEffect(()=>{
                   width="150px"src={URL.createObjectURL(file)} alt="" />
                 )}
                 {!file &&(
-
-                  <img
-                  className="img-fluid rounded-circle mt-3 mb-2"
-                  width="150px"
-                  src={(PF + post.photo) || ("https://i.imgur.com/wvxPV9S.png")}
-                  alt="upload image"
-                  // src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                  ></img>
+                     <img
+                     className=" rounded-circle " 
+                        id="upimage"
+                        src={(PF + post.photo) || "https://i.imgur.com/wvxPV9S.png"}
+                        
+                      />
+                //   <img
+                //   className="img-fluid rounded-circle mt-3 mb-2"
+                //   width="150px"
+                //   src={(PF + post.photo) || ("https://i.imgur.com/wvxPV9S.png")}
+                //   alt="upload image"
+                //   // src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                //   ></img>
                   )}
            
-                  <div style={{display:"flex",justifyContent:"strech"}}>
+                  <div className='pt-2' style={{display:"flex",justifyContent:"center"}}>
                   <i className="writeIcon fas fa-plus-circle" style={{paddingTop: "6px",
                     paddingRight: "16px"}}></i>
-                  <p>click to add picture</p>
+                  <p className='text-justify'>click to add picture</p>
                 </div>
                   </label>
                   <input
@@ -185,6 +194,13 @@ useEffect(()=>{
                     <div className="col-md-12"><label className="labels UP_labels">class 12 percentage</label><input onChange ={(e)=>handlechange(e)} type="text" name='class12marks' className="form-control"defaultValue={post.class12marks} placeholder="enter className 12 percentage" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">class 10 CGPA/Percentage  </label><input onChange ={(e)=>handlechange(e)} type="text" name='class10marks' className="form-control"defaultValue={post.class10marks} placeholder="enter lass 10 CGPA/Percentage" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Average cgpa</label><input onChange ={(e)=>handlechange(e)} type="text" name='averagecgpa' className="form-control"defaultValue={post.averagecgpa} placeholder="enter Average cgpa" ></input></div>
+
+
+                    <div className="col-md-12"><label className="labels UP_labels">No of Backs</label><input onChange ={(e)=>handlechange(e)} type="text" name='noofbacks' className="form-control"defaultValue={post.noofbacks} placeholder="enter No of backs" ></input></div>
+                    <div className="col-md-12"><label className="labels UP_labels">Educational Gap</label><input onChange ={(e)=>handlechange(e)} type="text" name='educationalgap' className="form-control"defaultValue={post.educationalgap} placeholder=" Educational Gap" ></input></div>
+
+
+
                     <div className="col-md-12"><label className="labels UP_labels">Link to your resume</label><input onChange ={(e)=>handlechange(e)} type="text" name='linkresume' className="form-control"defaultValue={post.linkresume} placeholder="enter Link to your resume" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your linkedin</label><input onChange ={(e)=>handlechange(e)} type="text" name='linklinkedin' className="form-control"defaultValue={post.linklinkedin} placeholder="enter Link to your linkedin" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your Git-Hub</label><input onChange ={(e)=>handlechange(e)} type="text" name='linkgithub' className="form-control"defaultValue={post.linkgithub} placeholder="enter Link to your Git-Hub" ></input></div>

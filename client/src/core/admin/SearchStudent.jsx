@@ -3,7 +3,7 @@ import AdminHeader from "./AdminHeader";
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import Cookies from "universal-cookie";
-
+import "../../assets/css/SearchStudents.css"
 const url = 'http://localhost:8000';
 const Search = () => {
 
@@ -40,27 +40,47 @@ const Search = () => {
 
 
   return (
+
+
+
     <div className="container">
+
+
+
+
+
       <div className="container-fluid">
-        <div className="position-absolute top-50 start-50 translate-middle">
+        <div id="search_ss" className="row height d-flex justify-content-center align-items-center">
           <h3
             className="d-flex justify-content-center"
             style={{ fontSize: "3.4rem" }}
           >
             Search
           </h3>
-          <div className="d-flex">
-            <input
+          <div >
+
+          <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4 d-flex">
+            <div class="input-group">
+              <input type="text" style={{ width: "75%" ,fontSize:"30px"}} placeholder="Enter USN"  value={search} onChange={(e)=>{Searches(e.target.value)}} aria-describedby="button-addon1" class="form-control ml-5 border-0 bg-light"/>
+              <div class="input-group-append">
+                <button id="button-addon1" type="submit" class="btn btn-light
+                 text-primary" onClick={()=>{setList([])}} style={{ boxShadow: "none" }}><i style={{color:"black"}} class="fas fa-times-circle fa- fa-3x"  aria-hidden="true" ></i></button>
+              </div>
+            </div>
+          </div>
+
+            {/* <input
               type="text"
               className="form-control rounded-0"
-              style={{ width: "500px" }}  placeholder="Enter USN"  value={search} onChange={(e)=>{Searches(e.target.value)}}
-            />
-            <button
+              style={{ width: "100%" }}  placeholder="Enter USN"  value={search} onChange={(e)=>{Searches(e.target.value)}}
+            /> */}
+            {/* <button
               className="btn btn-outline-dark rounded-0"
               style={{ boxShadow: "none" }} onClick={()=>{setList([])}}
             >
-              <i class="far fa-search fs-2"></i>
-            </button>
+              <i class="fas fa-times-circle fa-3x"  aria-hidden="true" ></i>
+              
+            </button> */}
           </div>
           <div style={{ paddingTop: "20px" }}>
       <table class="table">
@@ -85,6 +105,8 @@ const Search = () => {
             <td>{item.branch}</td>
             </tr>)
           })}
+
+         
           
             
         </tbody>

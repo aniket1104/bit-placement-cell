@@ -49,6 +49,7 @@ const EligibleCandidates = () => {
       const[info,setinfo]  = useState(initialvalue);
 
       const sendMail=async()=>{
+        console.log(info);
              try {
       let res = await axios({
         method: "post",
@@ -58,7 +59,8 @@ const EligibleCandidates = () => {
         },
         data:{post,
           company:info.company,
-          job:info.job
+          job:info.job,
+          ctcoffered:info.ctcoffered
         }
       });
       if(res.data.error){
@@ -100,6 +102,20 @@ const EligibleCandidates = () => {
         // console.log(info);
         // console.log(update);
     }
+
+
+
+      const handlechange1  = (e)=>{
+    
+        // const { name, value } = e.target;
+        // setinfo({...info,[e.target.name]:e.target.value});
+        setinfo({ ...info, [e.target.name]:e.target.value });
+        // console.log(info);
+        console.log(info);
+        // console.log(update);
+    }
+
+
     const[post,setpost]  = useState([]);
     
   
@@ -176,8 +192,7 @@ const EligibleCandidates = () => {
 
   <AdminHeader/>
   <div class="px-5" >
- <button onClick={()=>sendMail()}>send mail</button>
- <button onClick={()=>Excel()}>Download</button>
+ 
 
 
 
@@ -259,11 +274,11 @@ const EligibleCandidates = () => {
                              </div>
                              <div class="col-lg-6 col-md-6 col-sm-12 py-2" style={{background:"white"}}>
                                <div class="fw-bold px-1">Company Name</div>
-                               <input class="form-control" name="company" onChange ={(e)=>handlechange(e)} type="text" />
+                               <input class="form-control" name="company" onChange ={(e)=>handlechange1(e)} type="text" />
                              </div>
                              <div class="col-lg-6 col-md-6 col-sm-12 py-2" style={{background:"white",margin:"0% auto"}}>
                                <div class="fw-bold px-1">Job Role</div>
-                               <input class="form-control" name="job" onChange ={(e)=>handlechange(e)} type="text" />
+                               <input class="form-control" name="job" onChange ={(e)=>handlechange1(e)} type="text" />
                              </div>
                            </div>
                            <div class="row">
@@ -318,9 +333,14 @@ const EligibleCandidates = () => {
                          <div class="col-lg-12">
                              <div class="search-result">
                                  <div class="result-header">
+                  
                                      <div class="row">
-                                         <div class="col-lg-6">
-                                             <div class="records">Showing:  <b>{post.length}</b> result</div>
+                                         <div class="col-sm-6 mt-2 px-4">
+                                             <div class="records d-flex" id="down_ec1"> Showing: <b> {post.length} </b> result</div>
+                                         </div>
+                                         <div class="col-sm-6">
+                                             <div id="down_ec" class="records d-flex justify-content-end"><button className="btn btn-dark rounded-2 m-2 mt-0 p-2" onClick={()=>sendMail()}>send mail</button>
+                  <button button className="btn btn-dark rounded-2 m-2 mt-0 p-2" onClick={()=>Excel()}>Download</button></div>
                                          </div>
                                         
                                      </div>

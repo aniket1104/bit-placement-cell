@@ -5,9 +5,11 @@ import { Bar } from 'react-chartjs-2';
 import {Chart as Chartjs,BarElement, CategoryScale, LinearScale} from 'chart.js'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
-import  { useState, useContext } from "react";
+import  { useState, useContext ,useEffect} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Viewadmin } from "../../services/api";
+
 
 const url = "http://localhost:8000";
 Chartjs.register(
@@ -149,6 +151,21 @@ var options=  {
 
 const Admin = () => {
   
+
+
+
+
+  const [post, setpost] = useState({});
+
+  useEffect(() => {
+    const Fetchdata = async () => {
+      let posts = await Viewadmin();
+      console.log(posts[0]);
+      setpost(posts[0]);
+    };
+    Fetchdata();
+  }, []);
+
   const navigate = useNavigate();
   const initialvalue = {
     USN: "",
@@ -248,9 +265,9 @@ const Admin = () => {
                     />
                   </button>{" "}
                   <span className="name mt-3">
-                    <span>kumar </span> <span>harsh</span>
+                    <span>{post.firstname} </span> <span>{post.surname}</span>
                   </span>{" "}
-                  <span className="idd">email</span>
+                  <span className="idd">{post.email}</span>
                   {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
                   <div className=" d-flex mt-2">
                     {" "}

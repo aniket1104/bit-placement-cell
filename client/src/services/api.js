@@ -54,4 +54,21 @@ export const Viewstudent = async (usn)=>{
 
 
 
+export const Viewadmin = async (usn)=>{
+
+     try{
+        let res  = await axios({
+          method:"get",
+        url:`${url}/admin`,
+        headers:{
+          "Content-Type":"application/json"
+        },
+          withCredentials:true
+        
+      })
+        return res.data;
+     }catch(error){
+         console.log("error while getting data",error);
+     }
+}
 

@@ -231,6 +231,28 @@ export const Viewstudent = async(req,res)=>{
     }
 }
 
+
+export const Viewadmin = async(req,res)=>{
+    console.log(req.user._id)
+    try{
+        let id="";
+        // if(req.cookies.admin==="false"){
+            id=req.user._id;
+        // }
+      
+        //let data=await User.find({_id:req.user._id})
+       let data = await Fac.find({_id:id});
+       console.log(data)
+       res.status(200).json(data);
+    }catch(error){
+        res.status(500).json(error);
+    }
+}
+
+
+
+
+
 export const CreateUser=async(req,res)=>{
     
     const{USN,password}=req.body;
@@ -396,8 +418,8 @@ export const Reset  =async(req,res)=>{
 }
 
 export const sendMail=async(req,res)=>{
-    const {post,company,job}=req.body;
-    //console.log(post);
+    const {post,company,job,ctcoffered}=req.body;
+    console.log(company);
     if(post.length==0){
         return res.json({error:"No one is Eligible"})
     }
@@ -410,8 +432,8 @@ export const sendMail=async(req,res)=>{
                             to: email_list, // Change to your recipient
                             from: 'shreyanushka02@gmail.com', // Change to your verified sender
                             subject: 'Placement Offer',
-                            html:`<h1>${company}</h1>`
-                                  `<p>This is to inform you that you are eligible to apply for ${job} role</p>`
+                            html:`<h3>
+                                  This is to inform you that you are eligible to apply for ${job} role at ${company} CTC - ${ctcoffered}</h3>`
                                 
                               }).then(()=>{
                                   res.json({message:"Email Sent!"})

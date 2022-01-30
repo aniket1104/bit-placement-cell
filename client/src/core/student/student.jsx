@@ -24,7 +24,7 @@ const Student = () => {
 
   useEffect(() => {
     const Fetchdata = async () => {
-      let posts = await Viewstudent(cookies.get("jwt"));
+      let posts = await Viewstudent();
       console.log(posts[0]);
       setpost(posts[0]);
     };
@@ -54,23 +54,22 @@ const Student = () => {
       <div className="container-fluid" id="student-body">
         <div className="row">
           <div className="col-xl-3">
-            <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
+            <div className="container  mt-4 mb-4 p-2 d-flex justify-content-center">
               <div className="card p-4 blackpro" id="profilecrd">
                 <div
-                  className=" image d-flex flex-column justify-content-center align-items-center"
+                  className="  d-flex flex-column justify-content-center align-items-center"
                   id="imgprof"
                 >
                   {" "}
-                  <button className="btn btn-secondary" id="btnprofile">
-                    {" "}
+                  {/* <button className="btn btn-secondary" id="btnprofile">
+                    {" "} */}
                     <img
                    className=" rounded-circle " 
                       id="profimage"
                       src={(PF + post.photo) || "https://i.imgur.com/wvxPV9S.png"}
-                      height="100"
-                      width="100"
+                      
                     />
-                  </button>{" "}
+                  {/* </button>{" "} */}
                   <span className="name mt-3">
                     <span>{post.firstname} </span> <span>{post.surname}</span>
                   </span>{" "}
@@ -215,9 +214,9 @@ const Student = () => {
             </div>
 
             <div className="col-12 mt-3">
-              <div className="container  mt-1 mb-1">
+              <div className="container-fluid px-4  mt-1 mb-1" id="details_st">
                 <div className="row">
-                  <div className="col-md-4 mt-3">
+                  <div className="col-xl-4 mt-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -235,7 +234,7 @@ const Student = () => {
                     </div>
                   </div>
 
-                  <div className="col-md-4 mt-3">
+                  <div className="col-xl-4 mt-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -254,7 +253,7 @@ const Student = () => {
                     </div>
                   </div>
 
-                  <div className="col-md-4 mt-3">
+                  <div className="col-xl-4 mt-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
@@ -270,7 +269,7 @@ const Student = () => {
                     </div>
                   </div>
 
-                  <div className="col-12 mt-3 mb-3">
+                  <div className="col-12 mt-3 mb-3 px-1">
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
