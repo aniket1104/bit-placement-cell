@@ -6,6 +6,7 @@ import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import Alumni from "./core/Alumni";
 import Student from "./core/student/student";
+import Students from "./core/admin/viewStudent";
 import StudentPlacement from "./core/student/StudentPlacement";
 import UpdateProfile from "./core/student/UpdateProfile";
 import CreateUser from "./core/admin/CreateUser";
@@ -17,8 +18,9 @@ import About from "./core/About";
 import Admin from "./core/admin/Admin";
 import SearchStudent from "./core/admin/SearchStudent";
 import StudentData from "./core/admin/StudentData";
-import EligibleCandidates from "./core/admin/EligibleCandidates";
+//import EligibleCandidates1 from "./core/admin/EligibleCandidates1";
 import Cookies from "universal-cookie";
+import EligibleCandidates from "./core/admin/EligibleCandidates";
 //import cors from 'cors';
 
 
@@ -32,7 +34,7 @@ const cookies=new Cookies();
 useEffect(()=>{
   //console.log(state)
    const user=cookies.get("user")
-   const admin=cookies.get("admin")
+   const admin=cookies.get("admins")
    if(user){
     dispatch({type:"USER",payload:user})
     }
@@ -49,6 +51,7 @@ useEffect(()=>{
   },[])
 
 
+
   return (
     
       <Routes>
@@ -56,6 +59,7 @@ useEffect(()=>{
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/student" element={<Student />} />
+        <Route path="/students" element={<Students/>}/>
         <Route path="/student/placement" element={<StudentPlacement />} />
         <Route path="/update" element={<UpdateProfile />} />
         <Route path="/admin/createuser" element={<CreateUser/>}/>

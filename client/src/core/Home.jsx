@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import Header from "../components/Header";
 import VerticalHEader from "../components/VerticalHeader";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import "../assets/css/Home.css";
 import "../assets/css/Cards.css";
 // import { userContext } from "../App";

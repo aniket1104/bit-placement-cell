@@ -3,22 +3,28 @@ import { useState, useContext, useEffect } from "react";
 import "../../assets/css/Update_profile.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import StudentHeader from "./StudentHeader";
+// import StudentHeader from './StudentHeader';
 import { userContext } from "../../App";
 import { Viewstudent } from "../../services/api";
 import Cookies from "universal-cookie";
+import StudentHeader from "./StudentHeader";
+import "../../assets/css/updateProfile.css";
 
 const url = "http://localhost:8000";
+
 const UpdateProfile = () => {
   const [post, setpost] = useState({});
   const { state, dispatch } = useContext(userContext);
   const navigate = useNavigate();
   const cookies = new Cookies();
+  const PF = "http://localhost:8000/images/";
+  // const [post, setpost] = useState({});
+  const [file, setFile] = useState(null);
   //console.log(id);
 
   useEffect(() => {
     const Fetchdata = async () => {
-      let posts = await Viewstudent(cookies.get("jwt"));
+      let posts = await Viewstudent();
       setpost(posts[0]);
     };
     Fetchdata();
@@ -41,7 +47,10 @@ const UpdateProfile = () => {
     clubsinvolved: post.clubsinvolved,
     certifications: post.certifications,
     projects: post.projects,
+    photo: post.photo,
     others: post.others,
+    noofbacks: post.noofbacks,
+    educationalgap: post.educationalgap,
     detailsof: post.detailsof,
   };
   useEffect(() => {
@@ -60,6 +69,27 @@ const UpdateProfile = () => {
   };
 
   const saveupdate = async () => {
+    if (file) {
+      // console.log(file);
+      const data = new FormData();
+      const filename = new Date().getTime() + file.name;
+      data.append("name", filename);
+      data.append("file", file);
+      // newPost.photo = filename;
+      update.photo = filename;
+      // console.log(filename);
+      console.log(data);
+      console.log(Array.from(data.entries()));
+      try {
+        await axios.post(`${url}/update/upload`, data);
+      } catch (err) {}
+    }
+
+    if (Object.values(update).every((el) => typeof el === "undefined")) {
+      window.alert("No Change was made");
+      return navigate("/student");
+    }
+
     console.log(update.email);
     console.log(update);
     await axios({
@@ -87,13 +117,52 @@ const UpdateProfile = () => {
                 className="d-flex flex-column align-items-center text-center p-3 py-5 "
                 id="up_profile"
               >
-                <img
-                  className="rounded-circle mt-5"
-                  width="150px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
-                ></img>
-                <span className="font-weight-bold">Edogaru</span>
-                <span className="text-white-50">edogaru@mail.com.my</span>
+                <label htmlFor="fileInput">
+                  {file && (
+                    <img
+                      className="rounded-circle mt-5"
+                      width="150px"
+                      src={URL.createObjectURL(file)}
+                      alt=""
+                    />
+                  )}
+                  {!file && (
+                    <img
+                      className=" rounded-circle "
+                      id="upimage"
+                      src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
+                    />
+                    //   <img
+                    //   className="img-fluid rounded-circle mt-3 mb-2"
+                    //   width="150px"
+                    //   src={(PF + post.photo) || ("https://i.imgur.com/wvxPV9S.png")}
+                    //   alt="upload image"
+                    //   // src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+                    //   ></img>
+                  )}
+
+                  <div
+                    className="pt-2"
+                    style={{ display: "flex", justifyContent: "center" }}
+                  >
+                    <i
+                      className="writeIcon fas fa-plus-circle"
+                      style={{ paddingTop: "6px", paddingRight: "16px" }}
+                    ></i>
+                    <p className="text-justify">click to add picture</p>
+                  </div>
+                </label>
+                <input
+                  type="file"
+                  id="fileInput"
+                  style={{ display: "none" }}
+                  onChange={(e) => setFile(e.target.files[0])}
+                />
+
+                <span className="font-weight-bold">
+                  {post.firstname} {post.surname}
+                </span>
+                <span className="text-white-50">{post.email}</span>
                 <span> </span>
               </div>
 
@@ -217,6 +286,28 @@ const UpdateProfile = () => {
                       className="form-control"
                       defaultValue={post.averagecgpa}
                       placeholder="enter Average cgpa"
+                    ></input>
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels UP_labels">Educational Gap</label>
+                    <input
+                      onChange={(e) => handlechange(e)}
+                      type="number"
+                      name="educationalgap"
+                      className="form-control"
+                      defaultValue={post.educationalgap}
+                      placeholder="enter Educational Gap"
+                    ></input>
+                  </div>
+                  <div className="col-md-12">
+                    <label className="labels UP_labels">No. of Backs</label>
+                    <input
+                      onChange={(e) => handlechange(e)}
+                      type="number"
+                      name="noofbacks"
+                      className="form-control"
+                      defaultValue={post.noofbacks}
+                      placeholder="enter No. of Backs"
                     ></input>
                   </div>
                   <div className="col-md-12">

@@ -1,9 +1,47 @@
-import React from "react";
+import React,{useContext} from "react";
 import logo from "../../assets/img/bitlogo.png";
 import "../../assets/css/Header.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
+import axios from 'axios';
+import {userContext} from '../../App';
+import Cookies from "universal-cookie";
 
+const url = 'http://localhost:8000';
 const StudentHeader = () => {
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { state, dispatch } = useContext(userContext);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const navigate= useNavigate();
+  const cookies=new Cookies();
+  const Logout=async()=>{
+
+  await axios({
+        method:'post',
+        url:`${url}/logout`,
+       withCredentials:true,
+        headers:{
+          "Content-Type":"application/json"
+        }
+        
+        
+      }).then(
+        shre=>{
+          console.log(shre);
+          if(shre.data.error){
+                //return( M.toast({html:shre.data.error}))
+                return window.alert(shre.data.error);
+                 }
+             else{
+                 dispatch({type:"CLEAR"}) ;
+                 cookies.remove("user",{secure:true})
+                 //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
+                  window.alert(shre.data.message);
+                  navigate('/login')
+             }
+        }
+      )
+}
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between header">
@@ -45,11 +83,11 @@ const StudentHeader = () => {
           </ul>
         </div>
         <div className="login">
-          <Link to="/login">
-            <button type="button" class="btn btn-dark login-btn">
+          
+            <button type="button" class="btn btn-dark login-btn" onClick={()=>Logout()}>
               Logout
             </button>
-          </Link>
+          
         </div>
       </nav>
     </div>

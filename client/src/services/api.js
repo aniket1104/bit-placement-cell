@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const url = 'http://localhost:8000';
 
+axios.defaults.withCredentials=true;
 
 
 
@@ -30,14 +31,20 @@ export const studentquery = async (info)=>{
          console.log("error while getting data",error);
      }
 }
+export const Viewstudent = async (usn)=>{
 
-export const Viewstudent = async (jwt)=>{
      try{
         let res  = await axios({
+          method:"get",
         url:`${url}/student`,
         headers:{
-          "Authorization":"Bearer "+jwt
-        }
+          "Content-Type":"application/json"
+        },
+        params:{
+        usn:usn
+        },
+          withCredentials:true
+        
       })
         return res.data;
      }catch(error){
@@ -46,20 +53,22 @@ export const Viewstudent = async (jwt)=>{
 }
 
 
-export const CreateUser=async(update)=>{
-    
+
+export const Viewadmin = async (usn)=>{
+
+     try{
+        let res  = await axios({
+          method:"get",
+        url:`${url}/admin`,
+        headers:{
+          "Content-Type":"application/json"
+        },
+          withCredentials:true
+        
+      })
+        return res.data;
+     }catch(error){
+         console.log("error while getting data",error);
+     }
 }
 
-// export const Reset=async(email)=>{
-
-    
-//     axios.post("/reset",
-//                  email
-//          ) 
-//          .then(shre=>{
-//              console.log(shre);
-//             //   ( M.toast({html:shre.message,classes:"#4caf50 green"}))
-//             //    navigate("/login")
-//      }).catch(err=>{console.log(err)})
-
-// } 

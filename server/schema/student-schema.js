@@ -1,3 +1,4 @@
+
 import Mongoose  from "mongoose";
 const {ObjectId}=Mongoose.Schema.Types;
 
@@ -97,9 +98,24 @@ const studentschema = Mongoose.Schema({
         //   type:String
           
         },
+        companyname:{
+            type:String
+        },
+        job:{
+            type:String
+        },
+        message:{
+            type:String
+        },
         educationalgap:{
           type:Number
         //   type:String
+          
+          
+        },
+        photo:{
+        //   type:Number
+          type:String
           
           
         },
@@ -107,7 +123,7 @@ const studentschema = Mongoose.Schema({
             type:ObjectId,//used to maintain the relationship
             ref:'User'
       }
-
+     
 })
 const Post =Mongoose.model('Post',studentschema);
 

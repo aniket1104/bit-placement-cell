@@ -13,6 +13,27 @@
     padding: 0
 }
 
+@media only screen and (max-width: 400px) {
+    #details_st{
+
+        padding-right: 0.9rem!important;
+        padding-left: 0.9rem!important;
+    }
+
+  }
+
+
+  @media only screen and (min-width: 400px) and (max-width: 1200px) { 
+
+    #profimage{
+        width: 50% !important;
+        height: 12rem !important;
+    }
+
+
+   }
+
+
 
 #profilecard {
     width: 350px;
@@ -20,6 +41,10 @@
     border: none;
     cursor: pointer;
     transition: all 0.5s
+}
+#profimage{
+    width: 70%;
+    height: 11rem;
 }
 
 #imgprof img {
