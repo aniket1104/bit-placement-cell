@@ -15,7 +15,18 @@ const header = () => {
             <h3>Technology</h3>
           </div>
         </div>
-        <div className="items">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse items" id="navbarNav">
           <ul className="navbar-nav">
             <Link to="/">
               <li className="nav-item px-3">
@@ -38,10 +49,10 @@ const header = () => {
                 </a>
               </li>
             </Link>
-            <Link to="/companies">
+            <Link to="/resources">
               <li className="nav-item px-3">
                 <a className="nav-link link" href="#">
-                  Companies
+                  Resources
                 </a>
               </li>
             </Link>
@@ -59,9 +70,16 @@ const header = () => {
                 </a>
               </li>
             </Link>
+            <div className="login d-flex d-md-none">
+              <Link to="/login">
+                <button type="button" class="btn btn-dark login-btn">
+                  Login
+                </button>
+              </Link>
+            </div>
           </ul>
         </div>
-        <div className="login">
+        <div className="login d-none d-md-flex">
           <Link to="/login">
             <button type="button" class="btn btn-dark login-btn">
               Login

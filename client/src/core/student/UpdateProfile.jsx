@@ -3,7 +3,7 @@ import { useState, useContext, useEffect } from "react";
 import "../../assets/css/Update_profile.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import Header from "../../components/Header";
+import StudentHeader from "./StudentHeader";
 import { userContext } from "../../App";
 import { Viewstudent } from "../../services/api";
 import Cookies from "universal-cookie";
@@ -79,7 +79,7 @@ const UpdateProfile = () => {
   return (
     <>
       <div id="update">
-        <Header />
+        <StudentHeader />
         <div className="container rounded bg-white mt-5 mb-5">
           <div className="row">
             <div className="col-lg-3 border-right update_body">

@@ -11,7 +11,7 @@ import UpdateProfile from "./core/student/UpdateProfile";
 import CreateUser from "./core/admin/CreateUser";
 import {reducer,initialState} from './Reducers/useReducers';
 import Mission from "./core/Mission";
-import Companies from "./core/Companies";
+import Resources from "./core/Resources";
 import Placement from "./core/Placement";
 import About from "./core/About";
 import Admin from "./core/admin/Admin";
@@ -62,7 +62,7 @@ useEffect(()=>{
         <Route path="/reset" element={<Reset/>}/>
         <Route path="/reset-password/:token" element={<ResetPass/>}/>
         <Route path="/mission" element={<Mission />} />
-        <Route path="/companies" element={<Companies />} />
+        <Route path="/resources" element={<Resources />} />
         <Route path="/placement" element={<Placement />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
