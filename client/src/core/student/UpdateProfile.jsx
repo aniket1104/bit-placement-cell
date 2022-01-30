@@ -3,7 +3,7 @@ import { useState ,useContext,useEffect} from 'react';
 import "../../assets/css/Update_profile.css";
 import {useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
-import Header from '../../components/Header';
+import StudentHeader from './StudentHeader';
 import {userContext} from '../../App';
 import { Viewstudent } from "../../services/api";
 import Cookies from 'universal-cookie';
@@ -45,6 +45,8 @@ const initialvalue  ={
         certifications:post.certifications,
         projects:post.projects,
         others:post.others,
+        educationalgap:post.educationalgap,
+        noofbacks:post.noofbacks,
         detailsof:post.detailsof
     }
 useEffect(()=>{
@@ -53,7 +55,7 @@ useEffect(()=>{
            console.log(initialvalue)
            setupdate(initialvalue)
        }
-},[])
+})
   
     const[update,setupdate]  = useState(initialvalue);
     
@@ -63,8 +65,10 @@ useEffect(()=>{
     }
 
     const saveupdate  = async()=>{
-        console.log(update.email)
-        console.log(update);
+    //    if(Object.values(update).every(el=>typeof el ==="undefined")){
+    //        window.alert("No Change was made")
+    //        return navigate('/student')
+    //    }
        await axios({
            method:'post',
         url:`${url}/update`,
@@ -84,7 +88,7 @@ useEffect(()=>{
     return (
         <>
             <div id="update">
-                <Header/>
+                <StudentHeader/>
             <div className="container rounded bg-white mt-5 mb-5">
     <div className="row">
         <div className="col-lg-3 border-right update_body">
@@ -117,6 +121,8 @@ useEffect(()=>{
                     <div className="col-md-12"><label className="labels UP_labels">class 12 percentage</label><input onChange ={(e)=>handlechange(e)} type="text" name='class12marks' className="form-control"defaultValue={post.class12marks} placeholder="enter className 12 percentage" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">class 10 CGPA/Percentage  </label><input onChange ={(e)=>handlechange(e)} type="text" name='class10marks' className="form-control"defaultValue={post.class10marks} placeholder="enter lass 10 CGPA/Percentage" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Average cgpa</label><input onChange ={(e)=>handlechange(e)} type="text" name='averagecgpa' className="form-control"defaultValue={post.averagecgpa} placeholder="enter Average cgpa" ></input></div>
+                    <div className="col-md-12"><label className="labels UP_labels">Educational Gap</label><input onChange ={(e)=>handlechange(e)} type="number" name='educationalgap' className="form-control"defaultValue={post.educationalgap} placeholder="enter Educational Gap" ></input></div>
+                    <div className="col-md-12"><label className="labels UP_labels">No. of Backs</label><input onChange ={(e)=>handlechange(e)} type="number" name='noofbacks' className="form-control"defaultValue={post.noofbacks} placeholder="enter No. of Backs" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your resume</label><input onChange ={(e)=>handlechange(e)} type="text" name='linkresume' className="form-control"defaultValue={post.linkresume} placeholder="enter Link to your resume" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your linkedin</label><input onChange ={(e)=>handlechange(e)} type="text" name='linklinkedin' className="form-control"defaultValue={post.linklinkedin} placeholder="enter Link to your linkedin" ></input></div>
                     <div className="col-md-12"><label className="labels UP_labels">Link to your Git-Hub</label><input onChange ={(e)=>handlechange(e)} type="text" name='linkgithub' className="form-control"defaultValue={post.linkgithub} placeholder="enter Link to your Git-Hub" ></input></div>

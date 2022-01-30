@@ -23,7 +23,7 @@ useEffect(()=>{
      const Fetchdata  = async()=>{
 
     
-       let posts =await Viewstudent(cookies.get("usn"));
+       let posts =await Viewstudent();
        console.log(posts[0]);
        setpost(posts[0]);
        
@@ -97,6 +97,8 @@ useEffect(()=>{
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>EDUCATIONAL GAP -</span> <span className='fw-bold text-capitalize'>{post.educationalgap}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>NO. OF BACKS -</span> <span className='fw-bold text-capitalize'>{post.noofbacks}</span></div>
             </div>
           </div>
           

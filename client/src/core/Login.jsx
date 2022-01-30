@@ -57,7 +57,7 @@ const Login = () => {
                 return window.alert(shre.data.error);
                  }
              else{
-               cookies.set("admin",shre.data.user._id,{secure:true})
+               cookies.set("admins",shre.data.user._id,{secure:true})
                  dispatch({type:"ADMIN",payload:shre.data.user._id}) 
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
                  navigate(`/admin`)

@@ -94,7 +94,9 @@ useEffect(()=>{
                   <div className="col-6" id="prodetails"><span className='fw-bold'>EMAIL -</span> <span className='fw-bold text-capitalize'>{post.email}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 12 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class12marks}</span></div>
                   <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>CLASS 10 MARKS -</span> <span className='fw-bold text-capitalize'>{post.class10marks}</span></div>
-                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>averagecgpa -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>AVERAGE CGPA -</span> <span className='fw-bold text-capitalize'>{post.averagecgpa}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>EDUCATIONAL GAP -</span> <span className='fw-bold text-capitalize'>{post.educationalgap}</span></div>
+                  <div className="col-6" id="prodetails"><span className='fw-bold text-uppercase'>NO. OF BACKS -</span> <span className='fw-bold text-capitalize'>{post.noofbacks}</span></div>
             </div>
           </div>
           
@@ -196,8 +198,8 @@ useEffect(()=>{
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
-                            {" "}
-                            <span className="text1"> </span>{" "}
+                            {post.companyname}
+                            
                           </div>
                         </div>
                       </div>
@@ -213,8 +215,8 @@ useEffect(()=>{
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
-                            {" "}
-                            <span className="text1"> </span>{" "}
+                            {post.job}
+                           
                           </div>
                         </div>
                       </div>
@@ -229,8 +231,8 @@ useEffect(()=>{
                         </h3>
                         <div className="mt-1">
                           <div className="mt-3">
-                            {" "}
-                            <span className="text1"> </span>{" "}
+                            {post.currentctc}
+                            
                           </div>
                         </div>
                       </div>
@@ -245,8 +247,7 @@ useEffect(()=>{
                         </h3>
                         <div className="mt-1 ">
                           <div className="mt-3">
-                            {" "}
-                            <span className="text1"> </span>{" "}
+                            {post.message}
                           </div>
                         </div>
                       </div>
@@ -254,7 +255,6 @@ useEffect(()=>{
                   </div>
                 </div>
 
-                <button>Edit</button>
               </div>
             </div>
           </div>

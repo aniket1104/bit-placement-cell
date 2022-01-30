@@ -1,6 +1,7 @@
 import Post from '../schema/student-schema.js'
 import User from '../schema/loginstudent-schema.js';
 import Fac from '../schema/fac-schema.js';
+import company from '../schema/Company.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import JWT_SECRET from '../app.js';
@@ -274,7 +275,9 @@ export const CreateUser=async(req,res)=>{
                           noofbacks:0,
                           currentctc:0,
                           educationalgap:0,
-
+                          companyname:'N/A',
+                          job:'N/A',
+                          message:'N/A'
                       })
                       post.save()
                       res.json({message:"Successfully Signed Up!"})
@@ -439,4 +442,58 @@ export const Search=async(req,res)=>{
        res.json({error:"No User Found!"})
     }
    }).catch(err=>console.log(err))
+}
+export const Comp=async(req,res)=>{
+    try{
+        const{companyname,job,ctc,date}=req.body;
+        const comp=new company({
+               companyname,
+               job,
+               ctc,
+               date
+        })
+        comp.save();
+       res.status(200).json({message:"Uploaded successfully"});
+    }catch(err){
+        res.status(500).json(err,{error:"Could not upload"});
+    }
+    
+     
+}
+export const RemComp=async(req,res)=>{
+     try{
+        const{companyname,job,ctc,date}=req.body;
+        company.findOneAndDelete({companyname,job,ctc,date}).then(shre=>{
+            
+                res.status(200).json({message:"Deleted successfully"});
+            
+        })
+    
+      
+    }catch(err){
+        res.status(500).json(err,{error:"Could not delete"});
+    }
+}
+export const Plac = async(req,res)=>{
+      try{
+          console.log(req.body)
+        const{USN,companyname,job,currentctc,message}=req.body;
+        Post.findOne({USN:USN}).then(post=>{
+            if(!post){
+                return res.json({error:"No such user exists"})
+            }
+            post.totaloffers=post.totaloffers+1,
+            post.companyname=companyname,
+            post.job=job,
+            post.currentctc=currentctc,
+            post.message=message,
+            post.save(),
+            res.json({message:"Successfully Updated"})
+        })
+    
+      
+    }catch(err){
+        console.log(err)
+        res.json(err,{error:"Could not delete"});
+    }
 }
