@@ -84,13 +84,13 @@ const Logout=async()=>{
                 </a>
               </li>
             </Link>
-            <Link to="/admin/createuser">
+            {/* <Link to="/admin/createuser">
               <li className="nav-item px-3">
                 <a className="nav-link link" href="#">
                   Create User
                 </a>
               </li>
-            </Link>
+            </Link> */}
           </ul>
         </div>
         <div className="login">

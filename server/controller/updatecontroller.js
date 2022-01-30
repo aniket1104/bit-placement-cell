@@ -21,18 +21,30 @@ export const studentquery  = async(req,res)=>{
     console.log(req.query.educationalgap);
     try{
         //let data=await User.find({_id:req.user._id})
-        let data = await Post.find( { class12marks: { $gte:req.query.marks12th },
+         Post.find( { class12marks: { $gte:req.query.marks12th },
         class10marks: { $gte:req.query.marks10th },
         averagecgpa: { $gte:req.query.averagecgpa },
         totaloffers: { $lte:req.query.totaloffers },
         noofbacks: { $lte:req.query.nofbacks },
         currentctc: { $lte:req.query.ctcoffered-300000 },
         educationalgap: { $lte:req.query.educationalgap }
-    });
+    })
+    .then(data=>{
+        if(Object.entries(data).length === 0){
+            console.log("error");
+            return res.json({error:"No Eligible Candidates"});
+        }
+        else{
+            console.log(data);
+            res.status(200).json(data);
+
+        }
+    })
+
         // let data = await Post.find({{"$toInt" : class12marks}:{$gt:{"$toInt" : req.query.marks12th}}});
         //console.log(data)
         //console.log(data);
-       res.status(200).json(data);
+    //    res.status(200).json(data);
     }catch(error){
         res.status(500).json(error);
     }
@@ -274,6 +286,7 @@ export const CreateUser=async(req,res)=>{
                           totaloffers:0,
                           noofbacks:0,
                           currentctc:0,
+                          photo:'default.png',
                           educationalgap:0,
                           companyname:'N/A',
                           job:'N/A',

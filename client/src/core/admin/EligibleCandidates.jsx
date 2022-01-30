@@ -124,17 +124,22 @@ const EligibleCandidates = () => {
               },
             })
             .then(res=>{
-              if(res.error){
+              if(res.data.error){
                 console.log(res.data.error);
+                // console.log("upar");
+                setpost([]);
+                notify();
               }
               else{
                 console.log(res.data);
 
                 setpost(res.data);
-                // if(post.length===0){
-                //   // console.log("hello");
-                //   // notify();
-                // }
+                // console.log(post);
+                
+                  console.log("helloa");
+                  // console.log("a");
+                  // notify();
+                
               }
             })
             .catch(err=>{
@@ -196,7 +201,7 @@ const EligibleCandidates = () => {
          <div class="col-12">
              <div id="ec_card" class="card ">
                  <div class="card-body" style={{background:"black",color:"white"}} >
-                     <div class="row search-body">
+                     <div class="row search-body text-center">
                          
                              <h1>Eligible Student Filter</h1>
                          
