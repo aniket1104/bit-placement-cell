@@ -153,6 +153,7 @@ const EligibleCandidates = () => {
                 setpost([]);
                 // notify(res.data.error);
                 dangertoast(res.data.error);
+                
               }
               else{
                 console.log(res.data);

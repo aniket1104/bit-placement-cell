@@ -1,62 +1,116 @@
 import React from "react";
-
+import "../assets/css/Footer.css";
 
 const Footer = () => {
   return (
-    
-    <div className="  container-fluid bg-light  ">
-{/* <li className="ms-3 mx-3"><a className="link-dark" href="#"><i className="fas fa-address-card"></i></a></li> */}
-    <footer className="py-5 ">
-      <div className="row">
-        <div className="col-6">
-          <h5 className="font-weight-bold px-5">CONTACT US</h5>
-          <ul className="nav flex-column px-5">
+    <footer>
+      <div className="site-footer position-relative">
+        <div className="container">
+          <div className="d-flex justify-content-between">
+            <div className="col-xs-6 col-md-3">
+              <h6>Reach Us</h6>
+              <ul className="reachUs">
+                <li>
+                  <div className="d-flex">
+                    <a href="#">
+                      <i className="bi bi-geo-alt-fill"></i>
+                    </a>
+                    <p>
+                      Bangalore Institute of Technology, <br />
+                      K.R. Road, V.V. Puram <br /> Bengaluru(560004)
+                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div className="d-flex">
+                    <a href="#">
+                      <i className="bi bi-telephone"></i>
+                    </a>
+                    <p style={{ paddingTop: "18px" }}>+91 01234-56789</p>
+                  </div>
+                </li>
+                <li>
+                  <div className="d-flex">
+                    <a href="#">
+                      <i className="bi bi-envelope"></i>
+                    </a>
+                    <p style={{ paddingTop: "18px" }}>+91 01234-56789</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
 
-           <p className="col-4"> BANGALORE INSTITUTE OF TECHNOLOGY
-          K.R. ROAD, V V PURA,
-          BENGALURU-560004
-          INDIA</p>
-          </ul>
+            <div className="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul className="footer-links">
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Mission</a>
+                </li>
+                <li>
+                  <a href="#">Placement</a>
+                </li>
+                <li>
+                  <a href="#">Resource</a>
+                </li>
+                <li>
+                  <a href="#">Alumni</a>
+                </li>
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Login</a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col-xs-6 col-md-3">
+              <h6>Map</h6>
+              <div className="d-flex justify-content-center">
+                {/* <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2606255763544!2d77.57184291474016!3d12.955167590866637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1592715c4e7f%3A0x7dfaf94e52204678!2sBangalore%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1643633151652!5m2!1sen!2sin"
+                width="300"
+                height="200"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe> */}
+              </div>
+            </div>
+          </div>
         </div>
-  
-        
-  
-        <div className="col-4 offset-1  mr-1" >
-            <h5>Subscribe to our newsletter</h5>
-          {/* <form> */}
-            {/* <p>Monthly digest of whats new and exciting from us.</p>
-            <div className="d-flex w-100 gap-2">
-              <label for="newsletter1" className="visually-hidden">Email address</label>
-              <input id="newsletter1" type="text" className="form-control" placeholder="Email address"/>
-              <button className="btn btn-primary" type="button">Subscribe</button> */}
-            {/* </div> */}
-          {/* </form> */}
-        <ul className="list-unstyled d-flex">
-          <li className="ms-3 mx-3 list-unstyled"><a className="link-dark" href="mailto:principalbit4@gmail.com"><i className="fa fa-envelope fa-3x" aria-hidden="true" ></i></a></li>
-          <li className="ms-3 mx-3"><a className="link-dark text-decoration-none" href="mailto:principalbit4@gmail.com"><p className="font-weight-bold my-2">principalbit4@gmail.com</p></a></li>
-        </ul>
+        <div className="container">
+          <div className="d-flex justify-content-center">
+            <ul className="social-icons">
+              <li>
+                <a className="facebook" href="#">
+                  <i className="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a className="twitter" href="#">
+                  <i className="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a className="dribbble" href="#">
+                  <i className="fa fa-dribbble"></i>
+                </a>
+              </li>
+              <li>
+                <a className="linkedin" href="#">
+                  <i className="fa fa-linkedin"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-      {/* justify-content-between */}
-      <div className="d-flex justify-content-center pt-4 pb-0 ml-10 border-top">
-        
-        <ul className="list-unstyled d-flex mr-11">
-          <li className="ms-3 mx-3"><a className="link-dark" href="#"><i className="fa fa-github fa-2x" aria-hidden="true" ></i></a></li>
-          <li className="ms-3 mx-3"><a className="link-dark" href="#"><i className="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
-          <li className="ms-3 mx-3"><a className="link-dark" href="#"><i className="fa fa-facebook fa-2x" aria-hidden="true"></i></a></li>
-          <li className="ms-3 mx-3"><a className="link-dark" href="#"><i className="fa fa-linkedin fa-2x" aria-hidden="true"></i></a></li>
-        </ul>
-      </div>
-      <div className="d-flex justify-content-center  ">
-        <p className="px-4 ">© 2021 Company, Inc. All rights reserved.</p>
       </div>
     </footer>
-    
-  </div>
-     
-  
-  ); 
-   
-} 
- 
+  );
+};
+
 export default Footer;

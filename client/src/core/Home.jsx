@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import VerticalHEader from "../components/VerticalHeader";
 import Footer from "../components/Footer";
 import "../assets/css/Home.css";
+import "../assets/css/home2.css";
 import "../assets/css/Cards.css";
 // import { userContext } from "../App";
 import Student1 from "../assets/img/student1.jpg";
@@ -268,6 +269,52 @@ const Home = () => {
             <h3>Shining Stars of BIT 🙂</h3>
           </div>
           <CarouselPage />
+
+          <section class="l-section-1 timelinesection" id="upcoming-events">
+    <div id="timelinediv" class="l-row l-row--1024">
+      <div id="timelinediv" class="l-row--800 l-margin-bottom-64">
+        <div id="timelinediv" class="l-row--680">
+          <h2 class="m-head__2">Events and Contests</h2>
+        </div>
+        <h3 id="timelineh3" class="m-head__11 l-margin-bottom-16">Upcoming Events</h3>
+        <hr id="timelinehr" class="l-card-divider l-margin-top-0" />
+        
+        
+        <div id="timelinediv" class="l-card-3 m-other-event-card">
+          <div id="timelinediv" class="l-card-3__col-1">
+            <div id="timelinediv" class="l-card-3__date-1">
+              <p id="timelineptag" class="m-card-3__date-1-desc">Starts On</p>
+              <div id="timelinediv" class="l-card-3__date-1-text">
+                <p id="timelineptag" class="m-card-3__day">09</p>
+                <p id="timelineptag" class="m-card-3__month">Feb</p>
+              </div>
+            </div>
+          </div>
+          <div id="timelinediv" class="l-card-3__col-2">
+            <div id="timelinediv" class="l-card-3__info">
+              <h3 id="timelineh3" class="m-card-3__head">Starters 25</h3>
+              <p id="timelineptag" class="m-card-3__desc">
+                <span class="m-card-3__desc-type">Contest</span>|<span class="m-card-3__time-clock">
+                  <i class="i-clock-grey l-margin-right-8"></i>08:00 PM&nbsp;IST</span>
+              </p>
+            </div>
+          </div>
+          <div id="timelinediv" class="l-card-3__col-3">
+            <div id="timelinediv" class="l-card-3__dtl-btn">
+              <a id="timelineatag" href="https://www.codechef.com/START25?itm_medium=hpevents&amp;itm_campaign=START25"
+                class="m-card-3__dtl-btn" target="_blank"> Set Reminder<i class="i-arrow-no-tail-blue"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+
+
+
+
         </div>
       </div>
     );
@@ -277,8 +324,23 @@ const Home = () => {
     <div>
       <Header />
       <VerticalHEader />
+
+
       <AboutHome />
-      {/* <Footer /> */}
+
+      <Footer />
+
+      {/* <footer> */}
+      
+    
+
+
+
+
+
+
+
+
     </div>
   );
 };
