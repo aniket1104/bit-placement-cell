@@ -117,7 +117,7 @@ const StudentPlacement = () => {
             </div>
 
             <div className="col-12 mt-3">
-              <div className="container  mt-1 mb-1">
+              <div className="container-fluid   mt-1 mb-1">
                 <div className="row">
                   <div className="col-md-4 mt-3">
                     <div className="card p-3 mb-2 h-100 greypro">
