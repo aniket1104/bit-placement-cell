@@ -23,6 +23,9 @@ const Student = () => {
   const cookies = new Cookies();
 
   useEffect(() => {
+    if(typeof cookies.get("user")==="undefined"){
+     return navigate('/admin')
+    }
     const Fetchdata = async () => {
       let posts = await Viewstudent();
       console.log(posts[0]);

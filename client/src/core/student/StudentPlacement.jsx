@@ -4,13 +4,18 @@ import StudentHeader from "./StudentHeader";
 import { useEffect,useState,useReducer } from 'react';
 import { Viewstudent } from "../../services/api";
 import { useNavigate} from 'react-router-dom';
+import Cookies from "universal-cookie";
 
 const StudentPlacement = () => {
   const PF = "http://localhost:8000/images/";
   const navigate=useNavigate();
   const [post,setpost]  = useState({});
+  const cookies=new Cookies();
   useEffect(()=>{
     
+    if(typeof cookies.get("user")==="undefined"){
+      return navigate('/admin')
+    }
      const Fetchdata  = async()=>{
 
     

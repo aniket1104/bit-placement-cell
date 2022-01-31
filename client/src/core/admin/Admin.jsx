@@ -10,6 +10,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Viewadmin } from "../../services/api";
 import { dangertoast, successtoast } from "../Toasts";
+import Cookies from "universal-cookie";
 
 
 const url = "http://localhost:8000";
@@ -160,11 +161,16 @@ const Admin = () => {
   
 
 
-
+  const cookies=new Cookies();
 
   const [post, setpost] = useState({});
 
   useEffect(() => {
+
+    
+    if(typeof cookies.get("admins")==="undefined"){
+       return navigate('/student')
+    }
     const Fetchdata = async () => {
       let posts = await Viewadmin();
       console.log(posts[0]);

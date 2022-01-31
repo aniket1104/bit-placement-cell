@@ -24,6 +24,9 @@ const UpdateProfile = () => {
   //console.log(id);
 
   useEffect(() => {
+    if(typeof cookies.get("user")==="undefined"){
+      return navigate('/admin')
+    }
     const Fetchdata = async () => {
       let posts = await Viewstudent();
       setpost(posts[0]);

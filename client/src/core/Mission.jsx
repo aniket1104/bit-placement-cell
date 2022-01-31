@@ -33,6 +33,22 @@ const Mission = () => {
             </li>
           </ol>
         </div>
+        <div className="mission">
+          <h3>The Objectives of the Centre Are As Under:</h3>
+          <ol type="1">
+            <li>To enhance industry-institute interaction.</li>
+            <li>To organize seminar, training programmes and work-shops for students so as to  help students to learn latest technologies</li>
+            <li>
+            To organize seminars, technical talks by eminent   personalities from academic institutes and industry to enhance the awareness of students
+            </li>
+            <li>
+            To provide guidance and information for higher studies
+            </li>
+            <li>To conduct mock tests, interviews, Group Discussions for students</li>
+            <li>To conduct training programs to enhance the communication skills and develop inter-personal skills of students.</li>
+            <li>To arrange campus-interviews by inviting leading companies to recruit students</li>
+          </ol>
+        </div>
       </div>
     );
   };
