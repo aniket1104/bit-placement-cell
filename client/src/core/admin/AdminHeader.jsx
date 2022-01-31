@@ -5,6 +5,7 @@ import { Link,useNavigate } from "react-router-dom";
 import {userContext} from '../../App';
 import axios from 'axios';
 import Cookies from "universal-cookie";
+import { dangertoast, successtoast } from "../Toasts";
 
 const url = 'http://localhost:8000';
 const header = () => {
@@ -30,14 +31,16 @@ const Logout=async()=>{
           console.log(shre);
           if(shre.data.error){
                 //return( M.toast({html:shre.data.error}))
-                return window.alert(shre.data.error);
+                dangertoast(shre.data.error);
+                // return window.alert(shre.data.error);
                  }
              else{
                  dispatch({type:"CLEAR"}) ;
                  cookies.remove("admins",{secure:true})
                  cookies.remove("usn",{secure:true})
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
-                  window.alert(shre.data.message);
+                  // window.alert(shre.data.message);
+                  successtoast(shre.data.message);
                   navigate('/login')
              }
         }

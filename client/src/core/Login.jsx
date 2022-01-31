@@ -6,6 +6,9 @@ import {Link,useNavigate} from 'react-router-dom';
 import {userContext} from '../App';
 import Cookies from 'universal-cookie';
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {dangertoast,successtoast} from "./Toasts"
 axios.defaults.withCredentials=true;
 
 const url = 'http://localhost:8000';
@@ -54,14 +57,17 @@ const Login = () => {
           console.log(shre);
           if(shre.data.error){
                 //return( M.toast({html:shre.data.error}))
-                return window.alert(shre.data.error);
-                 }
-             else{
-               cookies.set("admins",shre.data.user._id,{secure:true})
-                 dispatch({type:"ADMIN",payload:shre.data.user._id}) 
-                 //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
-                 navigate(`/admin`)
-                 return window.alert(shre.data.message);
+                dangertoast(shre.data.error)
+                // return window.alert(shre.data.error);
+              }
+              else{
+                cookies.set("admins",shre.data.user._id,{secure:true})
+                dispatch({type:"ADMIN",payload:shre.data.user._id}) 
+                //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
+                successtoast(shre.data.message)
+                navigate(`/admin`)
+                
+            //      return window.alert(shre.data.message);
              }
         }
       )
@@ -83,15 +89,20 @@ const Login = () => {
           console.log(shre);
           if(shre.data.error){
                 //return( M.toast({html:shre.data.error}))
-                return window.alert(shre.data.error);
+                dangertoast(shre.data.error)
+                // return window.alert(shre.data.error);
                  }
              else{
                 //  cookies.set("jwt",shre.data.token,{httpOnly:true})
                  cookies.set("user",shre.data.user.USN,{secure:true})//if u can't understand this then just cnsole log shre once and as user is an object so we need to stringify it
                  dispatch({type:"USER",payload:shre.data.user.USN})
-                 //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
-                 navigate(`/student`)
-                 return window.alert(shre.data.message);
+          
+                
+                      successtoast("Logged in")
+                      navigate(`/student`)
+                
+                
+                //  return window.alert(shre.data.message);
              }
         }
       ).catch(err=>{

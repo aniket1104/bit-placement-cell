@@ -5,6 +5,7 @@ import { Link,useNavigate} from "react-router-dom";
 import axios from 'axios';
 import {userContext} from '../../App';
 import Cookies from "universal-cookie";
+import { dangertoast, successtoast } from "../Toasts";
 
 const url = 'http://localhost:8000';
 const StudentHeader = () => {
@@ -30,13 +31,15 @@ const StudentHeader = () => {
           console.log(shre);
           if(shre.data.error){
                 //return( M.toast({html:shre.data.error}))
-                return window.alert(shre.data.error);
+                dangertoast(shre.data.error);
+                // return window.alert(shre.data.error);
                  }
              else{
                  dispatch({type:"CLEAR"}) ;
                  cookies.remove("user",{secure:true})
                  //return( M.toast({html:shre.data.message,classes:"#4caf50 green"})),
-                  window.alert(shre.data.message);
+                 successtoast(shre.data.message)
+                  // window.alert(shre.data.message);
                   navigate('/login')
              }
         }

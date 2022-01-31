@@ -8,6 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {Link,useNavigate} from "react-router-dom";
 import Cookies from "universal-cookie";
+import { dangertoast ,successtoast} from "../Toasts";
+
+
 toast.configure()
 
 
@@ -16,8 +19,8 @@ const EligibleCandidates = () => {
   const navigate=useNavigate();
   const cookies=new Cookies();
   const[click,setclick] = useState(1);
-        const notify = () => 
-          toast.error('Sorry, no results found!', {
+        const notify = (err) => 
+          toast.error(err, {
             theme:"dark",
             position: "top-center",
             autoClose: 5000,
@@ -64,10 +67,12 @@ const EligibleCandidates = () => {
         }
       });
       if(res.data.error){
-        window.alert(res.data.error)
+        dangertoast(res.data.error);
+        // window.alert(res.data.error)
       }
       else{
-        window.alert(res.data.message)
+        successtoast(res.data.message);
+        // window.alert(res.data.message)
       }
     } catch (error) {
       console.log("error while getting data", error);
@@ -85,10 +90,12 @@ const EligibleCandidates = () => {
        data:post
       });
       if(res.data.error){
-        window.alert(res.data.error)
+        dangertoast(res.data.error);
+        // window.alert(res.data.error)
       }
       else{
-        window.alert(res.data.message)
+        successtoast(res.data.message);
+        // window.alert(res.data.message)
       }
     } catch (error) {
       console.log("error while getting data", error);
@@ -144,7 +151,8 @@ const EligibleCandidates = () => {
                 console.log(res.data.error);
                 // console.log("upar");
                 setpost([]);
-                notify();
+                // notify(res.data.error);
+                dangertoast(res.data.error);
               }
               else{
                 console.log(res.data);
@@ -339,7 +347,7 @@ const EligibleCandidates = () => {
                                              <div class="records d-flex" id="down_ec1"> Showing: <b> {post.length} </b> result</div>
                                          </div>
                                          <div class="col-sm-6">
-                                             <div id="down_ec" class="records d-flex justify-content-end"><button className="btn btn-dark rounded-2 m-2 mt-0 p-2" onClick={()=>sendMail()}>send mail</button>
+                                             <div id="down_ec" class="records d-flex justify-content-end"><button className="btn btn-dark rounded-2 m-2 mt-0 p-2" onClick={()=>sendMail()}>Send mail</button>
                   <button button className="btn btn-dark rounded-2 m-2 mt-0 p-2" onClick={()=>Excel()}>Download</button></div>
                                          </div>
                                         

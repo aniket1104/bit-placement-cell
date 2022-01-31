@@ -9,6 +9,7 @@ import  { useState, useContext ,useEffect} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Viewadmin } from "../../services/api";
+import { dangertoast, successtoast } from "../Toasts";
 
 
 const url = "http://localhost:8000";
@@ -80,11 +81,16 @@ const PieChart = () => {
 }
 
 
+const a=100;
 
-
-
-
-
+// const { height, width } = useWindowDimensions();
+// if(width<900){
+//    a = 200;
+  
+// }
+// else{
+//   a =100;
+// }
 
 const BarGraph = ()=>{
 
@@ -135,8 +141,9 @@ var options=  {
 
     <Bar
             data={data}
-            height={100}
-            options={options}
+            // height={100}
+            // width={300}
+            // options={options}
      />
 </div>
 
@@ -209,57 +216,67 @@ const Admin = () => {
         console.log("hi", shre);
         if (shre.data.error) {
           console.log("err", shre.data.error);
+          dangertoast(shre.data.error);
         } else {
           console.log(shre.data.message);
+          successtoast(shre.data.message);
         }
       })
       .catch((err) => {
         console.log(err);
       });
-  };
-
+    };
+    
     const add=async()=>{
       //console.log(comp)
       await axios.post(`${url}/createcompany`,comp)
       .then((shre)=>{
         if(shre.data.message){
-                 window.alert(shre.data.message);
+          // window.alert(shre.data.message);
+          successtoast(shre.data.message);
         }
-           else{
-             window.alert(shre.data.error);
-             console.log(shre.err)
-           }
+        else{
+          // window.alert(shre.data.error);
+          console.log(shre.err)
+          dangertoast(shre.data.error);
+          
+          // successtoast(shre.data.message);
+        }
       }).catch(err=>{
         console.log(err)
       })
     } 
-
+    
     const plac=async()=>{
       //console.log(placed)
-     await axios.post(`${url}/plac`,placed)
-     .then((shre)=>{
-       if(shre.data.message){
-         window.alert(shre.data.message);
-       }
-       else{
-         window.alert(shre.data.eror);
-         console.log(shre.err)
-       }
-     }).catch(err=>{
+      await axios.post(`${url}/plac`,placed)
+      .then((shre)=>{
+        if(shre.data.message){
+          // window.alert(shre.data.message);
+          successtoast(shre.data.message);
+        }
+        else{
+          // window.alert(shre.data.eror);
+          dangertoast(shre.data.error);
+          console.log(shre.err)
+        }
+      }).catch(err=>{
        console.log(err)
-     })
+      })
     }
 
-     const remove=async()=>{
+    const remove=async()=>{
       await axios.post(`${url}/removecompany`,comp)
       .then((shre)=>{
         if(shre.data.message){
-                 window.alert(shre.data.message);
+          // window.alert(shre.data.message);
+          successtoast(shre.data.message);
         }
-           else{
-             window.alert(shre.data.error);
-             console.log(shre.err)
-           }
+        else{
+          // window.alert(shre.data.error);
+          dangertoast(shre.data.error);
+          console.log(shre.err)
+        }
       }).catch(err=>{
         console.log(err)
       })
@@ -359,9 +376,9 @@ const Admin = () => {
  <div class="container mt-2 mb-4 p-3 py-3">
      
  
-     <div class="p-5 pt-2 mb-4 bg-dark rounded-3">
-       <div class="container-fluid py-5">
-       <h4
+     <div id="graph1div1_ad" class="p-5 pt-2 mb-4 bg-dark rounded-3">
+       <div id="graph1_ad" class="container-fluid py-5">
+       <h4 id="graph1head_ad"
               className="d-flex pb-2 justify-content-center fw-normal"
               style={{ fontSize: "2rem", color:"white" }}
             >
@@ -377,8 +394,8 @@ const Admin = () => {
      </div>
  
      <div class="row align-items-md-stretch mb-4 mt-2">
-       <div class="col-md-6">
-         <div class="h-100 p-5 pt-3 pb-1 text-white bg-dark rounded-3">
+       <div class="col-md-6" id="graph2_admin">
+         <div id="graph2_con_admin" class="h-100 p-5 pt-3 pb-1 text-white bg-dark rounded-3">
          <h4
               className="d-flex pb-3 justify-content-center fw-normal"
               style={{ fontSize: "2rem", color:"white" }}

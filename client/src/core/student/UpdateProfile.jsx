@@ -9,6 +9,7 @@ import { Viewstudent } from "../../services/api";
 import Cookies from "universal-cookie";
 import StudentHeader from "./StudentHeader";
 import "../../assets/css/updateProfile.css";
+import { successtoast, warningtoast } from "../Toasts";
 
 const url = "http://localhost:8000";
 
@@ -86,7 +87,8 @@ const UpdateProfile = () => {
     }
 
     if (Object.values(update).every((el) => typeof el === "undefined")) {
-      window.alert("No Change was made");
+      warningtoast("No Change was made");
+      // window.alert("No Change was made");
       return navigate("/student");
     }
 
@@ -102,6 +104,7 @@ const UpdateProfile = () => {
       data: update,
     }).then((res) => {
       console.log(res);
+      successtoast("Profile Updated Successfully");
       navigate(`/student`);
     });
   };
