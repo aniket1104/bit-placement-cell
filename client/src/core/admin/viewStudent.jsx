@@ -65,7 +65,7 @@ const PF = "http://localhost:8000/images/";
               {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
               
                           
-              <div className="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+              <div className="text mt-3"> <span id='spanpro'>I aim to attain an engaging internship position in various fields. I hope to give direction to my passion and hardwork tobecome an asset to the organisation. </span> </div>
               <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 
                   <span className="lightic grow"><a href={post.linkgithub}><i className="fa fa-github fa-3x lightic"></i></a></span> 
                   <span className="lightic grow"><a href={post.linklinkedin}><i className="fa fa-linkedin fa-3x lightic"></i></a></span> 
