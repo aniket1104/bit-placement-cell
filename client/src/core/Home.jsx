@@ -256,79 +256,119 @@ const Home = () => {
                   },
                 }}
               >
-                <img src={Student1} alt="" />
-                <img src={Student3} alt="" />
-                <img src={Student2} alt="" />
+                <img
+                  src={Student1}
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    width: "1198px",
+                    height: "667px",
+                  }}
+                />
+                <img
+                  src={Student3}
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    width: "1198px",
+                    height: "667px",
+                  }}
+                />
+                <img
+                  src={Student2}
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    width: "1198px",
+                    height: "667px",
+                  }}
+                />
               </Carousel>
             </div>
           </div>
-          <section class="l-section-1 timelinesection" id="upcoming-events">
-            <div id="timelinediv" class="l-row l-row--1024">
-              <div id="timelinediv" class="l-row--800 l-margin-bottom-64">
-                <hr id="timelinehr" class="l-card-divider l-margin-top-0" />
+          <div className="mission">
+            <h3>Upcoming Events</h3>
+            <section
+              class="l-section-1 timelinesection"
+              id="upcoming-events"
+              style={{ padding: "0" }}
+            >
+              <div
+                id="timelinediv"
+                class="l-row l-row--1024"
+                style={{ margin: "0" }}
+              >
+                <div
+                  id="timelinediv"
+                  class="l-row--800 l-margin-bottom-64"
+                  style={{ margin: "0" }}
+                >
+                  <hr id="timelinehr" class="l-card-divider l-margin-top-0" />
 
-                {list.map((shre) => {
-                  var dat = new Date(shre.date).toDateString();
-                  console.log(dat);
-                  return (
-                    <div
-                      id="timelinediv"
-                      class="l-card-3 m-other-event-card homeShadow"
-                    >
-                      <div id="timelinediv" class="l-card-3__col-1">
-                        <div id="timelinediv" class="l-card-3__date-1">
-                          <p id="timelineptag" class="m-card-3__date-1-desc">
-                            Starts On
-                          </p>
-                          <div id="timelinediv" class="l-card-3__date-1-text">
-                            <p id="timelineptag" class="m-card-3__day">
-                              {dat.substring(8, 10)}
+                  {list.map((shre) => {
+                    var dat = new Date(shre.date).toDateString();
+                    console.log(dat);
+                    return (
+                      <div
+                        id="timelinediv"
+                        class="l-card-3 m-other-event-card homeShadow"
+                      >
+                        <div id="timelinediv" class="l-card-3__col-1">
+                          <div id="timelinediv" class="l-card-3__date-1">
+                            <p id="timelineptag" class="m-card-3__date-1-desc">
+                              Starts On
                             </p>
-                            <p id="timelineptag" class="m-card-3__month">
-                              {dat.substring(4, 7)}
-                            </p>
-                            <p id="timelineptag" class="m-card-3__month">
-                              {dat.substring(11, 15)}
+                            <div id="timelinediv" class="l-card-3__date-1-text">
+                              <p id="timelineptag" class="m-card-3__day">
+                                {dat.substring(8, 10)}
+                              </p>
+                              <p id="timelineptag" class="m-card-3__month">
+                                {dat.substring(4, 7)}
+                              </p>
+                              <p id="timelineptag" class="m-card-3__month">
+                                {dat.substring(11, 15)}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="timelinediv" class="l-card-3__col-2">
+                          <div id="timelinediv" class="l-card-3__info">
+                            <h3 id="timelineh3" class="m-card-3__head">
+                              {shre.companyname}
+                            </h3>
+                            <p id="timelineptag" class="m-card-3__desc">
+                              <span class="m-card-3__desc-type">
+                                Job:{shre.job}
+                              </span>
+                              |
+                              <span class="m-card-3__time-clock">
+                                <i class="i-clock-grey l-margin-right-8"></i>
+                                CTC:
+                                {shre.ctc}
+                              </span>
                             </p>
                           </div>
                         </div>
-                      </div>
-                      <div id="timelinediv" class="l-card-3__col-2">
-                        <div id="timelinediv" class="l-card-3__info">
-                          <h3 id="timelineh3" class="m-card-3__head">
-                            {shre.companyname}
-                          </h3>
-                          <p id="timelineptag" class="m-card-3__desc">
-                            <span class="m-card-3__desc-type">
-                              Job:{shre.job}
-                            </span>
-                            |
-                            <span class="m-card-3__time-clock">
-                              <i class="i-clock-grey l-margin-right-8"></i>CTC:
-                              {shre.ctc}
-                            </span>
-                          </p>
+                        <div id="timelinediv" class="l-card-3__col-3">
+                          <div id="timelinediv" class="l-card-3__dtl-btn">
+                            <a
+                              id="timelineatag"
+                              href="#"
+                              class="m-card-3__dtl-btn"
+                              target="_blank"
+                            >
+                              {" "}
+                              Set Reminder<i class="i-arrow-no-tail-blue"></i>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                      <div id="timelinediv" class="l-card-3__col-3">
-                        <div id="timelinediv" class="l-card-3__dtl-btn">
-                          <a
-                            id="timelineatag"
-                            href="#"
-                            class="m-card-3__dtl-btn"
-                            target="_blank"
-                          >
-                            {" "}
-                            Set Reminder<i class="i-arrow-no-tail-blue"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
           <div className="mission">
             <h3>Placement Graphs</h3>
             <Graphs />
@@ -364,7 +404,6 @@ const Home = () => {
     <div>
       <Header />
       <VerticalHEader />
-
       <AboutHome />
       <Footer />
     </div>

@@ -6,6 +6,7 @@ import Companies from "../assets/img/companies.jpg";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { useState } from "react";
+import Footer from "../components/Footer";
 
 // import Footer from "../components/Footer";
 
@@ -70,7 +71,7 @@ const Placement = () => {
     }
 
     return (
-      <div className="d-flex">
+      <div className="d-block d-lg-flex">
         <div className="px-3" style={{ width: "40%" }}>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum rem
@@ -99,7 +100,7 @@ const Placement = () => {
     return (
       <div>
         <div className="vision-desc py-5">
-          <img src={Companies} alt="" />
+          {/* <img src={Companies} alt="" /> */}
         </div>
         <div className="mission">
           <h3>Placement Statistics</h3>
@@ -111,7 +112,7 @@ const Placement = () => {
 
   const AboutPlacement = () => {
     return (
-      <div className="page-wrapper">
+      <div className="page-wrapper position-relative">
         <div className="description">
           <NavigationLink />
           <div className="title-wrapper">
@@ -169,6 +170,7 @@ const Placement = () => {
       <Header />
       <VerticalHEader />
       <AboutPlacement />
+      <Footer />
     </div>
   );
 };

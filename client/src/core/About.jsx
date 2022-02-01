@@ -4,6 +4,7 @@ import NavigationLink from "../components/NavigationLink";
 import VerticalHeader from "../components/VerticalHeader";
 import "../assets/css/Dump.css";
 import ImgPrincipal from "../assets/img/principal.jpg";
+import Footer from "../components/Footer";
 // import Footer from "../components/Footer";
 
 const About = () => {
@@ -51,7 +52,7 @@ const About = () => {
 
   const AboutList = () => {
     return (
-      <div className="page-wrapper">
+      <div className="page-wrapper position-relative">
         <div className="description">
           <NavigationLink />
           <div className="title-wrapper">
@@ -80,6 +81,7 @@ const About = () => {
       <Header />
       <VerticalHeader />
       <AboutList />
+      <Footer />
     </div>
   );
 };

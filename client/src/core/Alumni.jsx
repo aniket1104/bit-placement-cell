@@ -167,11 +167,6 @@ const Alumni = () => {
         </div>
         <div className="body-title">
           <h3>Alumni Feedback</h3>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
           <AlumniFeedback />
         </div>
       </div>
