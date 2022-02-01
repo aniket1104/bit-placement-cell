@@ -16,7 +16,7 @@ const header = () => {
           </div>
         </div>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -24,7 +24,7 @@ const header = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse items" id="navbarNav">
           <ul className="navbar-nav">
@@ -72,7 +72,7 @@ const header = () => {
             </Link>
             <div className="login d-flex d-md-none">
               <Link to="/login">
-                <button type="button" class="btn btn-dark login-btn">
+                <button type="button" className="btn btn-dark login-btn">
                   Login
                 </button>
               </Link>
@@ -81,7 +81,7 @@ const header = () => {
         </div>
         <div className="login d-none d-md-flex">
           <Link to="/login">
-            <button type="button" class="btn btn-dark login-btn">
+            <button type="button" className="btn btn-dark login-btn">
               Login
             </button>
           </Link>

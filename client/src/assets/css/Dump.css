@@ -2,6 +2,7 @@
   display: flex;
   position: relative;
   margin-left: 100px;
+  border-left: 1px solid rgb(209, 209, 209);
   /* flex-direction: row; */
   /* height: 80vh; */
 }

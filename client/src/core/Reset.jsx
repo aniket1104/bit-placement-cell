@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import "../assets/css/Login.css";
 //import '../App.css';
+import { Link } from "react-router-dom";
 
 const url = "http://localhost:8000";
 const Reset = () => {
@@ -22,6 +23,9 @@ const Reset = () => {
         data: { USN: USN },
       });
       console.log(res);
+      // setTimeout(() => {
+
+      // }, 3000);
       navigate("/login");
     } catch (error) {
       console.log("error while getting data", error);
@@ -44,6 +48,16 @@ const Reset = () => {
                   <div class="card-3d-wrap mx-auto">
                     <div class="card-3d-wrapper">
                       <div class="card-front">
+                        <div>
+                          <Link to="/login">
+                            <h3 className="fs-4 my-3 mx-4 d-flex justify-content-start">
+                              <i
+                                class="fas fa-arrow-left"
+                                style={{ color: "white" }}
+                              ></i>
+                            </h3>
+                          </Link>
+                        </div>
                         <div class="center-wrap">
                           <div id="login_section" class="section text-center">
                             <h4 id="login_h4" class="mb-4 pb-3">
