@@ -44,7 +44,7 @@ useEffect(()=>{
    
    else{
      if(!window.location.pathname.startsWith('/reset')){
-      navigate('/login')
+     navigate('/login')
      }
      
    }

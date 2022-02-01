@@ -250,7 +250,14 @@ export const Viewadmin = async(req,res)=>{
     }
 }
 
-
+export const Upcoming=async(req,res)=>{
+    company.find({}).then(shre=>{
+        res.json(shre)
+        console.log(shre)
+    }).catch(err=>{
+        console.log(err)
+    })
+}
 
 
 
@@ -500,6 +507,9 @@ export const RemComp=async(req,res)=>{
         const{companyname,job,ctc,date}=req.body;
         company.findOneAndDelete({companyname,job,ctc,date}).then(shre=>{
             
+            if(!shre){
+                return res.json({error:"No such company input"});
+            }
                 res.status(200).json({message:"Deleted successfully"});
             
         })

@@ -7,12 +7,6 @@ import { useEffect, useState, useReducer } from "react";
 import { userContext } from "../../App";
 import Cookies from "universal-cookie";
 
-
-
-
-
-
-
 const Student = () => {
   const PF = "http://localhost:8000/images/";
   const { state, dispatch } = useContext(userContext);
@@ -23,6 +17,9 @@ const Student = () => {
   const cookies = new Cookies();
 
   useEffect(() => {
+    if (typeof cookies.get("user") === "undefined") {
+      return navigate("/admin");
+    }
     const Fetchdata = async () => {
       let posts = await Viewstudent();
       console.log(posts[0]);
@@ -31,26 +28,9 @@ const Student = () => {
     Fetchdata();
   }, []);
 
-    
-
-
-
-
-
-
-     return(
-         <>
-
-
+  return (
+    <>
       <StudentHeader />
-
-
-   
-
-
-
-
-
       <div className="container-fluid" id="student-body">
         <div className="row">
           <div className="col-xl-3">
@@ -63,12 +43,11 @@ const Student = () => {
                   {" "}
                   {/* <button className="btn btn-secondary" id="btnprofile">
                     {" "} */}
-                    <img
-                   className=" rounded-circle " 
-                      id="profimage"
-                      src={(PF + post.photo) || "https://i.imgur.com/wvxPV9S.png"}
-                      
-                    />
+                  <img
+                    className=" rounded-circle "
+                    id="profimage"
+                    src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
+                  />
                   {/* </button>{" "} */}
                   <span className="name mt-3">
                     <span>{post.firstname} </span> <span>{post.surname}</span>
@@ -166,9 +145,7 @@ const Student = () => {
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold">EMAIL -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.email}
-                      </span>
+                      <span className="fw-bold">{post.email}</span>
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold text-uppercase">

@@ -19,7 +19,7 @@ const Search = () => {
            url:`${url}/search/${srch}`,
              headers:{
                  "Content-Type":"application/json",
-                 "Authorization":"Bearer "+localStorage.getItem('jwt')
+                 
              },
          }) //this form helps to parse into the data's json part
          .then(shre=>{
