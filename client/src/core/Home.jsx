@@ -18,120 +18,133 @@ const Home = () => {
   document.title = "Home";
 
   const AboutHome = () => {
+    // const FooterDown = () => {
+    //   return (
+    //     <div>
+    //       <Footer />
+    //     </div>
+    //   );
+    // };
+
     const CompanyCards = () => {
       return (
-        <section class="light">
-          <div class="container py-2">
-            <article class="postcard light blue">
-              <a class="postcard__img_link" href="#">
-                <img
-                  class="postcard__img"
-                  src="https://picsum.photos/1000/1000"
-                  alt="Image Title"
-                />
-              </a>
-              <div class="postcard__text t-dark">
-                <h1 class="postcard__title blue">
-                  <a href="#">Amazon</a>
-                </h1>
-                <div class="postcard__subtitle small">
-                  <p>Software Development Engineer</p>
-                </div>
-                <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eligendi, fugiat asperiores inventore beatae accusamus odit
-                  minima enim, commodi quia, doloribus eius! Ducimus nemo
-                  accusantium maiores velit corrupti tempora reiciendis
-                  molestiae repellat vero. Eveniet ipsam adipisci illo iusto
-                  quibusdam, sunt neque nulla unde ipsum dolores nobis enim
-                  quidem excepturi, illum quos!
-                </div>
+        <>
+          <div>
+            <section class="light">
+              <div class="container py-2">
+                <article class="postcard light blue">
+                  <a class="postcard__img_link" href="#">
+                    <img
+                      class="postcard__img"
+                      src="https://picsum.photos/1000/1000"
+                      alt="Image Title"
+                    />
+                  </a>
+                  <div class="postcard__text t-dark">
+                    <h1 class="postcard__title blue">
+                      <a href="#">Amazon</a>
+                    </h1>
+                    <div class="postcard__subtitle small">
+                      <p>Software Development Engineer</p>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eligendi, fugiat asperiores inventore beatae accusamus
+                      odit minima enim, commodi quia, doloribus eius! Ducimus
+                      nemo accusantium maiores velit corrupti tempora reiciendis
+                      molestiae repellat vero. Eveniet ipsam adipisci illo iusto
+                      quibusdam, sunt neque nulla unde ipsum dolores nobis enim
+                      quidem excepturi, illum quos!
+                    </div>
+                  </div>
+                </article>
+                <article class="postcard light red">
+                  <a class="postcard__img_link" href="#">
+                    <img
+                      class="postcard__img"
+                      src="https://picsum.photos/501/500"
+                      alt="Image Title"
+                    />
+                  </a>
+                  <div class="postcard__text t-dark">
+                    <h1 class="postcard__title red">
+                      <a href="#">Adobe</a>
+                    </h1>
+                    <div class="postcard__subtitle small">
+                      <p>Software Development Engineer</p>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eligendi, fugiat asperiores inventore beatae accusamus
+                      odit minima enim, commodi quia, doloribus eius! Ducimus
+                      nemo accusantium maiores velit corrupti tempora reiciendis
+                      molestiae repellat vero. Eveniet ipsam adipisci illo iusto
+                      quibusdam, sunt neque nulla unde ipsum dolores nobis enim
+                      quidem excepturi, illum quos!
+                    </div>
+                  </div>
+                </article>
+                <article class="postcard light green">
+                  <a class="postcard__img_link" href="#">
+                    <img
+                      class="postcard__img"
+                      src="https://picsum.photos/500/501"
+                      alt="Image Title"
+                    />
+                  </a>
+                  <div class="postcard__text t-dark">
+                    <h1 class="postcard__title green">
+                      <a href="#">J.P. Morgan</a>
+                    </h1>
+                    <div class="postcard__subtitle small">
+                      <p>Software Development Engineer</p>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eligendi, fugiat asperiores inventore beatae accusamus
+                      odit minima enim, commodi quia, doloribus eius! Ducimus
+                      nemo accusantium maiores velit corrupti tempora reiciendis
+                      molestiae repellat vero. Eveniet ipsam adipisci illo iusto
+                      quibusdam, sunt neque nulla unde ipsum dolores nobis enim
+                      quidem excepturi, illum quos!
+                    </div>
+                  </div>
+                </article>
+                <article class="postcard light yellow">
+                  <a class="postcard__img_link" href="#">
+                    <img
+                      class="postcard__img"
+                      src="https://picsum.photos/501/501"
+                      alt="Image Title"
+                    />
+                  </a>
+                  <div class="postcard__text t-dark">
+                    <h1 class="postcard__title yellow">
+                      <a href="#">Oracle</a>
+                    </h1>
+                    <div class="postcard__subtitle small">
+                      <p>Software Development Engineer</p>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Eligendi, fugiat asperiores inventore beatae accusamus
+                      odit minima enim, commodi quia, doloribus eius! Ducimus
+                      nemo accusantium maiores velit corrupti tempora reiciendis
+                      molestiae repellat vero. Eveniet ipsam adipisci illo iusto
+                      quibusdam, sunt neque nulla unde ipsum dolores nobis enim
+                      quidem excepturi, illum quos!
+                    </div>
+                  </div>
+                </article>
               </div>
-            </article>
-            <article class="postcard light red">
-              <a class="postcard__img_link" href="#">
-                <img
-                  class="postcard__img"
-                  src="https://picsum.photos/501/500"
-                  alt="Image Title"
-                />
-              </a>
-              <div class="postcard__text t-dark">
-                <h1 class="postcard__title red">
-                  <a href="#">Adobe</a>
-                </h1>
-                <div class="postcard__subtitle small">
-                  <p>Software Development Engineer</p>
-                </div>
-                <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eligendi, fugiat asperiores inventore beatae accusamus odit
-                  minima enim, commodi quia, doloribus eius! Ducimus nemo
-                  accusantium maiores velit corrupti tempora reiciendis
-                  molestiae repellat vero. Eveniet ipsam adipisci illo iusto
-                  quibusdam, sunt neque nulla unde ipsum dolores nobis enim
-                  quidem excepturi, illum quos!
-                </div>
-              </div>
-            </article>
-            <article class="postcard light green">
-              <a class="postcard__img_link" href="#">
-                <img
-                  class="postcard__img"
-                  src="https://picsum.photos/500/501"
-                  alt="Image Title"
-                />
-              </a>
-              <div class="postcard__text t-dark">
-                <h1 class="postcard__title green">
-                  <a href="#">J.P. Morgan</a>
-                </h1>
-                <div class="postcard__subtitle small">
-                  <p>Software Development Engineer</p>
-                </div>
-                <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eligendi, fugiat asperiores inventore beatae accusamus odit
-                  minima enim, commodi quia, doloribus eius! Ducimus nemo
-                  accusantium maiores velit corrupti tempora reiciendis
-                  molestiae repellat vero. Eveniet ipsam adipisci illo iusto
-                  quibusdam, sunt neque nulla unde ipsum dolores nobis enim
-                  quidem excepturi, illum quos!
-                </div>
-              </div>
-            </article>
-            <article class="postcard light yellow">
-              <a class="postcard__img_link" href="#">
-                <img
-                  class="postcard__img"
-                  src="https://picsum.photos/501/501"
-                  alt="Image Title"
-                />
-              </a>
-              <div class="postcard__text t-dark">
-                <h1 class="postcard__title yellow">
-                  <a href="#">Oracle</a>
-                </h1>
-                <div class="postcard__subtitle small">
-                  <p>Software Development Engineer</p>
-                </div>
-                <div class="postcard__bar"></div>
-                <div class="postcard__preview-txt">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Eligendi, fugiat asperiores inventore beatae accusamus odit
-                  minima enim, commodi quia, doloribus eius! Ducimus nemo
-                  accusantium maiores velit corrupti tempora reiciendis
-                  molestiae repellat vero. Eveniet ipsam adipisci illo iusto
-                  quibusdam, sunt neque nulla unde ipsum dolores nobis enim
-                  quidem excepturi, illum quos!
-                </div>
-              </div>
-            </article>
+            </section>
+            {/* <FooterDown /> */}
           </div>
-        </section>
+        </>
       );
     };
 
@@ -251,7 +264,7 @@ const Home = () => {
     };
 
     return (
-      <div className="page-wrapper">
+      <div className="page-wrapper position-relative">
         <div className="description">
           <div className="title-wrapper">
             <div className="title-desc">
@@ -278,7 +291,7 @@ const Home = () => {
       <Header />
       <VerticalHEader />
       <AboutHome />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

@@ -117,7 +117,7 @@ const Placement = () => {
           <div className="title-wrapper">
             <div className="title-desc">
               <p>Placement Process in BIT...</p>
-              <ol type="1">
+              <ol type="1" className="py-2">
                 <li>
                   Every year the enrollment process for placements begins when
                   students come to pre final year.

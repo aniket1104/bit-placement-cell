@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import VerticalHeader from "../components/VerticalHeader";
 import NavigationLink from "../components/NavigationLink";
 import "../assets/css/Alumni.css";
+// import "../assets/css/VerticalHeader.css";
 import { Link } from "react-router-dom";
 
 const Alumni = () => {
@@ -21,29 +22,39 @@ const Alumni = () => {
     };
 
     return (
-      <div className="wrap-feedback">
-        <article className="review">
-          <div className="desc-container">
-            <h3 className="author">{Review.name}</h3>
-            <h3 className="branch">{Review.branch}</h3>
-            <h3 className="job">{Review.job}</h3>
-            <p className="info">{Review.text}</p>
-          </div>
-          <div className="img-container">
-            <img src={Review.image} alt={Review.name} className="person-img" />
-          </div>
-        </article>
-        <article className="review">
-          <div className="desc-container">
-            <h3 className="author">{Review.name}</h3>
-            <h3 className="branch">{Review.branch}</h3>
-            <h3 className="job">{Review.job}</h3>
-            <p className="info">{Review.text}</p>
-          </div>
-          <div className="img-container">
-            <img src={Review.image} alt={Review.name} className="person-img" />
-          </div>
-        </article>
+      <div>
+        <div className="wrap-feedback">
+          <article className="review">
+            <div className="desc-container">
+              <h3 className="author">{Review.name}</h3>
+              <h3 className="branch">{Review.branch}</h3>
+              <h3 className="job">{Review.job}</h3>
+              <p className="info">{Review.text}</p>
+            </div>
+            <div className="img-container">
+              <img
+                src={Review.image}
+                alt={Review.name}
+                className="person-img"
+              />
+            </div>
+          </article>
+          <article className="review">
+            <div className="desc-container">
+              <h3 className="author">{Review.name}</h3>
+              <h3 className="branch">{Review.branch}</h3>
+              <h3 className="job">{Review.job}</h3>
+              <p className="info">{Review.text}</p>
+            </div>
+            <div className="img-container">
+              <img
+                src={Review.image}
+                alt={Review.name}
+                className="person-img"
+              />
+            </div>
+          </article>
+        </div>
       </div>
     );
   };
@@ -65,7 +76,7 @@ const Alumni = () => {
         </div>
         <div className="body-title">
           <h3>Alumni Feedback</h3>
-          <AlumniFeedback /> 
+          <AlumniFeedback />
         </div>
       </div>
     );
@@ -73,9 +84,9 @@ const Alumni = () => {
 
   const AlumniDsc = () => {
     return (
-      <div className="d-flex">
+      <div>
         <VerticalHeader />
-        <div className="page-wrapper">
+        <div className="page-wrapper position-relative">
           <div className="description">
             <NavigationLink />
             <AlumniInfo />
@@ -89,6 +100,7 @@ const Alumni = () => {
     <div>
       <Header />
       <AlumniDsc />
+      <Footer />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 .vertical-header {
   width: 6%;
-  border-right: 1px solid rgb(209, 209, 209);
-  min-height: 100vh;
+  /* height: 200vh; */
 }
 
 .vertical-header-wrapper {
