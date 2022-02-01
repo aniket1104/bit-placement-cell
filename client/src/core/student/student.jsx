@@ -92,11 +92,7 @@ const Student = () => {
                   <div className="text mt-3">
                     {" "}
                     <span id="spanpro">
-                      Eleanor Pena is a creator of minimalistic x bold graphics
-                      and digital artwork.
-                      <br />
-                      <br /> Artist/ Creative Director by Day #NFT minting@ with
-                      FND night.{" "}
+                    I aim to attain an engaging internship position in various fields. I hope to give direction to my passion and hardwork tobecome an asset to the organisation.
                     </span>{" "}
                   </div>
                   <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">

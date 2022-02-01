@@ -6,6 +6,7 @@ import { Viewstudent } from "../../services/api";
 import { useEffect,useState,useReducer } from 'react';
 import { userContext } from '../../App';
 import Cookies from 'universal-cookie';
+import "../../assets/css/student.css";
 
 
 const Students = () => {
@@ -30,7 +31,7 @@ useEffect(()=>{
      }
      Fetchdata();
 },[])
-
+const PF = "http://localhost:8000/images/";
 
     return (
         <>
@@ -48,11 +49,23 @@ useEffect(()=>{
   
       <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
       <div className="card p-4 blackpro" id="profilecrd">
-        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button className="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span className="name mt-3"><span>{post.firstname} </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
+        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> 
+        
+          
+        <img
+                    className=" rounded-circle "
+                    id="profimage"
+                    src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
+                  />
+           
+           
+            <span className="name mt-3"><span>{post.firstname} 
+           
+           </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
               {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
               
                           
-              <div className="text mt-3"> <span id='spanpro'>Eleanor Pena is a creator of minimalistic x bold graphics and digital artwork.<br/><br/> Artist/ Creative Director by Day #NFT minting@ with FND night. </span> </div>
+              <div className="text mt-3"> <span id='spanpro'>I aim to attain an engaging internship position in various fields. I hope to give direction to my passion and hardwork tobecome an asset to the organisation. </span> </div>
               <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center "> 
                   <span className="lightic grow"><a href={post.linkgithub}><i className="fa fa-github fa-3x lightic"></i></a></span> 
                   <span className="lightic grow"><a href={post.linklinkedin}><i className="fa fa-linkedin fa-3x lightic"></i></a></span> 
