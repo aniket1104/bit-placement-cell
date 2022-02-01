@@ -6,6 +6,7 @@ import { Viewstudent } from "../../services/api";
 import { useEffect,useState,useReducer } from 'react';
 import { userContext } from '../../App';
 import Cookies from 'universal-cookie';
+import "../../assets/css/student.css";
 
 
 const Students = () => {
@@ -30,7 +31,7 @@ useEffect(()=>{
      }
      Fetchdata();
 },[])
-
+const PF = "http://localhost:8000/images/";
 
     return (
         <>
@@ -48,7 +49,19 @@ useEffect(()=>{
   
       <div className="container  mt-4 mb-4 p-3 d-flex justify-content-center">
       <div className="card p-4 blackpro" id="profilecrd">
-        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> <button className="btn btn-secondary" id='btnprofile'> <img id='profimage' src="https://i.imgur.com/wvxPV9S.png" height="100" width="100" /></button> <span className="name mt-3"><span>{post.firstname} </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
+        <div className=" image d-flex flex-column justify-content-center align-items-center" id="imgprof"> 
+        
+          
+        <img
+                    className=" rounded-circle "
+                    id="profimage"
+                    src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
+                  />
+           
+           
+            <span className="name mt-3"><span>{post.firstname} 
+           
+           </span> <span>{post.surname}</span></span> <span className="idd">{post.email}</span>
               {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
               
                           
