@@ -9,7 +9,7 @@ export const dangertoast = (err) =>
   toast.error(err, {
     theme: "dark",
     position: "top-center",
-    autoClose: 3000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -21,7 +21,7 @@ export const warningtoast = (err) =>
   toast.warn(err, {
     theme: "dark",
     position: "top-center",
-    autoClose: 3000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -33,7 +33,7 @@ export const successtoast = (err) =>
   toast.success(err, {
     theme: "dark",
     position: "top-center",
-    autoClose: 3000,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,

@@ -25,7 +25,7 @@ ChartJS.register(ArcElement, Tooltip);
 
 const PieChart = () => {
   var data = {
-    labels: ["purple", "Orange"],
+    labels: ["Not Placed", "Placed"],
     datasets: [
       {
         label: "# of Votes",
