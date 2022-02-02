@@ -37,7 +37,7 @@ const Student = () => {
             <div className="container  mt-4 mb-4 p-2 d-flex justify-content-center">
               <div className="card p-4 blackpro" id="profilecrd">
                 <div
-                  className="  d-flex flex-column justify-content-center align-items-center"
+                  className="image  d-flex flex-column justify-content-center align-items-center"
                   id="imgprof"
                 >
                   {" "}
@@ -68,7 +68,7 @@ const Student = () => {
                   <div className="text mt-3">
                     {" "}
                     <span id="spanpro">
-                    I aim to attain an engaging internship position in various fields. I hope to give direction to my passion and hardwork tobecome an asset to the organisation.
+                    I aim to attain an engaging internship position in various fields. I hope to give direction to my passion and hardwork tobecome an asset to the organisation.  
                     </span>{" "}
                   </div>
                   <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
