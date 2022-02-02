@@ -271,6 +271,8 @@ const Admin = () => {
       })
     }
 
+   
+
     const remove=async()=>{
       await axios.post(`${url}/removecompany`,comp)
       .then((shre)=>{
@@ -641,6 +643,7 @@ const Admin = () => {
 
       
          </div>
+        
     </div>
   );
 };

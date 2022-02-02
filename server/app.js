@@ -5,7 +5,12 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import multer from 'multer';
-import path from 'path'
+import path from 'path';
+import DiscordJS,{Intents} from 'discord.js';
+import dotenv from 'dotenv';
+import company from '../server/schema/Company.js';
+
+dotenv.config()
 
 
 
@@ -76,11 +81,69 @@ app.post("/update/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
 
+const FetchData=()=>{
+   
+  const list =[];
+  const all=[];
+  let c=0;
+  company.find().then(shre=>{
+    shre.map((data,index)=>{
+      all[index]=data;
+      if(new Date(data.date).toDateString()=== new Date(Date.now()).toDateString()){
+        //console.log(data)
+        list[c++]=data;
+       // console.log(list[c-1]);
+      }
+    })
+  }).catch(err=>{
+    console.log(err)
+  })
+  // console.log(list)
+  
+       const client=new DiscordJS.Client({
+           intents:[
+               Intents.FLAGS.GUILDS,
+               Intents.FLAGS.GUILD_MESSAGES
+           ]
+       })
+       client.on('ready',()=>{
+           console.log("bot is ready")
+           
+       })
+
+       client.on('messageCreate',(message)=>{
+        if(message.content==='!today_schedule'){
+          list.map((data,index)=>{
+            var dat = new Date(data.date).toDateString();
+            message.reply({
+              content:`${++index}
+                      Hey there!
+                      On ${dat}, 
+                      ${data.companyname} company is coming for the ${data.job} role offering ${data.ctc}`
+          })
+          })
+            
+        }
+        if(message.content==='!allday_schedule'){
+          all.map((data,index)=>{
+            var dat = new Date(data.date).toDateString();
+            message.reply({
+              content:`${++index}
+                      Hey there!
+                      On ${dat}, 
+                      ${data.companyname} company is coming for the ${data.job} role offering ${data.ctc}`
+          })
+          })
+            
+        }
+       })
+
+    
+       client.login(process.env.TOKEN)
+}
 
 
-
-
-
+FetchData();
 
 
 
