@@ -7,6 +7,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { useState } from "react";
 import "../assets/css/Mission.css";
+import Footer from "../components/Footer";
 
 // import Footer from "../components/Footer";
 
@@ -170,6 +171,7 @@ const Placement = () => {
       <Header />
       <VerticalHEader />
       <AboutPlacement />
+      <Footer />
     </div>
   );
 };

@@ -83,3 +83,9 @@
 }
 
 /* Mission */
+
+@media only screen and (max-width: 992px) {
+  .title-desc {
+    width: 100%;
+  }
+}

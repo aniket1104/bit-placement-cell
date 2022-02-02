@@ -70,7 +70,7 @@ const header = () => {
                 </a>
               </li>
             </Link>
-            <div className="login d-flex d-md-none">
+            <div className="login d-flex d-lg-none justify-content-center">
               <Link to="/login">
                 <button type="button" className="btn btn-dark login-btn">
                   Login
@@ -79,7 +79,7 @@ const header = () => {
             </div>
           </ul>
         </div>
-        <div className="login d-none d-md-flex">
+        <div className="login d-none d-lg-flex">
           <Link to="/login">
             <button type="button" className="btn btn-dark login-btn">
               Login

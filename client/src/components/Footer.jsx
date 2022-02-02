@@ -16,7 +16,7 @@ const Footer = () => {
                 <li>
                   <div className="d-flex">
                     <a href="#">
-                      <i className="bi bi-geo-alt-fill"></i>
+                      <i class="fas fa-map-marker-alt"></i>
                     </a>
                     <p>
                       Bangalore Institute of Technology, <br />
@@ -27,7 +27,7 @@ const Footer = () => {
                 <li>
                   <div className="d-flex">
                     <a href="#">
-                      <i className="bi bi-telephone"></i>
+                      <i class="fas fa-phone-alt"></i>
                     </a>
                     <p style={{ paddingTop: "18px" }}>+91 01234-56789</p>
                   </div>
@@ -35,9 +35,11 @@ const Footer = () => {
                 <li>
                   <div className="d-flex">
                     <a href="#">
-                      <i className="bi bi-envelope"></i>
+                      <i class="far fa-envelope"></i>
                     </a>
-                    <p style={{ paddingTop: "18px" }}>+91 01234-56789</p>
+                    <p style={{ paddingTop: "18px" }}>
+                      principalbit4@gmail.com
+                    </p>
                   </div>
                 </li>
               </ul>
@@ -90,22 +92,30 @@ const Footer = () => {
           <div className="d-flex justify-content-center">
             <ul className="social-icons">
               <li>
-                <a className="facebook" href="#">
+                <a
+                  className="facebook"
+                  href="https://www.facebook.com/bitsince1979"
+                  target="_blank"
+                >
                   <i className="fa fa-facebook"></i>
                 </a>
               </li>
               <li>
-                <a className="twitter" href="#">
+                <a
+                  className="twitter"
+                  href="https://twitter.com/bitsince1979"
+                  target="_blank"
+                >
                   <i className="fa fa-twitter"></i>
                 </a>
               </li>
               <li>
-                <a className="dribbble" href="#">
+                <a className="dribbble" href="#" target="_blank">
                   <i className="fa fa-dribbble"></i>
                 </a>
               </li>
               <li>
-                <a className="linkedin" href="#">
+                <a className="linkedin" href="#" target="_blank">
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>

@@ -258,16 +258,54 @@ const Home = () => {
                   },
                 }}
               >
-                <img src={Student1} alt="" />
-                <img src={Student3} alt="" />
-                <img src={Student2} alt="" />
+                <img
+                  src={Student1}
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    width: "1198px",
+                    height: "667px",
+                  }}
+                />
+                <img
+                  src={Student3}
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    width: "1198px",
+                    height: "667px",
+                  }}
+                />
+                <img
+                  src={Student2}
+                  alt=""
+                  style={{
+                    objectFit: "cover",
+                    width: "1198px",
+                    height: "667px",
+                  }}
+                />
               </Carousel>
             </div>
           </div>
-          <section class="l-section-1 timelinesection" id="upcoming-events">
-            <div id="timelinediv" class="l-row l-row--1024">
-              <div id="timelinediv" class="l-row--800 l-margin-bottom-64">
-                <hr id="timelinehr" class="l-card-divider l-margin-top-0" />
+          <div className="mission">
+            <h3>Upcoming Events</h3>
+            <section
+              class="l-section-1 timelinesection"
+              id="upcoming-events"
+              style={{ padding: "0" }}
+            >
+              <div
+                id="timelinediv"
+                class="l-row l-row--1024"
+                style={{ margin: "0" }}
+              >
+                <div
+                  id="timelinediv"
+                  class="l-row--800 l-margin-bottom-64"
+                  style={{ margin: "0" }}
+                >
+                  <hr id="timelinehr" class="l-card-divider l-margin-top-0" />
 
                 {list.map((shre) => {
                   var dat = new Date(shre.date).toDateString();
@@ -325,12 +363,13 @@ const Home = () => {
                           </a>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
           <div className="mission">
             <h3>Placement Graphs</h3>
             <Graphs />
@@ -366,7 +405,6 @@ const Home = () => {
     <div>
       <Header />
       <VerticalHEader />
-
       <AboutHome />
       <Footer />
     </div>
