@@ -26,5 +26,6 @@ router.post('/excel',ExcelDownload);
 router.post('/createcompany',requireLogin2,Comp);
 router.post('/removecompany',requireLogin2,RemComp);
 router.post('/plac',requireLogin2,Plac);
-router.get('/upcoming',Upcoming)
+router.get('/upcoming',Upcoming);
+
 export default router;
