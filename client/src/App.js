@@ -43,7 +43,8 @@ useEffect(()=>{
    }
    
    else{
-     if(!window.location.pathname.startsWith('/reset')){
+     
+     if(window.location.pathname!=='/reset' && window.location.pathname!=='/' &&  window.location.pathname!=='/mission' && window.location.pathname!=='/placement' && window.location.pathname!=='/resources' && window.location.pathname!=='/alumni' && window.location.pathname!=='/about'){
      navigate('/login')
      }
      

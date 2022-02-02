@@ -495,9 +495,13 @@ export const Comp=async(req,res)=>{
                date
         })
         comp.save();
-       res.status(200).json({message:"Uploaded successfully"});
+     
+       
+
+       res.json({message:"Uploaded successfully"});
+       
     }catch(err){
-        res.status(500).json(err,{error:"Could not upload"});
+        res.json(err,{error:"Could not upload"});
     }
     
      
@@ -507,6 +511,7 @@ export const RemComp=async(req,res)=>{
         const{companyname,job,ctc,date}=req.body;
         company.findOneAndDelete({companyname,job,ctc,date}).then(shre=>{
             
+            console.log(shre)
             if(!shre){
                 return res.json({error:"No such company input"});
             }
