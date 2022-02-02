@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import VerticalHEader from "../components/VerticalHeader";
 import Footer from "../components/Footer";
 import "../assets/css/Home.css";
+import "../assets/css/Home3.css";
 import "../assets/css/home2.css";
 import "../assets/css/Cards.css";
 // import { userContext } from "../App";
@@ -220,11 +221,11 @@ const Home = () => {
       return (
         <div>
           <div className="py-5 vision-desc">
-            <div className="d-flex">
-              <div className="px-2" style={{ width: "50%" }}>
+            <div className="d-flex home_graph_div">
+              <div className="px-2 home_graph" style={{ width: "50%" }}>
                 <BarChart chartData={userData} />
               </div>
-              <div className="px-2" style={{ width: "50%" }}>
+              <div className="px-2 home_graph" style={{ width: "50%" }}>
                 <LineChart chartData={userData} />
               </div>
             </div>
@@ -306,63 +307,62 @@ const Home = () => {
                 >
                   <hr id="timelinehr" class="l-card-divider l-margin-top-0" />
 
-                  {list.map((shre) => {
-                    var dat = new Date(shre.date).toDateString();
-                    console.log(dat);
-                    return (
-                      <div
-                        id="timelinediv"
-                        class="l-card-3 m-other-event-card homeShadow"
-                      >
-                        <div id="timelinediv" class="l-card-3__col-1">
-                          <div id="timelinediv" class="l-card-3__date-1">
-                            <p id="timelineptag" class="m-card-3__date-1-desc">
-                              Starts On
+                {list.map((shre) => {
+                  var dat = new Date(shre.date).toDateString();
+                  console.log(dat);
+                  return (
+                    <div
+                      id="timelinediv"
+                      class="l-card-3 m-other-event-card homeShadow "
+                    >
+                      <div id="timelinediv" class="l-card-3__col-1 mc_timeline">
+                        <div id="timelinediv" class="l-card-3__date-1 ">
+                          <p id="timelineptag" class="m-card-3__date-1-desc">
+                            Starts On
+                          </p>
+                          <div id="timelinediv" class="l-card-3__date-1-text timeline_date">
+                            <p id="timelineptag" class="m-card-3__day">
+                              {dat.substring(8, 10)}
                             </p>
-                            <div id="timelinediv" class="l-card-3__date-1-text">
-                              <p id="timelineptag" class="m-card-3__day">
-                                {dat.substring(8, 10)}
-                              </p>
-                              <p id="timelineptag" class="m-card-3__month">
-                                {dat.substring(4, 7)}
-                              </p>
-                              <p id="timelineptag" class="m-card-3__month">
-                                {dat.substring(11, 15)}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="timelinediv" class="l-card-3__col-2">
-                          <div id="timelinediv" class="l-card-3__info">
-                            <h3 id="timelineh3" class="m-card-3__head">
-                              {shre.companyname}
-                            </h3>
-                            <p id="timelineptag" class="m-card-3__desc">
-                              <span class="m-card-3__desc-type">
-                                Job:{shre.job}
-                              </span>
-                              |
-                              <span class="m-card-3__time-clock">
-                                <i class="i-clock-grey l-margin-right-8"></i>
-                                CTC:
-                                {shre.ctc}
-                              </span>
+                            <p id="timelineptag" class="m-card-3__month timeline_month">
+                              {dat.substring(4, 7)}
                             </p>
+                            {/* <p id="timelineptag" class="m-card-3__month">
+                              {dat.substring(11, 15)}
+                            </p> */}
                           </div>
                         </div>
-                        <div id="timelinediv" class="l-card-3__col-3">
-                          <div id="timelinediv" class="l-card-3__dtl-btn">
-                            <a
-                              id="timelineatag"
-                              href="#"
-                              class="m-card-3__dtl-btn"
-                              target="_blank"
-                            >
-                              {" "}
-                              Set Reminder<i class="i-arrow-no-tail-blue"></i>
-                            </a>
-                          </div>
+                      </div>
+                      <div id="timelinediv" class="l-card-3__col-2">
+                        <div id="timelinediv" class="l-card-3__info">
+                          <h3 id="timelineh3" class="m-card-3__head">
+                            {shre.companyname}
+                          </h3>
+                          <p id="timelineptag" class="m-card-3__desc timeline_job">
+                            <span class="m-card-3__desc-type">
+                              Job:{shre.job}
+                            </span>
+                            |
+                            <span class="m-card-3__time-clock">
+                              <i class="i-clock-grey l-margin-right-8"></i>CTC:
+                              {shre.ctc}
+                            </span>
+                          </p>
                         </div>
+                      </div>
+                      <div id="timelinediv" class="l-card-3__col-3 timeline_btn">
+                        <div id="timelinediv" class="l-card-3__dtl-btn">
+                          <a
+                            id="timelineatag"
+                            href="#"
+                            class="m-card-3__dtl-btn"
+                            target="_blank"
+                          >
+                            {" "}
+                            Set Reminder<i class="i-arrow-no-tail-blue"></i>
+                          </a>
+                        </div>
+                      </div>
                       </div>
                     );
                   })}
@@ -379,10 +379,10 @@ const Home = () => {
     };
 
     return (
-      <div className="page-wrapper position-relative">
-        <div className="description">
+      <div className="page-wrapper position-relative home_page_wrapper">
+        <div className="description" id="home_desc">
           <div className="title-wrapper">
-            <div className="title-desc">
+            <div className="title-desc htitle-desc">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi ducimus non molestias debitis fuga, recusandae est

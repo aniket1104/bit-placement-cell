@@ -6,6 +6,7 @@ import "../assets/css/Dump.css";
 import ImgPrincipal from "../assets/img/principal.jpg";
 import Footer from "../components/Footer";
 // import Footer from "../components/Footer";
+import "../assets/css/Mission.css";
 
 const About = () => {
   document.title = "About";
@@ -52,8 +53,8 @@ const About = () => {
 
   const AboutList = () => {
     return (
-      <div className="page-wrapper position-relative">
-        <div className="description">
+      <div className="page-wrapper msn_pw">
+        <div className="description" id="msn_desc">
           <NavigationLink />
           <div className="title-wrapper">
             <div className="title-desc">

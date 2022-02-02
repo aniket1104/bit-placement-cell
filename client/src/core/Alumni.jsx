@@ -6,6 +6,7 @@ import NavigationLink from "../components/NavigationLink";
 import "../assets/css/Alumni.css";
 // import "../assets/css/VerticalHeader.css";
 import { Link } from "react-router-dom";
+import "../assets/css/Mission.css";
 
 const Alumni = () => {
   document.title = "Alumni";
@@ -177,8 +178,8 @@ const Alumni = () => {
     return (
       <div>
         <VerticalHeader />
-        <div className="page-wrapper position-relative">
-          <div className="description">
+        <div className="page-wrapper msn_pw position-relative">
+          <div className="description" id="msn_desc" >
             <NavigationLink />
             <AlumniInfo />
           </div>

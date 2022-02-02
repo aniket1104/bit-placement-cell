@@ -7,6 +7,9 @@ const Footer = () => {
       <div className="site-footer position-relative">
         <div className="container">
           <div className="d-flex justify-content-between">
+            {/* <div className="row"> */}
+           
+
             <div className="col-xs-6 col-md-3">
               <h6>Reach Us</h6>
               <ul className="reachUs">
@@ -69,7 +72,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="col-xs-6 col-md-3">
+            <div className="col-xs-6 col-md-12">
               <h6>Map</h6>
               <div className="d-flex justify-content-center">
                 {/* <iframe
@@ -82,6 +85,7 @@ const Footer = () => {
               ></iframe> */}
               </div>
             </div>
+            {/* </div> */}
           </div>
         </div>
         <div className="container">

@@ -4,6 +4,7 @@ import VerticalHEader from "../components/VerticalHeader";
 import NavigationLink from "../components/NavigationLink";
 // import Footer from "../components/Footer";
 import "../assets/css/Dump.css";
+import "../assets/css/Mission.css";
 import Footer from "../components/Footer";
 
 const Mission = () => {
@@ -67,8 +68,8 @@ const Mission = () => {
 
   const AboutMission = () => {
     return (
-      <div className="page-wrapper position-relative">
-        <div className="description">
+      <div className="page-wrapper msn_pw">
+        <div id="msn_desc" className="description ">
           <NavigationLink />
           <div className="title-wrapper">
             <div className="title-desc">
@@ -79,7 +80,7 @@ const Mission = () => {
                 and competent technocrats. Many milestones have been set by our
                 center.
               </p>
-              <p style={{ fontSize: "18px" }}>
+              <p id="msn_p" style={{ fontSize: "18px" }}>
                 To keep our students professionally updated to the unfolding
                 dynamic environment, our center offers apex quality training
                 services, many career guidance and development programmes on
