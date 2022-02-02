@@ -48,6 +48,7 @@ const Home = () => {
                   class="postcard__img"
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToFFn_7pkTLHFGafZPYHfTdTL2X1MQXqHlkw&usqp=CAU"
                   alt="Image Title"
+                  
                 />
               </a>
               <div class="postcard__text t-dark">

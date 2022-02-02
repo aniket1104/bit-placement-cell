@@ -24,8 +24,8 @@ const UpdateProfile = () => {
   //console.log(id);
 
   useEffect(() => {
-    if(typeof cookies.get("user")==="undefined"){
-      return navigate('/admin')
+    if (typeof cookies.get("user") === "undefined") {
+      return navigate("/admin");
     }
     const Fetchdata = async () => {
       let posts = await Viewstudent();
@@ -127,14 +127,15 @@ const UpdateProfile = () => {
                   {file && (
                     <img
                       className="rounded-circle mt-5"
-                      width="150px"
+                      style={{ height: "150px", width: "150px" }}
                       src={URL.createObjectURL(file)}
                       alt=""
                     />
                   )}
                   {!file && (
                     <img
-                      className=" rounded-circle "
+                      className=" rounded-circle"
+                      style={{ height: "150px", width: "150px" }}
                       id="upimage"
                       src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
                     />
@@ -155,7 +156,7 @@ const UpdateProfile = () => {
                       className="writeIcon fas fa-plus-circle"
                       style={{ paddingTop: "6px", paddingRight: "16px" }}
                     ></i>
-                    <p className="text-justify">click to add picture</p>
+                    <p className="text-justify"> Add/Change DP</p>
                   </div>
                 </label>
                 <input
@@ -247,7 +248,7 @@ const UpdateProfile = () => {
                     </select>
                   </div>
                   <div className="col-md-12">
-                    <label className="labels UP_labels"> Email</label>
+                    <label className="labels UP_labels">Email</label>
                     <input
                       onChange={(e) => handlechange(e)}
                       type="text"
@@ -258,9 +259,7 @@ const UpdateProfile = () => {
                     ></input>
                   </div>
                   <div className="col-md-12">
-                    <label className="labels UP_labels">
-                      class 12 percentage
-                    </label>
+                    <label className="labels UP_labels">Intermediate (%)</label>
                     <input
                       onChange={(e) => handlechange(e)}
                       type="text"
@@ -272,7 +271,7 @@ const UpdateProfile = () => {
                   </div>
                   <div className="col-md-12">
                     <label className="labels UP_labels">
-                      class 10 CGPA/Percentage{" "}
+                      Matriculation (CGPA/Percentage){" "}
                     </label>
                     <input
                       onChange={(e) => handlechange(e)}
@@ -284,7 +283,7 @@ const UpdateProfile = () => {
                     ></input>
                   </div>
                   <div className="col-md-12">
-                    <label className="labels UP_labels">Average cgpa</label>
+                    <label className="labels UP_labels">Average CGPA</label>
                     <input
                       onChange={(e) => handlechange(e)}
                       type="text"
@@ -306,7 +305,7 @@ const UpdateProfile = () => {
                     ></input>
                   </div>
                   <div className="col-md-12">
-                    <label className="labels UP_labels">No. of Backs</label>
+                    <label className="labels UP_labels">Backlogs</label>
                     <input
                       onChange={(e) => handlechange(e)}
                       type="number"
@@ -318,7 +317,7 @@ const UpdateProfile = () => {
                   </div>
                   <div className="col-md-12">
                     <label className="labels UP_labels">
-                      Link to your resume
+                      Link to your Resume
                     </label>
                     <input
                       onChange={(e) => handlechange(e)}
@@ -331,7 +330,7 @@ const UpdateProfile = () => {
                   </div>
                   <div className="col-md-12">
                     <label className="labels UP_labels">
-                      Link to your linkedin
+                      Link to your Linkedin
                     </label>
                     <input
                       onChange={(e) => handlechange(e)}
@@ -344,7 +343,7 @@ const UpdateProfile = () => {
                   </div>
                   <div className="col-md-12">
                     <label className="labels UP_labels">
-                      Link to your Git-Hub
+                      Link to your GitHub
                     </label>
                     <input
                       onChange={(e) => handlechange(e)}
@@ -401,9 +400,7 @@ const UpdateProfile = () => {
                   ></textarea>
                 </div>
                 <div className="col-md-12">
-                  <label className="labels UP_labels">
-                    PROJECTS ANS INTERNSHIPS
-                  </label>
+                  <label className="labels UP_labels">PROJECTS</label>
                   <textarea
                     onInput={(e) => handlechange(e)}
                     className="form-control up_textarea"
@@ -413,7 +410,7 @@ const UpdateProfile = () => {
                   ></textarea>
                 </div>
                 <div className="col-md-12">
-                  <label className="labels UP_labels">Others..</label>
+                  <label className="labels UP_labels">INTERNSHIPS</label>
                   <textarea
                     onInput={(e) => handlechange(e)}
                     className="form-control up_textarea"

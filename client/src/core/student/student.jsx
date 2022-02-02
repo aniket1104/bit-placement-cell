@@ -44,8 +44,9 @@ const Student = () => {
                   {/* <button className="btn btn-secondary" id="btnprofile">
                     {" "} */}
                   <img
-                    className=" rounded-circle "
+                    className=" rounded-circle"
                     id="profimage"
+                    style={{ height: "150px", width: "150px" }}
                     src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
                   />
                   {/* </button>{" "} */}
@@ -68,11 +69,9 @@ const Student = () => {
                   <div className="text mt-3">
                     {" "}
                     <span id="spanpro">
-                      Eleanor Pena is a creator of minimalistic x bold graphics
-                      and digital artwork.
-                      <br />
-                      <br /> Artist/ Creative Director by Day #NFT minting@ with
-                      FND night.{" "}
+                      I aim to attain an engaging internship position in various
+                      fields. I hope to give direction to my passion and
+                      hardwork to become an asset to the organisation.
                     </span>{" "}
                   </div>
                   <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
@@ -107,81 +106,82 @@ const Student = () => {
             <div className="col-12" id="det">
               <div className="card ml-4" id="card1">
                 <div className="card-header blackpro">
-                  <h1>My Profile</h1>
+                  <h1 style={{ fontWeight: "400" }}>My Profile</h1>
                 </div>
               </div>
             </div>
-
             <div className="col-12 mt-0" id="det1">
               <div className="card ml-4" id="card2">
                 <div className="card-body greypro">
                   <div className="row greypro">
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">NAME -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">NAME -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.firstname}
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.surname}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">USN -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">USN -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.USN}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">PHONE NO. -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">CONTACT -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.mobileno}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">BRANCH -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">BRANCH -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.branch}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">EMAIL -</span>{" "}
-                      <span className="fw-bold">{post.email}</span>
+                      <span className="fw-bold fs-5">EMAIL -</span>{" "}
+                      <span className="fw-normal fs-5">{post.email}</span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 12 MARKS -
+                      <span className="fw-bold fs-5 text-uppercase">
+                        INTERMEDIATE -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.class12marks}
+                      <span className="fw-normal fs-5 text-capitalize">
+                        {post.class12marks} %
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 10 MARKS -
+                      <span className="fw-bold fs-5 text-uppercase">
+                        MATRICULATION -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.class10marks}
+                      <span className="fw-normal fs-5 text-capitalize">
+                        {post.class10marks} CGPA
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
+                      <span className="fw-bold fs-5 text-uppercase">
                         Averagecgpa -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.averagecgpa}
+                      <span className="fw-normal fs-5 text-capitalize">
+                        {post.averagecgpa} CGPA
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        No. of backs -
+                      <span className="fw-bold fs-5 text-uppercase">
+                        BACKLOGS -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.noofbacks}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">Year gap -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5 text-uppercase">
+                        Year gap -
+                      </span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.educationalgap}
                       </span>
                     </div>
@@ -193,69 +193,75 @@ const Student = () => {
             <div className="col-12 mt-3">
               <div className="container-fluid px-4  mt-1 mb-1" id="details_st">
                 <div className="row">
-                  <div className="col-xl-4 mt-3 px-1">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          CLUBS INVOLVED <br />
-                        </h3>
+                  <div className="d-flex">
+                    <div className="col-xl-6 mt-3 px-1">
+                      <div className="card p-3 mb-2 h-100 greypro">
                         <div className="mt-1">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">
-                              {post.clubsinvolved}{" "}
-                            </span>{" "}
+                          <h3 className="heading">
+                            CLUBS INVOLVED <br />
+                          </h3>
+                          <div className="mt-1">
+                            <div className="mt-3">
+                              {" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.clubsinvolved}{" "}
+                              </span>{" "}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-xl-6 mt-3 px-1">
+                      <div className="card p-3 mb-2 h-100 greypro">
+                        <div className="mt-1">
+                          <h3 className="heading">
+                            CERTIFICATIONS
+                            <br />
+                          </h3>
+                          <div className="mt-1">
+                            <div className="mt-3">
+                              {" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.certifications}{" "}
+                              </span>{" "}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className="col-xl-4 mt-3 px-1">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          CERTIFICATIONS
-                          <br />
-                        </h3>
+                  <div className="d-flex">
+                    <div className="col-xl-6 mt-3 px-1">
+                      <div className="card p-3 mb-2 h-100 greypro">
                         <div className="mt-1">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">
-                              {post.certifications}{" "}
-                            </span>{" "}
+                          <h3 className="heading">
+                            PROJECTS <br />
+                          </h3>
+                          <div className="mt-1">
+                            <div className="mt-3">
+                              {" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.projects}{" "}
+                              </span>{" "}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="col-xl-4 mt-3 px-1">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          PROJECTS <br />
-                        </h3>
+                    <div className="col-xl-6 mt-3 px-1">
+                      <div className="card p-3 mb-2 h-100 greypro">
                         <div className="mt-1">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">{post.projects} </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-12 mt-3 mb-3 px-1">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          certifications <br />
-                        </h3>
-                        <div className="mt-1 ">
-                          <div className="mt-3">
-                            {" "}
-                            <span className="text1">{post.others} </span>{" "}
+                          <h3 className="heading">
+                            Internships <br />
+                          </h3>
+                          <div className="mt-1 ">
+                            <div className="mt-3">
+                              {" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.others}{" "}
+                              </span>{" "}
+                            </div>
                           </div>
                         </div>
                       </div>

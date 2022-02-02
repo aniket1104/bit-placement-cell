@@ -1,40 +1,33 @@
 import React from "react";
 import "../../assets/css/student.css";
 import StudentHeader from "./StudentHeader";
-import { useEffect,useState,useReducer } from 'react';
+import { useEffect, useState, useReducer } from "react";
 import { Viewstudent } from "../../services/api";
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 const StudentPlacement = () => {
   const PF = "http://localhost:8000/images/";
-  const navigate=useNavigate();
-  const [post,setpost]  = useState({});
-  const cookies=new Cookies();
-  useEffect(()=>{
-    
-    if(typeof cookies.get("user")==="undefined"){
-      return navigate('/admin')
+  const navigate = useNavigate();
+  const [post, setpost] = useState({});
+  const cookies = new Cookies();
+  useEffect(() => {
+    if (typeof cookies.get("user") === "undefined") {
+      return navigate("/admin");
     }
-     const Fetchdata  = async()=>{
-
-    
-       let posts =await Viewstudent();
-       console.log(posts[0]);
-       setpost(posts[0]);
-       
-     }
-     Fetchdata();
-},[])
+    const Fetchdata = async () => {
+      let posts = await Viewstudent();
+      console.log(posts[0]);
+      setpost(posts[0]);
+    };
+    Fetchdata();
+  }, []);
   return (
     <>
       <StudentHeader />
       <div className="container-fluid" id="student-body">
         <div className="row">
-
-
-
-        <div className="col-xl-3">
+          <div className="col-xl-3">
             <div className="container  mt-4 mb-4 p-2 d-flex justify-content-center">
               <div className="card p-4 blackpro" id="profilecrd">
                 <div
@@ -44,12 +37,12 @@ const StudentPlacement = () => {
                   {" "}
                   {/* <button className="btn btn-secondary" id="btnprofile">
                     {" "} */}
-                    <img
-                   className=" rounded-circle " 
-                      id="profimage"
-                      src={(PF + post.photo) || "https://i.imgur.com/wvxPV9S.png"}
-                      
-                    />
+                  <img
+                    className=" rounded-circle "
+                    id="profimage"
+                    style={{ height: "150px", width: "150px" }}
+                    src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
+                  />
                   {/* </button>{" "} */}
                   <span className="name mt-3">
                     <span>{post.firstname} </span> <span>{post.surname}</span>
@@ -104,8 +97,6 @@ const StudentPlacement = () => {
               </div>
             </div>
           </div>
-
-          
 
           <div className="col-xl-9">
             <div className="col-12" id="det">

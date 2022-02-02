@@ -7,7 +7,7 @@ footer {
   padding: 45px 0 20px;
   font-size: 15px;
   line-height: 24px;
-  color: #737373;
+  color: #c5c2c2;
 }
 /* .site-footer hr {
     border-top-color: #bbb;
@@ -42,7 +42,7 @@ footer {
 }
 
 .footer-links a {
-  color: #737373;
+  color: #c5c2c2;
   text-decoration: none;
 }
 .footer-links a:active,
@@ -159,7 +159,7 @@ footer {
 
 .reachUs a {
   background-color: #33353d;
-  color: #96a2b2;
+  color: #d0d6dd;
   font-size: 16px;
   display: inline-block;
   width: 44px;
