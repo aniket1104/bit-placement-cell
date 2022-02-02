@@ -6,6 +6,7 @@ import Companies from "../assets/img/companies.jpg";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 import { useState } from "react";
+import "../assets/css/Mission.css";
 
 // import Footer from "../components/Footer";
 
@@ -70,8 +71,8 @@ const Placement = () => {
     }
 
     return (
-      <div className="d-flex">
-        <div className="px-3" style={{ width: "40%" }}>
+      <div className="d-flex placement_flexdiv">
+        <div className="px-3 placement_flexdiv_para" style={{ width: "40%" }}>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum rem
             laudantium, voluptate voluptas facilis quo pariatur ab unde sint
@@ -88,7 +89,7 @@ const Placement = () => {
             quisquam dolorem nostrum libero ullam? Inventore!
           </p>
         </div>
-        <div className="px-2" style={{ width: "60%" }}>
+        <div className="px-2 placement_flexdiv_graph" style={{ width: "60%" }}>
           <BarChart chartData={userData} />
         </div>
       </div>
@@ -99,7 +100,7 @@ const Placement = () => {
     return (
       <div>
         <div className="vision-desc py-5">
-          <img src={Companies} alt="" />
+          <img src={Companies} alt="" class="resonsive" style={{width:"100%",height:"auto"}} />
         </div>
         <div className="mission">
           <h3>Placement Statistics</h3>
@@ -111,8 +112,8 @@ const Placement = () => {
 
   const AboutPlacement = () => {
     return (
-      <div className="page-wrapper">
-        <div className="description">
+      <div className="page-wrapper msn_pw">
+        <div id="msn_desc" className="description">
           <NavigationLink />
           <div className="title-wrapper">
             <div className="title-desc">
