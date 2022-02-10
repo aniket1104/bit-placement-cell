@@ -8,7 +8,6 @@ const Footer = () => {
         <div className="container">
           <div className="d-flex justify-content-between">
             {/* <div className="row"> */}
-           
 
             <div className="col-xs-6 col-md-3">
               <h6>Reach Us</h6>
@@ -72,7 +71,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div className="col-xs-6 col-md-12">
+            <div className="col-xs-6 col-md-3">
               <h6>Map</h6>
               <div className="d-flex justify-content-center">
                 {/* <iframe
