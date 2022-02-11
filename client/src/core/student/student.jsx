@@ -163,7 +163,7 @@ const Student = () => {
                     </div>
                     <div className="col-6" id="prodetails">
                       <span className="fw-bold fs-5 text-uppercase">
-                        Averagecgpa -
+                        AVERAGE CGPA -
                       </span>{" "}
                       <span className="fw-normal fs-5 text-capitalize">
                         {post.averagecgpa} CGPA

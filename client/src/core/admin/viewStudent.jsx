@@ -102,75 +102,73 @@ const Students = () => {
                 <div className="card-body greypro">
                   <div className="row greypro">
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">NAME -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">NAME -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.firstname}
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.surname}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">USN -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">USN -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.USN}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">PHONE NO. -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">CONTACT -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.mobileno}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">BRANCH -</span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-bold fs-5">BRANCH -</span>{" "}
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.branch}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold">EMAIL -</span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.email}
-                      </span>
+                      <span className="fw-bold fs-5">EMAIL -</span>{" "}
+                      <span className="fw-normal fs-5">{post.email}</span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 12 MARKS -
+                      <span className="fw-bold fs-5 text-uppercase">
+                        INTERMEDIATE -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.class12marks}
+                      <span className="fw-normal fs-5 text-capitalize">
+                        {post.class12marks} %
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        CLASS 10 MARKS -
+                      <span className="fw-bold fs-5 text-uppercase">
+                        MATRICULATION -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
-                        {post.class10marks}
+                      <span className="fw-normal fs-5 text-capitalize">
+                        {post.class10marks} CGPA
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
+                      <span className="fw-bold fs-5 text-uppercase">
                         AVERAGE CGPA -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.averagecgpa}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
+                      <span className="fw-bold fs-5 text-uppercase">
                         EDUCATIONAL GAP -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.educationalgap}
                       </span>
                     </div>
                     <div className="col-6" id="prodetails">
-                      <span className="fw-bold text-uppercase">
-                        NO. OF BACKS -
+                      <span className="fw-bold fs-5 text-uppercase">
+                        BACKLOGS -
                       </span>{" "}
-                      <span className="fw-bold text-capitalize">
+                      <span className="fw-normal fs-5 text-capitalize">
                         {post.noofbacks}
                       </span>
                     </div>
@@ -191,7 +189,7 @@ const Students = () => {
                         <div className="mt-1">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">
+                            <span className="text1 fs-normal fs-5">
                               {post.clubsinvolved}{" "}
                             </span>{" "}
                           </div>
@@ -210,7 +208,7 @@ const Students = () => {
                         <div className="mt-1">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">
+                            <span className="text1 fs-normal fs-5">
                               {post.certifications}{" "}
                             </span>{" "}
                           </div>
@@ -228,7 +226,9 @@ const Students = () => {
                         <div className="mt-1">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">{post.projects} </span>{" "}
+                            <span className="text1 fs-normal fs-5">
+                              {post.projects}{" "}
+                            </span>{" "}
                           </div>
                         </div>
                       </div>
@@ -239,12 +239,14 @@ const Students = () => {
                     <div className="card p-3 mb-2 h-100 greypro">
                       <div className="mt-1">
                         <h3 className="heading">
-                          certifications <br />
+                          Internships <br />
                         </h3>
                         <div className="mt-1 ">
                           <div className="mt-3">
                             {" "}
-                            <span className="text1">{post.others} </span>{" "}
+                            <span className="text1 fs-normal fs-5">
+                              {post.others}{" "}
+                            </span>{" "}
                           </div>
                         </div>
                       </div>
