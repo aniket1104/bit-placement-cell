@@ -1,6 +1,6 @@
 import React from "react";
 import AdminHeader from "./AdminHeader";
-import "../../assets/css/Admin.css";
+import "../../assets/css/admin.css";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as Chartjs,

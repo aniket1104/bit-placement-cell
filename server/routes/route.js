@@ -5,7 +5,7 @@ import requireLogin from '../middlewares/requirelogin.js'
 
 const router  = express.Router();
 // import {Updatepost,Viewstudent,LoginStudent,LoginFac,CreateUser,CreateFac,Reset,ResetPass,Search,Logout, studentquery, branchquery,sendMail,ExcelDownload, Viewadmin} from '../controller/updatecontroller.js';
-import {Updatepost,Viewstudent,LoginStudent,LoginFac,Upcoming,CreateUser,CreateFac,Reset,ResetPass,Search,Logout, studentquery, branchquery,sendMail,ExcelDownload,Comp,RemComp,Plac,Viewadmin} from '../controller/updatecontroller.js';
+import {Updatepost,Viewstudent,LoginStudent,LoginFac,Change,Upcoming,CreateUser,CreateFac,Reset,ResetPass,Search,Logout, studentquery, branchquery,sendMail,ExcelDownload,Comp,RemComp,Plac,Viewadmin} from '../controller/updatecontroller.js';
 
 router.post('/update',requireLogin1,Updatepost);
 router.get('/student',requireLogin,Viewstudent);
@@ -27,5 +27,6 @@ router.post('/createcompany',requireLogin2,Comp);
 router.post('/removecompany',requireLogin2,RemComp);
 router.post('/plac',requireLogin2,Plac);
 router.get('/upcoming',Upcoming);
+router.post('/change',requireLogin1,Change);
 
 export default router;

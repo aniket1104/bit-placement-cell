@@ -11,7 +11,6 @@ import EMAIL from '../app.js';
 import xlsx from 'xlsx';
 import path from 'path';
 
-
 const SENDGRID_API_KEY='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'
 
 sgMail.setApiKey(SENDGRID_API_KEY);
@@ -51,10 +50,7 @@ export const studentquery  = async(req,res)=>{
     
      
     
-    }
-
-
-
+}
 export const branchquery  = async(req,res)=>{
    
     console.log(req.query.branch);
@@ -71,9 +67,7 @@ export const branchquery  = async(req,res)=>{
     
      
     
-    }
-
-
+}
 export const ExcelDownload=async(req,res)=>{
     const users=req.body;
 
@@ -111,11 +105,6 @@ const exportUsersToExcel = (users, workSheetColumnNames, workSheetName, filePath
  exportUsersToExcel(users, workSheetColumnNames, workSheetName, filePath)
  
 }
-
-
-
-
-
 export const Updatepost  = async(req,res)=>{
    
    try{
@@ -133,10 +122,7 @@ export const Updatepost  = async(req,res)=>{
     
      
     
-    }
-
-
-
+}
 export const LoginStudent  = async(req,res)=>{
 
     console.log(req.body);
@@ -172,7 +158,6 @@ export const LoginStudent  = async(req,res)=>{
         })
     })
 }
-
 export const LoginFac  = async(req,res)=>{
 
     console.log(req.body);
@@ -206,7 +191,6 @@ export const LoginFac  = async(req,res)=>{
         })
     })
 }
-
 export const Logout =async(req,res)=>{
     res.clearCookie("token").clearCookie("admin").json({message:"Successfully Logged Out"});
 }
@@ -231,8 +215,6 @@ export const Viewstudent = async(req,res)=>{
         res.status(500).json(error);
     }
 }
-
-
 export const Viewadmin = async(req,res)=>{
     console.log(req.user._id)
     try{
@@ -249,7 +231,6 @@ export const Viewadmin = async(req,res)=>{
         res.status(500).json(error);
     }
 }
-
 export const Upcoming=async(req,res)=>{
     company.find({}).then(shre=>{
         res.json(shre)
@@ -258,9 +239,6 @@ export const Upcoming=async(req,res)=>{
         console.log(err)
     })
 }
-
-
-
 export const CreateUser=async(req,res)=>{
     
     const{USN,password}=req.body;
@@ -426,7 +404,6 @@ export const Reset  =async(req,res)=>{
      })
 
 }
-
 export const sendMail=async(req,res)=>{
     const {post,company,job,ctcoffered}=req.body;
     console.log(company);
@@ -450,8 +427,48 @@ export const sendMail=async(req,res)=>{
                               }).catch(err=>{
                                   console.log(err)})
 }
+export const Change=async(req,res)=>{
+    const {password,oldpassword}=req.body;
+    let user=await User.findById(req.user._id);
+    bcrypt.compare(password,user.password)
+    .then(match=>{
+        if(match){
+            return res.json({error:"Set a new Password"})
+        }
+        else{
+            bcrypt.compare(oldpassword,user.password)
+            .then(doMatch=>{
+                if(!doMatch){
+                    return res.json({error:"Old password does not match"});
+                }
+            else{
+            let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
+            if(!strongPassword.test(password)){
+                console.log('7')
+              return res.json({error:"Enter a stronger password"})
+            }
+            
+             bcrypt.hash(password,12)
+             .then(hashedpassword=>{
+                          user.password=hashedpassword;
+                          user.save()
+                          .then(da=>
+                             res.json({message:"Successfully Password Changed!"})
+                            )
+                         
+                      }).catch(err=>console.log(err))
+                    }}).catch(err=>console.log(err))
+        }
+
+    })
+    
+}
 export const ResetPass=async(req,res)=>{
     const {token,password}=req.body;
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
+    if(!strongPassword.test(password)){
+        return res.json({error:"Enter a stronger password"})
+    }
      bcrypt.hash(password,12)
      .then(hashedpassword=>{
               User.findOne({resetToken:token,expireToken:{$gt:Date.now()}})//$gt means greater than

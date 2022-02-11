@@ -272,6 +272,11 @@ const Student = () => {
             </div>
           </div>
         </div>
+        <p class="mb-0 mt-4 text-center" id="login_para">
+                            <a href="/change" class="link_login">
+                              Change password
+                            </a>
+                          </p>
       </div>
     </>
   );

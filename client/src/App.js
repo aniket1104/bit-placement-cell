@@ -8,6 +8,7 @@ import Alumni from "./core/Alumni";
 import Student from "./core/student/student";
 import Students from "./core/admin/viewStudent";
 import StudentPlacement from "./core/student/StudentPlacement";
+import Change from "./core/student/Change";
 import UpdateProfile from "./core/student/UpdateProfile";
 import CreateUser from "./core/admin/CreateUser";
 import {reducer,initialState} from './Reducers/useReducers';
@@ -74,6 +75,7 @@ useEffect(()=>{
         <Route path="/admin/searchstudent" element={<SearchStudent />} />
         <Route path="/admin/studentdata" element={<StudentData />} />
         <Route path="/admin/eligiblecandidates" element={<EligibleCandidates />} />
+        <Route path="/change" element={<Change/>}/>
       </Routes>
     
   );
