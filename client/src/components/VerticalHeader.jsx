@@ -8,7 +8,7 @@ const VerticalHeader = () => {
         className="vertical-header-wrapper position-relative start-0 translate-middle"
         style={{ top: "10rem" }}
       >
-        <h3 className="vertical_header_h3">{document.title}</h3>
+        <h3>{document.title}</h3>
       </div>
     </div>
   );

@@ -267,71 +267,98 @@ const Admin = () => {
     <div>
       {/* <BarGraph/> */}
       <AdminHeader />
-
-      <div class="admin_body"></div>
-
-      <div className="row">
+      <div className="row container-fluid">
         <div className="col-xl-3">
-          <div className="container  mt-2 mb-4 p-3 d-flex justify-content-center">
-            <div className="card p-4 blackpro" id="profilecrd">
+          <div className="container mt-2 mb-4 mx-3 p-3 d-flex flex-column justify-content-center">
+            <div
+              className="card mb-5 p-4"
+              id="profilecrd"
+              style={{
+                background: "#f8fcff",
+                borderRadius: "4px",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+              }}
+            >
               <div
                 className=" image d-flex flex-column justify-content-center align-items-center"
                 id="imgprof"
               >
-                {/* <button className="btn btn-secondary" id="btnprofile">
-                  
-                </button> */}
                 <img
                   className=" rounded-circle "
                   id="profimage"
                   style={{ height: "150px", width: "150px" }}
                   src="https://i.imgur.com/wvxPV9S.png"
                 />
-                <span className="name mt-3">
+                <span className="name mt-3 fw-bold">
                   <span>{post.firstname} </span> <span>{post.surname}</span>
                 </span>{" "}
-                <span className="idd">{post.email}</span>
-                {/* <div className="d-flex flex-row justify-content-center align-items-center gap-2"> <span className="idd1">Oxc4c16a645_b21a</span> <span><i className="fa fa-copy"></i></span> </div> */}
-                {/* <div className=" d-flex mt-2">
-                  {" "}
-                  <button
-                    className="btn1 btn-light grow"
-                    // onClick={() => {
-                    //   navigate(`/update`);
-                    // }}
+                <span className="idd fw-normal">{post.email}</span>
+              </div>
+            </div>
+            <div className="mb-5">
+              <div
+                class="h-100 p-5 pt-3 pb-1"
+                style={{
+                  backgroundColor: "#f8fcff",
+                  borderRadius: "4px",
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                }}
+              >
+                <h4
+                  className="d-flex pb-3 justify-content-center fw-normal"
+                  style={{ fontSize: "2rem" }}
+                >
+                  Overall Placement
+                </h4>
+                <PieChart />
+              </div>
+            </div>
+            <div>
+              <div class="h-100">
+                <div
+                  className="p-5"
+                  style={{
+                    background: "#f8fcff",
+                    borderRadius: "4px",
+                    boxShadow:
+                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  }}
+                >
+                  <h3
+                    className="d-flex mt-4 mb-5 justify-content-center fw-normal"
+                    style={{ fontSize: "2rem" }}
                   >
-                    Edit Profile
-                  </button>{" "}
-                </div> */}
-                <div className="text mt-3 mx-3">
-                  <span id="spanpro">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Sequi similique dolorum voluptatibus aut, beatae hic
-                    voluptatem molestias veritatis facere quisquam?
-                  </span>
-                </div>
-                <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
-                  <span className="lightic grow">
-                    {/* <a href={post.linkgithub}> */}
-                    <i className="fa fa-github fa-3x lightic"></i>
-                    {/* </a> */}
-                  </span>
-                  <span className="lightic grow">
-                    {/* <a href={post.linklinkedin}> */}
-                    <i className="fa fa-linkedin fa-3x lightic"></i>
-                    {/* </a> */}
-                  </span>
-
-                  <span className="lightic grow">
-                    {/* <a href={post.linkinstagram}> */}
-                    <i className="fa fa-instagram fa-3x lightic"></i>
-                    {/* </a> */}
-                  </span>
-                  <span className="lightic grow">
-                    {/* <a href={post.linkresume}> */}
-                    <i className="fa fa-file fa-3x lightic"></i>
-                    {/* </a> */}
-                  </span>
+                    Create User
+                  </h3>
+                  <div className=" mb-3 col-xl-12">
+                    <input
+                      placeholder="USN"
+                      name="USN"
+                      className="form-control rounded-1 mx-0 mb-4"
+                      onInput={(e) => handlechange(e)}
+                    ></input>
+                    <input
+                      placeholder="Password"
+                      name="password"
+                      type="password"
+                      className="form-control rounded-1 my-3"
+                      onInput={(e) => handlechange(e)}
+                    ></input>
+                  </div>
+                  <div className="d-flex justify-content-center">
+                    <button
+                      type="button"
+                      className="btn btn-outline-dark rounded-1"
+                      onClick={() => saveupdate()}
+                    >
+                      Create
+                    </button>
+                  </div>
+                  {/* <h6 className="fw-light fs-6 text-center my-3">
+                    User created successfully.
+                  </h6> */}
                 </div>
               </div>
             </div>
@@ -340,12 +367,21 @@ const Admin = () => {
 
         <div className="col-xl-9">
           <div class="container mt-2 mb-4 p-3 py-3">
-            <div id="graph1div1_ad" class="p-5 pt-2 mb-4 bg-dark rounded-0">
+            <div
+              id="graph1div1_ad"
+              class="p-5 pt-2 mb-4"
+              style={{
+                background: "#f8fcff",
+                borderRadius: "8px",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+              }}
+            >
               <div id="graph1_ad" class="container-fluid py-5">
                 <h4
                   id="graph1head_ad"
                   className="d-flex pb-2 justify-content-center fw-normal"
-                  style={{ fontSize: "2rem", color: "white" }}
+                  style={{ fontSize: "2rem" }}
                 >
                   Branch Wise Placement
                 </h4>
@@ -358,79 +394,35 @@ const Admin = () => {
               </div>
             </div>
 
-            <div class="row align-items-md-stretch mb-4 mt-2">
-              <div class="col-md-6" id="graph2_admin">
-                <div
-                  id="graph2_con_admin"
-                  class="h-100 p-5 pt-3 pb-1 text-white bg-dark rounded-0"
-                >
-                  <h4
-                    className="d-flex pb-3 justify-content-center fw-normal"
-                    style={{ fontSize: "2rem", color: "white" }}
-                  >
-                    Overall Placement
-                  </h4>
-                  <PieChart />
-                </div>
-              </div>
-
-              {/* here */}
-              <div class="col-md-6">
-                <div class="h-100  bg-dark border rounded-0">
-                  <div className="p-5 row">
-                    <h3
-                      className="d-flex mt-4 mb-5 justify-content-center fw-normal"
-                      style={{ fontSize: "3rem", color: "white" }}
-                    >
-                      Create User
-                    </h3>
-                    <div className=" mb-3 col-xl-12">
-                      <input
-                        placeholder="USN"
-                        name="USN"
-                        className="form-control rounded-1 mx-0 mb-4"
-                        onInput={(e) => handlechange(e)}
-                      ></input>
-                      <input
-                        placeholder="Password"
-                        name="password"
-                        type="password"
-                        className="form-control rounded-1 my-3"
-                        onInput={(e) => handlechange(e)}
-                      ></input>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                      <button
-                        type="button"
-                        className="btn btn-outline-light rounded-1"
-                        onClick={() => saveupdate()}
-                      >
-                        Create
-                      </button>
-                    </div>
-                    <h6 className="fw-light fs-6 text-center my-3">
-                      User created successfully.
-                    </h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <div class="row align-items-md-stretch mb-4">
               <div class="col-xl-12">
-                <div class="h-100 p-5 text-white bg-dark rounded-1">
-                  <div class="row bg-dark">
+                <div
+                  class="h-100 p-5"
+                  style={{
+                    background: "#f8fcff",
+                    borderRadius: "8px",
+                    boxShadow:
+                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  }}
+                >
+                  <div class="row">
                     <h3
                       className="d-flex justify-content-center fw-normal"
-                      style={{ fontSize: "3rem", color: "white" }}
+                      style={{ fontSize: "2rem" }}
                     >
-                      Add Company
+                      Upcoming Company
                     </h3>
-                    <div class="col-12 bg-dark">
-                      <div id="ec_card" class="card  bg-dark">
-                        <div class="card-body bg-dark">
-                          <div class="row search-body bg-dark">
-                            <div class="col-lg-12 bg-dark">
+                    <div class="col-12">
+                      <div>
+                        <div
+                          class="card-body"
+                          style={{ backgroundColor: "#f8fcff" }}
+                        >
+                          <div class="row search-body">
+                            <div
+                              class="col-lg-12"
+                              style={{ backgroundColor: "#f8fcff" }}
+                            >
                               <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 py-2">
                                   <div class="fw-normal fs-6 px-1">
@@ -483,15 +475,6 @@ const Admin = () => {
                                   />
                                 </div>
                               </div>
-
-                              {/* <div class="text-center py-2"> */}
-
-                              {/* <button onClick={()=>{saveinfo()}} type="button" class="btn btn-outline-dark rounded-0 text-center "
-                               style={{margin:'auto'}}
-                               > Submit
-                               </button> */}
-
-                              {/* </div> */}
                             </div>
                           </div>
                         </div>
@@ -501,7 +484,7 @@ const Admin = () => {
 
                   <div class="text-center py-2">
                     <button
-                      class="btn btn-outline-light rounded-1 mx-2"
+                      class="btn btn-outline-dark rounded-1 mx-2"
                       type="button"
                       onClick={() => add()}
                     >
@@ -509,7 +492,7 @@ const Admin = () => {
                     </button>
 
                     <button
-                      class="btn btn-outline-light rounded-1 mx-2"
+                      class="btn btn-outline-dark rounded-1 mx-2"
                       type="button"
                       onClick={() => remove()}
                     >
@@ -522,19 +505,30 @@ const Admin = () => {
 
             <div class="row align-items-md-stretch mb-4">
               <div class="col-xl-12">
-                <div class="h-100 p-5 text-white bg-dark rounded-3">
-                  <div class="row bg-dark">
+                <div
+                  class="h-100 p-5"
+                  style={{
+                    background: "#f8fcff",
+                    borderRadius: "8px",
+                    boxShadow:
+                      "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+                  }}
+                >
+                  <div class="row">
                     <h3
                       className="d-flex justify-content-center fw-normal"
-                      style={{ fontSize: "3rem", color: "white" }}
+                      style={{ fontSize: "2rem" }}
                     >
                       Update Placement
                     </h3>
-                    <div class="col-12 bg-dark">
-                      <div id="ec_card" class="card bg-dark">
-                        <div class="card-body bg-dark">
-                          <div class="row search-body bg-dark">
-                            <div class="col-lg-12 bg-dark">
+                    <div class="col-12">
+                      <div
+                        class="card"
+                        style={{ backgroundColor: "#f8fcff", border: "none" }}
+                      >
+                        <div class="card-body">
+                          <div class="row search-body">
+                            <div class="col-lg-12 ">
                               <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 py-2">
                                   <div class="fw-normal p-1">USN</div>
@@ -613,7 +607,7 @@ const Admin = () => {
                     {/* <button class="btn btn-outline-light" type="button" onClick={()=>add()} >ADD COMPANY</button> */}
 
                     <button
-                      class="btn btn-outline-light"
+                      class="btn btn-outline-dark"
                       type="button"
                       onClick={() => plac()}
                     >
