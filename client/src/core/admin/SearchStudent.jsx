@@ -12,7 +12,8 @@ const Search = () => {
   const cookies = new Cookies();
 
   const Searches = async (srch) => {
-    setSearch(srch);
+    let uppercasetext = srch.toUpperCase(); 
+    setSearch(uppercasetext);
     await axios({
       method: "get",
       url: `${url}/search/${srch}`,

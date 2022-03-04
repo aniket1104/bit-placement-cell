@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../../assets/css/student.css";
-import StudentHeader from "./StudentHeader";
-import { useEffect, useState, useReducer } from "react";
-import { Viewstudent } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import StudentHeader from "./StudentHeader";
+import { Viewstudent } from "../../services/api";
+import { useEffect, useState, useReducer } from "react";
+import { userContext } from "../../App";
 import Cookies from "universal-cookie";
 
-const StudentPlacement = () => {
+const Newstudent = () => {
+
   const PF = "http://localhost:8000/images/";
-  const navigate = useNavigate();
+  const { state, dispatch } = useContext(userContext);
+
   const [post, setpost] = useState({});
+  const navigate = useNavigate();
+
   const cookies = new Cookies();
+
   useEffect(() => {
     if (typeof cookies.get("user") === "undefined") {
       return navigate("/admin");
@@ -22,23 +28,30 @@ const StudentPlacement = () => {
     };
     Fetchdata();
   }, []);
+
+
+
+
   return (
-    <>
-      <StudentHeader />
-      <div className="container-fluid" id="student-body">
-        <div className="row">
-          <div className="col-xl-3">
-            <div className="container  mt-4 mb-4 p-2 d-flex justify-content-center">
-              <div className="card p-4 blackpro" id="profilecrd">
+    <div>
+      <StudentHeader/>
+      <div className="container-fluid">
+          <div className="row">
+            <div className="col-xl-3  mt-2 d-flex flex-column"> 
+                    <div className="row px-3 py-4 ">
+
+              <div className="shadow p-0">
+               
+                <div className="card p-4 blackpro bg-secondary shadow " id="profilecrd">
                 <div
-                  className="  d-flex flex-column justify-content-center align-items-center"
+                  className="image  d-flex flex-column justify-content-center align-items-center"
                   id="imgprof"
                 >
                   {" "}
                   {/* <button className="btn btn-secondary" id="btnprofile">
                     {" "} */}
                   <img
-                    className=" rounded-circle "
+                    className=" rounded-circle"
                     id="profimage"
                     style={{ height: "150px", width: "150px" }}
                     src={PF + post.photo || "https://i.imgur.com/wvxPV9S.png"}
@@ -63,11 +76,9 @@ const StudentPlacement = () => {
                   <div className="text mt-3">
                     {" "}
                     <span id="spanpro">
-                      Eleanor Pena is a creator of minimalistic x bold graphics
-                      and digital artwork.
-                      <br />
-                      <br /> Artist/ Creative Director by Day #NFT minting@ with
-                      FND night.{" "}
+                      I aim to attain an engaging internship position in various
+                      fields. I hope to give direction to my passion and
+                      hardwork to become an asset to the organisation.
                     </span>{" "}
                   </div>
                   <div className="gap-5 mt-3 icons d-flex flex-row justify-content-center align-items-center ">
@@ -95,93 +106,196 @@ const StudentPlacement = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="col-xl-9">
-            <div className="col-12" id="det">
-              <div className="card ml-4" id="card1">
-                <div className="card-header blackpro">
-                  <h1 className="fw-normal">My Placement</h1>
-                </div>
               </div>
+
+
+
+
+
+
+                      
+
+
+                   
+
+
+                       
+                    </div>
+
+
             </div>
 
-            <div className="col-12 mt-3">
-              <div className="container-fluid   mt-1 mb-1">
-                <div className="row">
-                  <div className="col-md-4 mt-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          Company Name <br />
-                        </h3>
-                        <div className="mt-1">
-                          <div className="mt-3">
-                            {post.companyname}
-                            <span className="text1"> </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
+
+
+
+            <div className="col-xl-9 mt-2 ">     
+              <div className="row">
+
+
+               
+
+
+
+              
+
+
+
+
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                                Company Name
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            <div>
+
+                            {" "}
+                              <span className="text1 fw-normal fs-5">
+                              {post.companyname}{" "}
+                              </span>{" "}
+
+                            </div>
+
+                            </div>
+
+                   
+                  
                   </div>
 
-                  <div className="col-md-4 mt-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          Profile
-                          <br />
-                        </h3>
-                        <div className="mt-1">
-                          <div className="mt-3">
-                            {post.job}
-                            <span className="text1"> </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  </div>
                   </div>
 
-                  <div className="col-md-4 mt-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          CTC / Stipend <br />
-                        </h3>
-                        <div className="mt-1">
-                          <div className="mt-3">
-                            {post.currentctc}
-                            <span className="text1"> </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+
+                  
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                                Post
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            
+                            <div>
+                            {" "}
+                              <span className="text1 fw-normal fs-5">
+                              {post.job}{" "}
+                              </span>{" "}
+
+                            </div>
+
+
+                            </div>
+
+                   
+                  
                   </div>
 
-                  <div className="col-12 mt-3 mb-3">
-                    <div className="card p-3 mb-2 h-100 greypro">
-                      <div className="mt-1">
-                        <h3 className="heading">
-                          Message from Placement Team <br />
-                        </h3>
-                        <div className="mt-1 ">
-                          <div className="mt-3">
-                            {post.message}
-                            <span className="text1"> </span>{" "}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                  </div>
+
+
+
+                
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                            CTC / Stipend 
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            {/* <i className="fa fa-plus fa-lg "  style={{fontSize:"3rem"}}></i> */}
+                            <div>
+                            <span className="text1 fw-normal fs-5">
+                            {post.currentctc}{" "}
+                              </span>{" "}
+                            </div>
+
+                            </div>
+
+                   
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+                
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                  Message from Placement Team
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            <div>{" "}
+                              <span className="text1 fw-normal fs-5">
+                              {post.message}{" "}
+                              </span>{" "}
+                              </div>
+
+                            </div>
+
+                   
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+
+                
+
+
+
+
+
+
+               
+
+
+               
+
+
+                
+
+
                 </div>
-              </div>
+              
             </div>
-          </div>
-        </div>
+            
       </div>
-    </>
-  );
-};
 
-export default StudentPlacement;
+  
+
+
+        </div>
+
+
+
+
+    </div>
+  )
+}
+
+export default Newstudent;

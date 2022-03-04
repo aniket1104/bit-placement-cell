@@ -22,6 +22,7 @@ import StudentData from "./core/admin/StudentData";
 //import EligibleCandidates1 from "./core/admin/EligibleCandidates1";
 import Cookies from "universal-cookie";
 import EligibleCandidates from "./core/admin/EligibleCandidates";
+// import Newstudent from "./core/student/Newstudent";
 //import cors from 'cors';
 
 
@@ -57,6 +58,7 @@ useEffect(()=>{
   return (
     
       <Routes>
+        {/* <Route exact path="/newstudent" element={<Newstudent />} /> */}
         <Route exact path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/alumni" element={<Alumni />} />

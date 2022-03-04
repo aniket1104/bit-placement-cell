@@ -7,7 +7,8 @@ import { useEffect, useState, useReducer } from "react";
 import { userContext } from "../../App";
 import Cookies from "universal-cookie";
 
-const Student = () => {
+const Newstudent = () => {
+
   const PF = "http://localhost:8000/images/";
   const { state, dispatch } = useContext(userContext);
 
@@ -28,14 +29,20 @@ const Student = () => {
     Fetchdata();
   }, []);
 
+
+
+
   return (
-    <>
-      <StudentHeader />
-      <div className="container-fluid" id="student-body">
-        <div className="row">
-          <div className="col-xl-3">
-            <div className="container  mt-4 mb-4 p-2 d-flex justify-content-center">
-              <div className="card p-4 blackpro" id="profilecrd">
+    <div>
+      <StudentHeader/>
+      <div className="container-fluid">
+          <div className="row">
+            <div className="col-xl-3  mt-2 d-flex flex-column"> 
+                    <div className="row px-3 py-4 ">
+
+              <div className="shadow p-0">
+               
+                <div className="card p-4 blackpro bg-secondary shadow " id="profilecrd">
                 <div
                   className="image  d-flex flex-column justify-content-center align-items-center"
                   id="imgprof"
@@ -99,187 +106,291 @@ const Student = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div className="col-xl-9">
-            <div className="col-12" id="det">
-              <div className="card ml-4" id="card1">
-                <div className="card-header blackpro">
-                  <h1 style={{ fontWeight: "400" }}>My Profile</h1>
-                </div>
               </div>
-            </div>
-            <div className="col-12 mt-0" id="det1">
-              <div className="card ml-4" id="card2">
-                <div className="card-body greypro">
-                  <div className="row greypro">
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5">NAME -</span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.firstname}
-                      </span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.surname}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5">USN -</span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.USN}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5">CONTACT -</span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.mobileno}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5">BRANCH -</span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.branch}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5">EMAIL -</span>{" "}
-                      <span className="fw-normal fs-5">{post.email}</span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5 text-uppercase">
-                        INTERMEDIATE -
-                      </span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.class12marks} %
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5 text-uppercase">
-                        MATRICULATION -
-                      </span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.class10marks} CGPA
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5 text-uppercase">
-                        AVERAGE CGPA -
-                      </span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.averagecgpa} CGPA
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5 text-uppercase">
-                        BACKLOGS -
-                      </span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.noofbacks}
-                      </span>
-                    </div>
-                    <div className="col-6" id="prodetails">
-                      <span className="fw-bold fs-5 text-uppercase">
-                        Year gap -
-                      </span>{" "}
-                      <span className="fw-normal fs-5 text-capitalize">
-                        {post.educationalgap}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="col-12 mt-3">
-              <div className="container-fluid px-4  mt-1 mb-1" id="details_st">
-                <div className="row">
-                  <div className="d-flex">
-                    <div className="col-xl-6 mt-3 px-1">
-                      <div className="card p-3 mb-2 h-100 greypro">
-                        <div className="mt-1">
-                          <h3 className="heading">
-                            CLUBS INVOLVED <br />
-                          </h3>
-                          <div className="mt-1">
-                            <div className="mt-3">
-                              {" "}
-                              <span className="text1 fw-normal fs-5">
-                                {post.clubsinvolved}{" "}
-                              </span>{" "}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xl-6 mt-3 px-1">
-                      <div className="card p-3 mb-2 h-100 greypro">
-                        <div className="mt-1">
-                          <h3 className="heading">
-                            CERTIFICATIONS
-                            <br />
-                          </h3>
-                          <div className="mt-1">
-                            <div className="mt-3">
-                              {" "}
-                              <span className="text1 fw-normal fs-5">
-                                {post.certifications}{" "}
-                              </span>{" "}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="d-flex">
-                    <div className="col-xl-6 mt-3 px-1">
-                      <div className="card p-3 mb-2 h-100 greypro">
-                        <div className="mt-1">
-                          <h3 className="heading">
-                            PROJECTS <br />
-                          </h3>
-                          <div className="mt-1">
-                            <div className="mt-3">
-                              {" "}
-                              <span className="text1 fw-normal fs-5">
-                                {post.projects}{" "}
-                              </span>{" "}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+
+
+
+
+
+                      
+
+
+                   
+
+
+                       
                     </div>
 
-                    <div className="col-xl-6 mt-3 px-1">
-                      <div className="card p-3 mb-2 h-100 greypro">
-                        <div className="mt-1">
-                          <h3 className="heading">
-                            Internships <br />
-                          </h3>
-                          <div className="mt-1 ">
-                            <div className="mt-3">
-                              {" "}
-                              <span className="text1 fw-normal fs-5">
-                                {post.others}{" "}
-                              </span>{" "}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="mb-0 mt-4 text-center" id="login_para">
-                            <a href="/change" class="link_login">
+                    <p class="mb-0 mt-4 fs-5 fw-bold text-center text-danger" id="login_para">
+                            <a href="/change" class="link_login text-dark" style={{textDecoration:'underline'}}>
                               Change password
                             </a>
                           </p>
-      </div>
-    </>
-  );
-};
 
-export default Student;
+
+
+            </div>
+
+
+
+
+
+            <div className="col-xl-9 mt-2 ">     
+              <div className="row">
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+                   <div className="row">
+                    <div className="col-12 fw-bold pb-2 fs-2">
+                      Student Detail
+                    </div> 
+
+
+                    <div className="col-6 py-2  fs-5 ">
+                      <span className='text-dark'>Name</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.firstname}{" "}{post.surname}
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>USN</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.USN}
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Contact</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.mobileno}
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Email</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end overflow-auto">
+                    {post.email}
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Branch</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.branch}
+                    </div> 
+                    
+                    </div>
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow " style={{backgroundColor:'#F8FCFf'}}>
+                   <div className="row">
+                    <div className="col-12 fw-bold pb-2 fs-2">
+                      Academics
+                    </div> 
+
+
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Matriculation</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.class10marks} CGPA
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Intermediate</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.class12marks} %
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Average Cgpa</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.averagecgpa} CGPA
+                       
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Backlogs</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.noofbacks}
+                    </div> 
+                    <div className="col-6 py-2  fs-5">
+                      <span className='text-dark'>Year Gap</span>                      
+                    </div> 
+                    <div className="col-6 py-2  fs-5 text-secondary text-end ">
+                    {post.educationalgap}
+                    </div> 
+                    
+                    </div>
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+
+
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                                Projects
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            <div>
+
+                            {" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.projects}{" "}
+                              </span>{" "}
+
+                            </div>
+
+                            </div>
+
+                   
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+                  
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                                Internships
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            
+                            <div>
+                            {" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.others}{" "}
+                              </span>{" "}
+
+                            </div>
+
+
+                            </div>
+
+                   
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+
+                
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                                Clubs Involved
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            {/* <i className="fa fa-plus fa-lg "  style={{fontSize:"3rem"}}></i> */}
+                            <div>
+                            <span className="text1 fw-normal fs-5">
+                                {post.clubsinvolved}{" "}
+                              </span>{" "}
+                            </div>
+
+                            </div>
+
+                   
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+                
+
+
+
+                <div className="col-xl-6  my-4"><div className="container">
+                  <div className="container rounded-3 p-4 shadow overflow-auto" style={{backgroundColor:'#F8FCFf'}}>
+
+
+                  <div className="col-12 fw-bold fs-5 text-secondary">
+                                Certifications
+                            </div> 
+
+                            <div className="d-flex justify-content-center p-4">
+                            <div>{" "}
+                              <span className="text1 fw-normal fs-5">
+                                {post.certifications}{" "}
+                              </span>{" "}
+                              </div>
+
+                            </div>
+
+                   
+                  
+                  </div>
+
+                  </div>
+                  </div>
+
+
+
+                
+
+
+
+
+
+
+               
+
+
+               
+
+
+                
+
+
+                </div>
+              
+            </div>
+            
+      </div>
+
+      
+
+        </div>
+
+
+
+
+    </div>
+  )
+}
+
+export default Newstudent;
