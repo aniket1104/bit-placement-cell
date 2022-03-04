@@ -48,7 +48,91 @@ const Home = () => {
               <h3 className="py-1">Upcoming Events</h3>
               <div className="scroll-bar-wrap">
                 <div className="scroll-box">
-                  <div
+
+
+
+
+                {list.map((shre) => {
+        var dat = new Date(shre.date).toDateString();
+        console.log(dat);
+        return (
+          
+          <div
+          className="d-flex my-3 py-1"
+          style={{
+            border: "1px solid black",
+            background: "#fff",
+            borderRadius: "4px",
+          }}
+        >
+          <div
+            className="my-2"
+            style={{ width: "20%", borderRight: "2px solid black" }}
+          >
+            <h3
+              className="text-center fw-normal fs-3"
+              style={{ margin: "0" }}
+            >
+             {dat.substring(8, 10)}
+            </h3>
+            <h3
+              className="text-center fw-normal fs-5"
+              style={{ margin: "0" }}
+            >
+              {dat.substring(4, 7)}
+            </h3>
+          </div>
+          <div className="m-2" style={{ width: "60%" }}>
+            <h3
+              className="fw-normal fs-5 mt-1"
+              style={{ margin: "0" }}
+            >
+              {shre.companyname}
+            </h3>
+            <p
+              className="my-2"
+              style={{ margin: "0", fontSize: "12px" }}
+            >
+              <span>Role : {shre.job} </span> | <span>{shre.ctc} : </span>
+            </p>
+          </div>
+          <div className="m-2 my-auto" style={{ width: "20%" }}>
+            <div className="d-flex justify-content-center">
+              <img src={Bell} style={{ height: "25px" }} />
+            </div>
+          </div>
+        </div>
+
+
+        );
+      })}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 
+
+
+
+
+
+
+
+
+
+
+
+
+                  {/* <div
                     className="d-flex my-3 py-1"
                     style={{
                       border: "1px solid black",
@@ -94,51 +178,6 @@ const Home = () => {
                     </div>
                   </div>
                   <div
-                    className="d-flex my-3 py-1"
-                    style={{
-                      border: "1px solid black",
-                      background: "#fff",
-                      borderRadius: "4px",
-                    }}
-                  >
-                    <div
-                      className="my-2"
-                      style={{ width: "20%", borderRight: "2px solid black" }}
-                    >
-                      <h3
-                        className="text-center fw-normal fs-3"
-                        style={{ margin: "0" }}
-                      >
-                        02
-                      </h3>
-                      <h3
-                        className="text-center fw-normal fs-5"
-                        style={{ margin: "0" }}
-                      >
-                        FEB
-                      </h3>
-                    </div>
-                    <div className="m-2" style={{ width: "60%" }}>
-                      <h3
-                        className="fw-normal fs-5 mt-1"
-                        style={{ margin: "0" }}
-                      >
-                        Amazon
-                      </h3>
-                      <p
-                        className="my-2"
-                        style={{ margin: "0", fontSize: "12px" }}
-                      >
-                        <span>Role : </span> | <span>CTC : </span>
-                      </p>
-                    </div>
-                    <div className="m-2 my-auto" style={{ width: "20%" }}>
-                      <div className="d-flex justify-content-center">
-                        <img src={Bell} style={{ height: "25px" }} />
-                      </div>
-                    </div>
-                  </div>
-                  <div
                     className="d-flex my-3 py-2"
                     style={{
                       border: "1px solid black",
@@ -272,7 +311,18 @@ const Home = () => {
                         <img src={Bell} style={{ height: "25px" }} />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
+
+
+
+
+
+
+
+
+
+
+
                 </div>
                 <div class="cover-bar"></div>
               </div>
