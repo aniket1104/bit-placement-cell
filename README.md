@@ -57,7 +57,8 @@ All eligible  students.
 
 
 generated excel sheet for all students.
-![Screenshot (36)](https://user-images.githubusercontent.com/85721026/166250959-cfbde08e-08e0-4e53-a2c1-2b6f2b54b33a.png)
+
+![edited](https://user-images.githubusercontent.com/85721026/166254826-e8649a22-b714-40bb-ad9b-5b69ab4656af.jpg)
 
 
 mail recieved by elegible student.
